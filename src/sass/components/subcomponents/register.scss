@@ -1,4 +1,4 @@
-.modal_login {
+.modal_register {
   margin-top: 45px;
   padding: 0 30px;
   box-sizing: border-box;
@@ -11,7 +11,7 @@
       color: orange;
       padding-bottom: 10px;
     }
-    .title_login {
+    .title_register {
       text-align: center;
       font-size: 30px;
       font-weight: bold;
@@ -47,7 +47,7 @@
     }
     .btnLogin {
       margin: 0 auto;
-      margin-top: 15px;
+      margin-top: 5px;
       width: 200px;
       height: 38px;
       font-size: 18px;
@@ -67,7 +67,7 @@
   }
   .row_bot {
     .txt_signup {
-      padding: 10px 0 10px 35px;
+      padding: 10px 0 10px 27px;
       text-align: center;
       font-style: italic;
       color: grey;

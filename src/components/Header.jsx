@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
+import FormAccount from "./subcomponents/FormAccount.jsx";
+
 const Header = () => {
+  const [openFormAccount, setOpenFormAccount] = useState(false);
+
   return (
     <div className="header">
       <div className="main">
@@ -39,12 +43,18 @@ const Header = () => {
             </div>
           </form>
         </div>
-        <div className="login">
-          <div>
-            <i class="fa-solid fa-user"></i> Login
-          </div>
-        </div>
+        <button
+          className="login"
+          onClick={() => {
+            setOpenFormAccount(true);
+          }}
+        >
+          <i class="fa-solid fa-user"></i> Login
+        </button>
       </div>
+      {openFormAccount && (
+        <FormAccount closeModalFormAccount={setOpenFormAccount} />
+      )}
     </div>
   );
 };

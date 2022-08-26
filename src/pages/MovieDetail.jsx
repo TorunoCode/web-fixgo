@@ -5,6 +5,7 @@ import StarRating from "../components/subcomponents/StarRating.jsx";
 
 const MovieDetail = () => {
   return (
+    // bấm thả xuống description
     <div className="detail">
       <div className="main">
         <div className="title">Movie Details</div>

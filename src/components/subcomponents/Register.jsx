@@ -1,22 +1,22 @@
 import React from "react";
-import "../../sass/components/subcomponents/login.scss";
+import "../../sass/components/subcomponents/register.scss";
 import { Link } from "react-router-dom";
-const Login = ({ ModalLogin, ModalRegister }) => {
+const Register = ({ ModalLogin, ModalRegister }) => {
   // vì onclick chỉ xử lí 1 event --> tạo hàm ngoài chạy 2 event cùng lúc
-
   function someFunc() {
-    ModalLogin(false);
-    ModalRegister(true);
+    ModalLogin(true);
+    ModalRegister(false);
   }
   return (
-    <div className="modal_login">
+    <div className="modal_register">
       <div className="row_top">
         <div className="title">Welcome to FixGo</div>
-        <div className="title_login">Sign In</div>
+        <div className="title_register">Sign Up</div>
         <div className="txt"></div>
+
         <input
           type="email"
-          placeholder="Email.."
+          placeholder="Email address.."
           className="input_data"
           required
         />
@@ -26,23 +26,19 @@ const Login = ({ ModalLogin, ModalRegister }) => {
           className="input_data"
           required
         />
-        <div className="flex">
-          <div className="label_checkbox">
-            <input type="checkbox" />
-            &nbsp;Remember me
-          </div>
-          <Link to="/" className="forgot">
-            Forgot password?
-          </Link>
-        </div>
-        <button className="btnLogin">Login</button>
+        <input
+          type="text"
+          placeholder="Username.."
+          className="input_data"
+          required
+        />
+        <button className="btnLogin">Register</button>
       </div>
-
       <div className="row_bot">
         <div className="txt_signup">
-          Don't have an account?&nbsp;
+          Have already an account?&nbsp;
           <div className="link" onClick={someFunc}>
-            Sign Up
+            Sign In
           </div>
         </div>
         <div className="txt">--- or sign in with ---</div>
@@ -55,4 +51,4 @@ const Login = ({ ModalLogin, ModalRegister }) => {
   );
 };
 
-export default Login;
+export default Register;

@@ -60,7 +60,7 @@
       height: 30px;
       .formsearch {
         width: 100%;
-        height: 100%;
+        height: 105%;
         vertical-align: middle;
         display: flex;
         background-color: white;
@@ -68,14 +68,14 @@
         .ipsearch {
           border: none;
           width: 85%;
-          height: 90%;
-          padding: 2px 8px 0 12px;
+          height: 93%;
+          padding: 1px 8px 0 12px;
           outline: none;
           border-radius: 20px;
           font-size: 12px;
         }
         div {
-          padding-top: 6px;
+          padding-top: 8px;
           color: gray;
         }
         &:hover {
@@ -84,19 +84,20 @@
       }
     }
     .login {
+      margin: auto 5px;
       box-shadow: 0 0 3px orange;
-      margin: 15px 0 15px 20px;
+      height: 36px;
       font-size: 17px;
       font-weight: bold;
       border-radius: 7px;
       cursor: pointer;
       color: sandybrown;
-      div {
-        padding-left: 52px;
-        padding-top: 10px;
-        i {
-          font-size: 15px;
-        }
+      background: none;
+      outline: none;
+      border: none;
+      padding-right: 12px;
+      i {
+        font-size: 15px;
       }
       &:hover {
         box-shadow: 0 0 8px orange;
