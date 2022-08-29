@@ -35,7 +35,7 @@ const Header = () => {
             <input
               className="ipsearch"
               type="text"
-              placeholder="Tìm tên phim.."
+              placeholder="Search by movie.."
               name="search"
             />
             <div>

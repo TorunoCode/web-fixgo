@@ -1,12 +1,13 @@
 import React from "react";
 import "../../sass/components/subcomponents/register.scss";
-import { Link } from "react-router-dom";
-const Register = ({ ModalLogin, ModalRegister }) => {
+
+// const Register = ({ ModalLogin, ModalRegister }) => {
+const Register = ({ ModalLogin }) => {
   // vì onclick chỉ xử lí 1 event --> tạo hàm ngoài chạy 2 event cùng lúc
-  function someFunc() {
-    ModalLogin(true);
-    ModalRegister(false);
-  }
+  // function someFunc() {
+  //   ModalLogin(true);
+
+  // }
   return (
     <div className="modal_register">
       <div className="row_top">
@@ -37,7 +38,8 @@ const Register = ({ ModalLogin, ModalRegister }) => {
       <div className="row_bot">
         <div className="txt_signup">
           Have already an account?&nbsp;
-          <div className="link" onClick={someFunc}>
+          {/* <div className="link" onClick={someFunc}> */}
+          <div className="link" onClick={() => ModalLogin(true)}>
             Sign In
           </div>
         </div>
