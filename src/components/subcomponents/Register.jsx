@@ -13,8 +13,6 @@ const Register = ({ ModalLogin }) => {
       <div className="row_top">
         <div className="title">Welcome to FixGo</div>
         <div className="title_register">Sign Up</div>
-        <div className="txt"></div>
-
         <input
           type="email"
           placeholder="Email address.."

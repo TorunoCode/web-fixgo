@@ -5,7 +5,7 @@ import FormAccount from "./subcomponents/FormAccount.jsx";
 
 const Header = () => {
   const [openFormAccount, setOpenFormAccount] = useState(false);
-
+  const [user, setUser] = useState(null);
   return (
     <div className="header">
       <div className="main">
@@ -49,7 +49,13 @@ const Header = () => {
             setOpenFormAccount(true);
           }}
         >
-          <i class="fa-solid fa-user"></i> Login
+          {user ? (
+            <>{user}</>
+          ) : (
+            <>
+              <i class="fa-solid fa-user"></i> Login
+            </>
+          )}
         </button>
       </div>
       {openFormAccount && (
