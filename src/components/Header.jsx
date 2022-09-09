@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
-import FormAccount from "./subcomponents/FormAccount.jsx";
+import FormModal from "./subcomponents/FormModal.jsx";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [openFormAccount, setOpenFormAccount] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [afterlogin, setAfterLogin] = useState(false);
 
   // const [user, setUser] = useState(null);
@@ -61,7 +61,7 @@ const Header = () => {
           <button
             className="login"
             onClick={() => {
-              setOpenFormAccount(true);
+              setOpenModal(true);
             }}
           >
             <i class="fa-solid fa-user"></i> Login
@@ -69,13 +69,7 @@ const Header = () => {
         )}
       </div>
 
-      {user ? (
-        <></>
-      ) : (
-        openFormAccount && (
-          <FormAccount closeModalFormAccount={setOpenFormAccount} />
-        )
-      )}
+      {user ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
     </div>
   );
 };

@@ -1,3 +1,6 @@
+- edit formmodal để use chung cho account vs rating
+- fillter movie chỉnh lại dạng khác select
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

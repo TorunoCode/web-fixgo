@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../sass/pages/movieDetail.scss";
 import StarRating from "../components/subcomponents/StarRating.jsx";
+import Feedback from "../components/subcomponents/Feedback";
 // import datafakeMovie from "../components/datafakeMovie";
 
 const MovieDetail = () => {
@@ -161,7 +162,8 @@ const MovieDetail = () => {
             )}
           </div>
         </div>
-        <div className="title">Comment</div>
+        <div className="title">Feedback</div>
+        <Feedback />
       </div>
     </div>
   );
