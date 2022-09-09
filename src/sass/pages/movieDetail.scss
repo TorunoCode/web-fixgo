@@ -124,6 +124,51 @@
       }
       .col-3 {
         line-height: 30px;
+        .btPay {
+          display: block;
+          text-transform: uppercase;
+          padding: 10px 30px 10px 25px;
+          font-size: 14px;
+          font-weight: bold;
+          color: orange;
+          background: none;
+          text-align: center;
+          border-radius: 4px;
+          margin-top: 5px;
+          border: 1px solid whitesmoke;
+          cursor: pointer;
+          &:hover {
+            box-shadow: 0 0 8px orange;
+            color: orange;
+            border: 1px solid orange;
+          }
+        }
+        .optionpay {
+          margin-top: 10px;
+          button {
+            padding: 10px 30px 10px 25px;
+            font-size: 15px;
+            font-weight: bold;
+            color: whitesmoke;
+            background: none;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 5px;
+            border: 1px solid orange;
+            cursor: pointer;
+            &:hover {
+              box-shadow: 0 0 5px orange;
+              background-color: orange;
+              border: 1px solid orange;
+              i {
+                color: whitesmoke;
+              }
+            }
+            i {
+              color: orange;
+            }
+          }
+        }
       }
     }
   }

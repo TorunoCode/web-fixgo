@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
 import FormAccount from "./subcomponents/FormAccount.jsx";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [openFormAccount, setOpenFormAccount] = useState(false);
-  const [user, setUser] = useState(null);
+  const [afterlogin, setAfterLogin] = useState(false);
+
+  // const [user, setUser] = useState(null);
+  const user = useSelector((state) => state.auth.login?.currentUser);
+
   return (
     <div className="header">
       <div className="main">
@@ -43,23 +48,33 @@ const Header = () => {
             </div>
           </form>
         </div>
-        <button
-          className="login"
-          onClick={() => {
-            setOpenFormAccount(true);
-          }}
-        >
-          {user ? (
-            <>{user}</>
-          ) : (
-            <>
-              <i class="fa-solid fa-user"></i> Login
-            </>
-          )}
-        </button>
+        {user ? (
+          <button
+            className="login"
+            onClick={() => {
+              setAfterLogin(true);
+            }}
+          >
+            {user.data.name}
+          </button>
+        ) : (
+          <button
+            className="login"
+            onClick={() => {
+              setOpenFormAccount(true);
+            }}
+          >
+            <i class="fa-solid fa-user"></i> Login
+          </button>
+        )}
       </div>
-      {openFormAccount && (
-        <FormAccount closeModalFormAccount={setOpenFormAccount} />
+
+      {user ? (
+        <></>
+      ) : (
+        openFormAccount && (
+          <FormAccount closeModalFormAccount={setOpenFormAccount} />
+        )
       )}
     </div>
   );

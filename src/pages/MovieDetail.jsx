@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../sass/pages/movieDetail.scss";
 import StarRating from "../components/subcomponents/StarRating.jsx";
 // import datafakeMovie from "../components/datafakeMovie";
 
 const MovieDetail = () => {
+  const [payment, setPayment] = useState(false);
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -141,7 +142,23 @@ const MovieDetail = () => {
           </div>
           <div className="col-3">
             You selected <span id="count">0</span> seats <br />
-            Price ticket: $
+            Price ticket: $ <br />
+            <button className="btPay" onClick={() => setPayment(true)}>
+              <i class="fa-solid fa-angles-right"></i> Buy Ticket
+            </button>
+            {payment && (
+              <div className="optionpay">
+                <div>Select Payment Method</div>
+                <button>
+                  <i class="fa-regular fa-hand-point-right"></i> At checkout
+                  counters
+                </button>
+                <br />
+                <button>
+                  <i class="fa-regular fa-hand-point-right"></i> With PayPal
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className="title">Comment</div>

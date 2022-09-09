@@ -3,14 +3,12 @@ import "../../sass/components/subcomponents/login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../redux/apiRequest";
 import { useDispatch } from "react-redux";
+// Toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
-// const Login = ({ ModalLogin, ModalRegister }) => {
 const Login = ({ ModalLogin }) => {
-  // vì onclick chỉ xử lí 1 event --> tạo hàm ngoài chạy 2 event cùng lúc
-  // function someFunc() {
-  //   ModalLogin(false);
-  //   ModalRegister(true);
-  // }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -22,6 +20,23 @@ const Login = ({ ModalLogin }) => {
       password: password,
     };
     loginUser(newUser, dispatch, navigate);
+  };
+  const is = useSelector((Diff) => Diff.auth.login?.isFetching);
+
+  // Toast
+  const notify = () => {
+    if (is === false) {
+    } else {
+      toast.success("Login success!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
   return (
     <div className="modal_login">
@@ -50,7 +65,9 @@ const Login = ({ ModalLogin }) => {
               Forgot password?
             </Link>
           </div>
-          <button className="btnLogin">Login</button>
+          <button className="btnLogin" onClick={notify}>
+            Login
+          </button>
         </form>
       </div>
 
@@ -67,6 +84,7 @@ const Login = ({ ModalLogin }) => {
           <i class="fa-brands fa-google">oogle</i>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
