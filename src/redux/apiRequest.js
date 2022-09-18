@@ -16,7 +16,7 @@ export const loginUser = async (user, dispatch, navigate) => {
       user
     );
     dispatch(loginSuccess(res.data));
-    navigate("/");
+    // navigate("/");
   } catch (err) {
     dispatch(loginFailed());
   }

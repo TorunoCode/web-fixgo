@@ -45,6 +45,9 @@
     .description {
       border-bottom: 1px solid orange;
       padding-bottom: 20px;
+      .btn_description i {
+        cursor: pointer;
+      }
       div {
         padding-top: 20px;
         text-align: center;
@@ -80,6 +83,7 @@
       }
       .col-2 {
         padding-top: 7px;
+        padding-bottom: 5px;
         perspective: 1000px;
         .seat {
           background-color: gray;
@@ -135,6 +139,7 @@
           text-align: center;
           border-radius: 4px;
           margin-top: 5px;
+          margin-bottom: 10px;
           border: 1px solid whitesmoke;
           cursor: pointer;
           &:hover {
@@ -144,7 +149,6 @@
           }
         }
         .optionpay {
-          margin-top: 10px;
           button {
             padding: 10px 30px 10px 25px;
             font-size: 15px;

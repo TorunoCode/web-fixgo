@@ -5,6 +5,7 @@ import Feedback from "../components/subcomponents/Feedback";
 // import datafakeMovie from "../components/datafakeMovie";
 
 const MovieDetail = () => {
+  const [description, setDescription] = useState(true);
   const [payment, setPayment] = useState(false);
   return (
     // bấm thả xuống description
@@ -46,24 +47,30 @@ const MovieDetail = () => {
           </div>
         </div>
         <div className="description">
-          <div>
-            Description <i class="fa-solid fa-caret-down"></i>
+          <div className="btn_description">
+            Description &nbsp;
+            <i
+              onClick={() => setDescription(!description)}
+              class="fa-solid fa-caret-down"
+            ></i>
           </div>
-          <p>
-            &emsp; &emsp; Myeong-hye and Hyun-min move to the countryside with
-            their three kids due to a financial problem. Their new house seems
-            great on the outside but it feels somewhat ominous at the same. On
-            the first day at the new house, Myeong-hye feels unsettling energy
-            and struggles with a nightmare. Moreover, she keeps hearing the
-            strange sound from the shed next to the house, which is locked up
-            tightly. While Myeong-hye is concerned about all incidents that have
-            happened at home, Hyun-min just brushes her off. In the midst of the
-            parents' conflict, three kids grow anxious. Slowly driven crazy by
-            the unknown strange sound, Myeong-hye meets a suspicious neighbor
-            Eun-young, who tells her that the house is 'contorted'. With
-            nightmares growing worse each day, the family finally faces a secret
-            buried deep within their home.
-          </p>
+          {description && (
+            <p>
+              &emsp; &emsp; Myeong-hye and Hyun-min move to the countryside with
+              their three kids due to a financial problem. Their new house seems
+              great on the outside but it feels somewhat ominous at the same. On
+              the first day at the new house, Myeong-hye feels unsettling energy
+              and struggles with a nightmare. Moreover, she keeps hearing the
+              strange sound from the shed next to the house, which is locked up
+              tightly. While Myeong-hye is concerned about all incidents that
+              have happened at home, Hyun-min just brushes her off. In the midst
+              of the parents' conflict, three kids grow anxious. Slowly driven
+              crazy by the unknown strange sound, Myeong-hye meets a suspicious
+              neighbor Eun-young, who tells her that the house is 'contorted'.
+              With nightmares growing worse each day, the family finally faces a
+              secret buried deep within their home.
+            </p>
+          )}
         </div>
         <div className="title">Booking</div>
         <div className="selectMovie">
@@ -144,7 +151,7 @@ const MovieDetail = () => {
           <div className="col-3">
             You selected <span id="count">0</span> seats <br />
             Price ticket: $ <br />
-            <button className="btPay" onClick={() => setPayment(true)}>
+            <button className="btPay" onClick={() => setPayment(!payment)}>
               <i class="fa-solid fa-angles-right"></i> Buy Ticket
             </button>
             {payment && (
