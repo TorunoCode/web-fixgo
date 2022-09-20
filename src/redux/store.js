@@ -4,7 +4,7 @@ import postReducer from "./postFeedbackSlice";
 export default configureStore({
   reducer: {
     auth: authReducer,
-    post: postReducer,
+    postFeedback: postReducer,
   },
 });
 

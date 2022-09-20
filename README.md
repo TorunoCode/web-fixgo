@@ -7,16 +7,23 @@
 
 ## Cần làm
 
+- javascript book chổ ngồi
+- Tạo thẻ sau khi đăng nhập gồm History book Profile Đăng xuất
 - Xử lí feedback gồm comment và start click rate
 - edit formmodal để use chung cho account vs rating
 - fillter movie chỉnh lại dạng khác select
-- javascript book chổ ngồi
-- Tạo thẻ sau khi đăng nhập gồm History book Profile Đăng xuất
 
 ## Chức năng đã xong
 
 - Chức năng start theo reating
 - Chức năng xem thêm phim
+
+## Chức năng build dang dở chờ xử lí
+
+- toast: thông báo..
+- feedback
+- đặt chổ ngồi
+- tính tiền
 
 # Các giao diện
 

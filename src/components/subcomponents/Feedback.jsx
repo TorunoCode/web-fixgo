@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createPost } from "../../redux/postFeedbackSlice";
+import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
 const colors = {
@@ -9,6 +10,8 @@ const colors = {
 };
 
 const Feedback = () => {
+  const post = useSelector((state) => state.postFeedback.postFeedbacks);
+  const user = useSelector((state) => state.auth.login?.currentUser);
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
   const [content, setContent] = useState();
@@ -19,8 +22,9 @@ const Feedback = () => {
   const handlePost = () => {
     setOpenModal(false);
     const newPost = {
-      nameuser: "Tran Tien Phat",
+      nameuser: user.data.name,
       urlAvatar: "xxxx",
+      rate: currentValue,
       content_feedback: content,
     };
     dispatch(createPost(newPost));
@@ -91,6 +95,18 @@ const Feedback = () => {
           </div>
         </div>
       )}
+      <section className="post_container">
+        {post.map((item, index) => {
+          return (
+            <div className="postFeedback">
+              <div className="avt_user">Link avt</div>
+              <div className="name_user">{item.nameuser}</div>
+              <div className="rate">{item.rate}</div>
+              <div className="content_feedback">{item.content_feedback}</div>
+            </div>
+          );
+        })}
+      </section>
     </div>
   );
 };
