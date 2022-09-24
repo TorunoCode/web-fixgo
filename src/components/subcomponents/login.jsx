@@ -21,15 +21,14 @@ const Login = ({ ModalLogin }) => {
     };
     loginUser(newUser, dispatch, navigate);
   };
-  const is = useSelector((Diff) => Diff.auth.login?.isFetching);
+  const login = useSelector((state) => state.auth.login);
 
   // Toast
   const notify = () => {
-    if (is === false) {
-    } else {
-      toast.success("Login success!", {
+    if (login.error === true) {
+      toast.success("Login failed!", {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

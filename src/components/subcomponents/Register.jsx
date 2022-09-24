@@ -21,7 +21,7 @@ const Register = ({ ModalLogin }) => {
       email: email,
       password: password,
       name: username,
-      phone: "012345871474",
+      phone: "012345871670",
       address: "aaaaa",
       gender: "male",
     };

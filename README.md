@@ -8,7 +8,6 @@
 ## Cần làm
 
 - javascript book chổ ngồi
-- Tạo thẻ sau khi đăng nhập gồm History book Profile Đăng xuất
 - Xử lí feedback gồm comment và start click rate
 - edit formmodal để use chung cho account vs rating
 - fillter movie chỉnh lại dạng khác select
@@ -24,6 +23,7 @@
 - feedback
 - đặt chổ ngồi
 - tính tiền
+- page myprofile, booking history
 
 # Các giao diện
 

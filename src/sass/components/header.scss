@@ -1,11 +1,12 @@
 @import "../mixins.scss";
 
 .header {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
   height: 70px;
   border-bottom: 2px solid orange;
   .main {
-    width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 4fr 2.5fr 1.5fr;
     color: white;
@@ -83,10 +84,13 @@
         }
       }
     }
+
     .login {
-      margin: auto 5px;
-      box-shadow: 0 0 3px orange;
+      width: 100%;
+      padding-right: 10px;
+      margin-top: 17px;
       height: 36px;
+      box-shadow: 0 0 3px orange;
       font-size: 17px;
       font-weight: bold;
       border-radius: 7px;
@@ -95,13 +99,53 @@
       background: none;
       outline: none;
       border: none;
-      padding-right: 12px;
+      padding-top: 4px;
+      .avt_user {
+        vertical-align: middle;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-top: -5px;
+      }
       i {
         font-size: 15px;
       }
       &:hover {
         box-shadow: 0 0 8px orange;
         color: orange;
+      }
+    }
+  }
+  .nav_user {
+    position: absolute;
+    margin: 0 auto;
+    width: 1200px;
+    top: 60px;
+    display: grid;
+    grid-template-columns: 1000px 200px;
+    &-btn {
+      box-shadow: 0 0 3px orange;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 7px;
+      cursor: pointer;
+      color: whitesmoke;
+      background-color: #333;
+      z-index: 2;
+      &-children {
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        // border-bottom: 3px solid orange;
+        i {
+          color: orange;
+        }
+        &:hover {
+          box-shadow: 0 0 8px orange;
+          color: orange;
+          background-color: white;
+          border-radius: 7px;
+        }
       }
     }
   }

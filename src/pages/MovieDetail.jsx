@@ -169,7 +169,7 @@ const MovieDetail = () => {
             )}
           </div>
         </div>
-        <div className="title">Feedback</div>
+        <div className="title">Feedback && Comment</div>
         <Feedback />
       </div>
     </div>
