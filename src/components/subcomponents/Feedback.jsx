@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
 import StarRating from "./StarRating";
+// Toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
@@ -19,12 +22,27 @@ const Feedback = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(10).fill(0);
-
+  const handleBtnReview = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      toast.warning("Please login !", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   const handlePost = () => {
     setOpenModal(false);
     const newPost = {
       nameuser: user.data.name,
       urlAvatar: "xxxx",
+      createTime: null,
       rate: currentValue,
       content_feedback: content,
     };
@@ -79,7 +97,7 @@ const Feedback = () => {
             </div>
           );
         })}
-        <button className="btn_review" onClick={() => setOpenModal(true)}>
+        <button className="btn_review" onClick={handleBtnReview}>
           Add Review
         </button>
         {openModal && (
@@ -122,7 +140,6 @@ const Feedback = () => {
                     className="textarea"
                     onChange={(e) => setContent(e.target.value)}
                   />
-
                   <button className="button">Post</button>
                 </form>
               </div>
@@ -133,6 +150,7 @@ const Feedback = () => {
       <section className="comments">
         <div className="title_name">Commnent</div>
       </section>
+      <ToastContainer />
     </div>
   );
 };

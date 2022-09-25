@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
 import FormModal from "./subcomponents/FormModal.jsx";
@@ -7,9 +7,21 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
   const [afterlogin, setAfterLogin] = useState(false);
-
+  console.log(afterlogin);
   // const [user, setUser] = useState(null);
   const user = useSelector((state) => state.auth.login?.currentUser);
+  let menuRef = useRef();
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setAfterLogin(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  });
 
   return (
     <header>
@@ -77,19 +89,33 @@ const Header = () => {
             </button>
           )}
         </div>
-        {afterlogin ? (
+        {afterlogin && (
           <nav className="nav_user">
             <div></div>
-            <div className="nav_user-btn">
-              <div className="nav_user-btn-children">My Profile</div>
-              <div className="nav_user-btn-children">Booking History</div>
+            <div className="nav_user-btn" ref={menuRef}>
+              <Link
+                to="/MyProfile"
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  setAfterLogin(!afterlogin);
+                }}
+              >
+                <div className="nav_user-btn-children">My Profile</div>
+              </Link>
+              <Link
+                to="/BookingHistory"
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  setAfterLogin(!afterlogin);
+                }}
+              >
+                <div className="nav_user-btn-children">Booking History</div>
+              </Link>
               <div className="nav_user-btn-children">
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
               </div>
             </div>
           </nav>
-        ) : (
-          <></>
         )}
         {user ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
       </div>

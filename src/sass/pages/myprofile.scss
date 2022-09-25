@@ -1,0 +1,48 @@
+.container_myprofile {
+  .main {
+    width: 1200px;
+    margin: 0 auto;
+    color: white;
+    .image {
+      .background {
+        margin: 10px auto 105px;
+        border-radius: 10px;
+        width: 100%;
+        height: 250px;
+        position: relative;
+        text-align: center;
+      }
+      .avt_user {
+        position: absolute;
+        margin-top: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid orange;
+        box-shadow: 0 1px 10px orange;
+      }
+    }
+    .name {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .biography {
+      padding-top: 20px;
+      width: 400px;
+      font-size: 20px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .form_edit {
+      margin: 20px 0 20px 0;
+      width: 100%;
+      border: 1px solid orange;
+      box-shadow: 1px 1px 5px 0 orange;
+      background-color: white;
+    }
+  }
+}

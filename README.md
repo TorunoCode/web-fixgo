@@ -1,6 +1,5 @@
 ## Hiện tại đang làm
 
-- đang build chức năng post feedback dc 70%
 - Xong chức năng Login register 80% = api khác ( còn làm thêm
   refresh page ko bị reset data)
 - Chờ api Login register, productMovie, thanh toán để làm chức năng
@@ -24,6 +23,7 @@
 - đặt chổ ngồi
 - tính tiền
 - page myprofile, booking history
+- btn login bị lỗi chạy 2 lần event từ False thành True nên ko tắt thẻ nav dc ( fix 4 tiếng mà méo dc )
 
 # Các giao diện
 
@@ -36,8 +36,15 @@
 
 - chứa info movie
 - book vé tại đây luôn
+- chứa các feedback và comment
 
 ## Giao diện đăng kí, đăng nhập
+
+## Page Myprofile
+
+- edit thông tin như fullname, phone, date of birth, gender, avatar
+
+## Page Booking history
 
 ## Page movie: ở đây sẽ fillter phim theo thể loại này kia
 
