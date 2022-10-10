@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
 import StarRating from "./StarRating";
+import { Link } from "react-router-dom";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -77,7 +78,11 @@ const Feedback = () => {
         {post.map((item, index) => {
           return (
             <div className="item_postFeedback" key={index}>
-              <div className="row_1">
+              <Link
+                to="/MyProfile"
+                className="row_1"
+                style={{ textDecoration: "none" }}
+              >
                 <img
                   src={
                     user.data.avatar ||
@@ -88,7 +93,7 @@ const Feedback = () => {
                 ></img>
                 &ensp;
                 <div className="name_user">{item.nameuser}</div>
-              </div>
+              </Link>
               <div className="rate">
                 <b>Rate:</b> {item.rate}/10
               </div>

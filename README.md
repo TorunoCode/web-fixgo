@@ -1,7 +1,6 @@
 ## Hiện tại đang làm
 
-- Xong chức năng Login register 80% = api khác ( còn làm thêm
-  refresh page ko bị reset data)
+- Xong chức năng Login register 80% = api khác ( còn làm thêm refresh page ko bị reset data)
 - Chờ api Login register, productMovie, thanh toán để làm chức năng
 
 ## Cần làm
