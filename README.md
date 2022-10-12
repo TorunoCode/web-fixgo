@@ -13,11 +13,15 @@
 
 Xử lí phía FE
 
-- Chức năng star theo reating
-- Chức năng xem thêm phim
-  Xử lí Kết hợp BE
+    - Chức năng star theo reating
+    - Chức năng xem thêm phim
+
+Xử lí Kết hợp BE
+
 - Login
-  Toast thông báo + User does not exits + Wrong password ! + Login success
+  - User does not exits
+  - Wrong password !
+  - Login success
 - Register
   - Email exits
   - Create successful account !
