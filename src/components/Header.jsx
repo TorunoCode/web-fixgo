@@ -3,14 +3,24 @@ import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
 import FormModal from "./subcomponents/FormModal.jsx";
 import { useSelector } from "react-redux";
+// Toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Header = () => {
+  const handleLogOut = () => {
+    window.location.reload();
+    localStorage.clear();
+  };
+
   const [openModal, setOpenModal] = useState(false);
   const [afterlogin, setAfterLogin] = useState(false);
-  console.log(afterlogin);
-  // const [user, setUser] = useState(null);
   const user = useSelector((state) => state.auth.login?.currentUser);
+  const name = useSelector(
+    (state) => state.auth.login?.currentUser?.data?.name
+  );
   let menuRef = useRef();
+
   useEffect(() => {
     let handler = (e) => {
       if (!menuRef.current.contains(e.target)) {
@@ -111,14 +121,17 @@ const Header = () => {
               >
                 <div className="nav_user-btn-children">Booking History</div>
               </Link>
-              <div className="nav_user-btn-children">
+              <div className="nav_user-btn-children" onClick={handleLogOut}>
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
               </div>
             </div>
           </nav>
         )}
-        {user ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
+        {/* {user ? <></> : openModal && <FormModal closeModal={setOpenModal} />} */}
+        {name ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
+        {/* {openModal && <FormModal closeModal={setOpenModal} />} */}
       </div>
+      <ToastContainer />
     </header>
   );
 };

@@ -1,42 +1,27 @@
 import React, { useState } from "react";
 import "../../sass/components/subcomponents/login.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginUser } from "../../redux/apiRequest";
 import { useDispatch } from "react-redux";
 // Toast
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSelector } from "react-redux";
 
 const Login = ({ ModalLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // const test = { email, password };
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const newUser = {
       email: email,
       password: password,
     };
-    loginUser(newUser, dispatch, navigate);
+    loginUser(newUser, dispatch, toast);
   };
-  const login = useSelector((state) => state.auth.login);
 
-  // Toast
-  const notify = () => {
-    if (login.error === true) {
-      toast.success("Login failed!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
-  };
   return (
     <div className="modal_login">
       <div className="row_top">
@@ -64,9 +49,7 @@ const Login = ({ ModalLogin }) => {
               Forgot password?
             </Link>
           </div>
-          <button className="btnLogin" onClick={notify}>
-            Login
-          </button>
+          <button className="btnLogin">Login</button>
         </form>
       </div>
 
@@ -83,7 +66,6 @@ const Login = ({ ModalLogin }) => {
           <i class="fa-brands fa-google">oogle</i>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -27,15 +27,7 @@ const Feedback = () => {
     if (user) {
       setOpenModal(true);
     } else {
-      toast.warning("Please login !", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.warning("Please login !");
     }
   };
   const handlePost = () => {

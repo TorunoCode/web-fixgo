@@ -1,7 +1,6 @@
 ## Hiện tại đang làm
 
-- Xong chức năng Login register 80% = api khác ( còn làm thêm refresh page ko bị reset data)
-- Chờ api Login register, productMovie, thanh toán để làm chức năng
+- fillter movie
 
 ## Cần làm
 
@@ -12,17 +11,24 @@
 
 ## Chức năng đã xong
 
-- Chức năng start theo reating
+Xử lí phía FE
+
+- Chức năng star theo reating
 - Chức năng xem thêm phim
+  Xử lí Kết hợp BE
+- Login
+  Toast thông báo + User does not exits + Wrong password ! + Login success
+- Register
+  - Email exits
+  - Create successful account !
+- Logout
 
 ## Chức năng build dang dở chờ xử lí
 
-- toast: thông báo..
 - feedback
 - đặt chổ ngồi
 - tính tiền
 - page myprofile, booking history
-- btn login bị lỗi chạy 2 lần event từ False thành True nên ko tắt thẻ nav dc ( fix 4 tiếng mà méo dc )
 
 # Các giao diện
 

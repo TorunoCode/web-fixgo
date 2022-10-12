@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { registerUser } from "../../redux/apiRequest";
 import "../../sass/components/subcomponents/register.scss";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+// Toast
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // const Register = ({ ModalLogin, ModalRegister }) => {
 const Register = ({ ModalLogin }) => {
   // vì onclick chỉ xử lí 1 event --> tạo hàm ngoài chạy 2 event cùng lúc
@@ -14,18 +16,15 @@ const Register = ({ ModalLogin }) => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
     const newUser = {
       email: email,
       password: password,
       name: username,
-      phone: "012345871670",
-      address: "aaaaa",
-      gender: "male",
     };
-    registerUser(newUser, dispatch, navigate);
+    registerUser(newUser, dispatch, toast);
   };
   return (
     <div className="modal_register">
