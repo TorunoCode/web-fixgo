@@ -13,9 +13,11 @@
 
 Xử lí phía FE
 
-- Chức năng star theo reating
-- Chức năng xem thêm phim
-  Xử lí Kết hợp BE
+    - Chức năng star theo reating
+    - Chức năng xem thêm phim
+
+Xử lí Kết hợp BE
+
 - Login
   - User does not exits
   - Wrong password !
