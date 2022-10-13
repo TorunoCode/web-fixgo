@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "../sass/components/listMovie.scss";
 import StarRating from "./subcomponents/StarRating";
-import { datafakeMovie } from "./datafakeMovie";
 import { Link } from "react-router-dom";
 
-const ListMovie = () => {
+const ListMovie = ({ list }) => {
+  const listMovie = list;
+  console.log(listMovie);
+  // số lượng item sẽ show ra
   const [quantityShow, setQuantityShow] = useState(5);
-  const [totalQuantity, setTotalQuantity] = useState(datafakeMovie.length - 5);
+  // số lượng item còn lại
+  const [totalQuantity, setTotalQuantity] = useState(listMovie.length - 5);
+
   useEffect(() => {
     setQuantityShow(5);
-    setTotalQuantity(datafakeMovie.length - 5);
-  }, []);
+    setTotalQuantity(listMovie.length - 5);
+  }, [listMovie]);
   const handleShowViewMore = (e) => {
     setQuantityShow((prev) => prev + 5);
     setTotalQuantity((prev) => prev - 5);
   };
+
   return (
     <div>
       <div className="listMovie">
-        {datafakeMovie.slice(0, quantityShow).map((item) => (
+        {listMovie?.slice(0, quantityShow).map((item) => (
           <Link to="/MovieDetail" style={{ textDecoration: "none" }}>
             <div className="itemMovie" key={item.id}>
               <StarRating rating={item.rate} />

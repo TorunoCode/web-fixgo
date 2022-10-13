@@ -15,6 +15,7 @@ Xử lí phía FE
 
     - Chức năng star theo reating
     - Chức năng xem thêm phim
+    - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 
 Xử lí Kết hợp BE
 
