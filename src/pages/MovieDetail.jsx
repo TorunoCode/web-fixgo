@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../sass/pages/movieDetail.scss";
 import StarRating from "../components/subcomponents/StarRating.jsx";
 import Feedback from "../components/subcomponents/Feedback";
-// import datafakeMovie from "../components/datafakeMovie";
+import axios from "axios";
 
 const MovieDetail = () => {
   const [description, setDescription] = useState(true);
   const [payment, setPayment] = useState(false);
+  // call lấy data movie detail theo id
+  const [movie, setMovie] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const { data } = await axios.get(`/api/movies/${id}`);
+      setMovie(data);
+    };
+    fetchMovie();
+  }, [id]);
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -14,23 +25,20 @@ const MovieDetail = () => {
         <div className="title">Movie Details</div>
         <div className="detailmovie">
           <div className="info">
-            <img
-              src="https://www.cgv.vn/media/catalog/product/cache/3/image/c5f0a1eff4c394a251036189ccddaacd/c/t/ctd_social-teaser-poster_vi_1_.jpg"
-              alt=""
-            />
+            <img src={movie.image} alt="" />
             <div className="info-text">
               <div className="name">CONTORTED</div>
               <div className="rate">
-                <StarRating rating={5.6} />
-                <div className="rating">5.6/10</div>
+                <StarRating rating={movie.rate} />
+                <div className="rating">{movie.rate}/10</div>
               </div>
               <div className="text">
-                <b>Director:</b> abc <br />
-                <b>Cast:</b> abc <br />
-                <b>Genre:</b> abc <br />
-                <b>Release time:</b> abc <br />
-                <b>Running time:</b> abc <br />
-                <b>Language:</b> abc <br />
+                <b>Director:</b> {movie.director} <br />
+                <b>Cast:</b> {movie.cast} <br />
+                <b>Genre:</b> {movie.genre} <br />
+                <b>Release time:</b> {movie.releaseTime} <br />
+                <b>Running time:</b> {movie.runningTime} <br />
+                <b>Language:</b> {movie.language} <br />
               </div>
             </div>
           </div>
@@ -38,7 +46,7 @@ const MovieDetail = () => {
             <iframe
               width="480"
               height="270"
-              src="https://www.youtube.com/embed/174AjBZHkkU"
+              src={movie.linkReview}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -51,33 +59,19 @@ const MovieDetail = () => {
             Description &nbsp;
             <i
               onClick={() => setDescription(!description)}
-              class="fa-solid fa-caret-down"
+              className="fa-solid fa-caret-down"
             ></i>
           </div>
-          {description && (
-            <p>
-              &emsp; &emsp; Myeong-hye and Hyun-min move to the countryside with
-              their three kids due to a financial problem. Their new house seems
-              great on the outside but it feels somewhat ominous at the same. On
-              the first day at the new house, Myeong-hye feels unsettling energy
-              and struggles with a nightmare. Moreover, she keeps hearing the
-              strange sound from the shed next to the house, which is locked up
-              tightly. While Myeong-hye is concerned about all incidents that
-              have happened at home, Hyun-min just brushes her off. In the midst
-              of the parents' conflict, three kids grow anxious. Slowly driven
-              crazy by the unknown strange sound, Myeong-hye meets a suspicious
-              neighbor Eun-young, who tells her that the house is 'contorted'.
-              With nightmares growing worse each day, the family finally faces a
-              secret buried deep within their home.
-            </p>
-          )}
+          {description && <p>&emsp; &emsp; {movie.describe}</p>}
         </div>
         <div className="title">Booking</div>
         <div className="selectMovie">
           <div className="col-1">
             <div className="col-1-text">
-              Movie: <br /> Date: <br />
-              Time:
+              Movie: {movie.name}
+              <br /> Date: {movie.releaseTime}
+              <br />
+              Time: {movie.runningTime}
             </div>
             <div>
               <select name="" id="movie">
@@ -152,24 +146,24 @@ const MovieDetail = () => {
             You selected <span id="count">0</span> seats <br />
             Price ticket: $ <br />
             <button className="btPay" onClick={() => setPayment(!payment)}>
-              <i class="fa-solid fa-angles-right"></i> Buy Ticket
+              <i className="fa-solid fa-angles-right"></i> Buy Ticket
             </button>
             {payment && (
               <div className="optionpay">
                 <div>Select Payment Method</div>
                 <button>
-                  <i class="fa-regular fa-hand-point-right"></i> At checkout
+                  <i className="fa-regular fa-hand-point-right"></i> At checkout
                   counters
                 </button>
                 <br />
                 <button>
-                  <i class="fa-regular fa-hand-point-right"></i> With PayPal
+                  <i className="fa-regular fa-hand-point-right"></i> With PayPal
                 </button>
               </div>
             )}
           </div>
         </div>
-        <div className="title">Feedback && Comment</div>
+        <div className="title">Feedback</div>
         <Feedback />
       </div>
     </div>

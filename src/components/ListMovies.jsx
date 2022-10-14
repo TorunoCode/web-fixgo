@@ -24,8 +24,11 @@ const ListMovie = ({ list }) => {
     <div>
       <div className="listMovie">
         {listMovie?.slice(0, quantityShow).map((item) => (
-          <Link to="/MovieDetail" style={{ textDecoration: "none" }}>
-            <div className="itemMovie" key={item.id}>
+          <Link
+            to={`/MovieDetail/${item._id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <div className="itemMovie" key={item._id}>
               <StarRating rating={item.rate} />
               <img src={item.image} alt="" />
               <div className="name">{item.name}</div>

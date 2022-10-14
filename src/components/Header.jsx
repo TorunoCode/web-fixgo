@@ -6,13 +6,9 @@ import { useSelector } from "react-redux";
 // Toast
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Header = () => {
-  const handleLogOut = () => {
-    window.location.reload();
-    localStorage.clear();
-  };
-
   const [openModal, setOpenModal] = useState(false);
   const [afterlogin, setAfterLogin] = useState(false);
   const user = useSelector((state) => state.auth.login?.currentUser);
@@ -20,11 +16,12 @@ const Header = () => {
     (state) => state.auth.login?.currentUser?.data?.name
   );
   let menuRef = useRef();
-
+  // click chuột ngoài tắt UI
   useEffect(() => {
     let handler = (e) => {
       if (!menuRef.current.contains(e.target)) {
         setAfterLogin(false);
+        setQuery(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -32,7 +29,27 @@ const Header = () => {
       document.removeEventListener("mousedown", handler);
     };
   });
+  // xử lí logout
+  const handleLogOut = () => {
+    window.location.reload();
+    localStorage.clear();
+  };
+  // features search
+  const [listMovie, setListMovie] = useState([]);
+  const [query, setQuery] = useState();
 
+  useEffect(() => {
+    const fetchMovie = async () => {
+      let res = await axios.get("/api/movies");
+      try {
+        setListMovie(res?.data);
+        console.log(listMovie);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchMovie();
+  }, []);
   return (
     <header>
       <div className="header">
@@ -63,8 +80,9 @@ const Header = () => {
               <input
                 className="ipsearch"
                 type="text"
-                placeholder="Search by movie.."
+                placeholder="Search by name movie.."
                 name="search"
+                onChange={(e) => setQuery(e.target.value)}
               />
               <div>
                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -127,9 +145,36 @@ const Header = () => {
             </div>
           </nav>
         )}
-        {/* {user ? <></> : openModal && <FormModal closeModal={setOpenModal} />} */}
         {name ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
-        {/* {openModal && <FormModal closeModal={setOpenModal} />} */}
+        {query && (
+          <div className="row_list">
+            <div></div>
+            <div className="boxlist">
+              <div className="list">
+                {listMovie
+                  .filter((item) => item.name.toLowerCase().includes(query))
+                  .map((item) => (
+                    <Link
+                      to={`/MovieDetail/${item._id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div key={item._id} className="list_item">
+                        <img src={item.image} alt="" />
+                        <div className="col_right">
+                          <div className="name">{item.name}</div>
+                          <div className="rate">Rate: {item.rate}/10</div>
+                          <div className="runningTime">
+                            Running Time: {item.runningTime}
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+            <div></div>
+          </div>
+        )}
       </div>
       <ToastContainer />
     </header>

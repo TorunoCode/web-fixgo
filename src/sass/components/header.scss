@@ -151,5 +151,59 @@ header {
         }
       }
     }
+    .row_list {
+      position: absolute;
+      margin: 0 auto;
+      width: 1200px;
+      top: 60px;
+      display: grid;
+      grid-template-columns: 665px 300px 235px;
+      z-index: 2;
+      .boxlist {
+        // background-color: whitesmoke;
+        box-shadow: 0 0 3px orange;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        cursor: pointer;
+        color: white;
+        background-color: #333;
+        max-height: 410px;
+        overflow: auto;
+        .list {
+          margin: 10px 10px;
+          .list_item {
+            margin: 0 10px;
+            display: flex;
+            column-gap: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid orange;
+            img {
+              height: 60px;
+            }
+            .col_right {
+              .name {
+                padding-top: 1px;
+                color: orange;
+                font-size: 17px;
+              }
+              .rate {
+                color: white;
+                font-size: 13px;
+                padding-top: 5px;
+                font-weight: 300;
+              }
+              .runningTime {
+                color: white;
+                font-size: 13px;
+                padding-top: 3px;
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

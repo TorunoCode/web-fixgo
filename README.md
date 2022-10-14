@@ -19,14 +19,14 @@
 Chức năng chính
 
 - Login
-  - User does not exits
+  - User does not exist
   - Wrong password !
   - Login success
 - Register
-  - Email exits
+  - Email exist
   - Create successful account !
 - Logout
-- Chức năng star theo reating
+- Chức năng star theo rating
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 
 ## Chức năng build dang dở chờ xử lí
