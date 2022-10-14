@@ -1,6 +1,5 @@
 ## Hiện tại đang làm
 
-- search movie
 - click detail theo tên
 - Thanh toán ( tại quầy và online )
 - Lịch sử đặt vé
@@ -28,6 +27,7 @@ Chức năng chính
 - Logout
 - Chức năng star theo rating
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
+- Search movie
 
 ## Chức năng build dang dở chờ xử lí
 
