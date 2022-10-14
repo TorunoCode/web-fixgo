@@ -1,6 +1,11 @@
 ## Hiện tại đang làm
 
-- fillter movie
+- search movie
+- click detail theo tên
+- Thanh toán ( tại quầy và online )
+- Lịch sử đặt vé
+- feedback
+- comments
 
 ## Cần làm
 
@@ -11,13 +16,7 @@
 
 ## Chức năng đã xong
 
-Xử lí phía FE
-
-    - Chức năng star theo reating
-    - Chức năng xem thêm phim
-    - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
-
-Xử lí Kết hợp BE
+Chức năng chính
 
 - Login
   - User does not exits
@@ -27,19 +26,20 @@ Xử lí Kết hợp BE
   - Email exits
   - Create successful account !
 - Logout
+- Chức năng star theo reating
+- Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 
 ## Chức năng build dang dở chờ xử lí
 
 - feedback
 - đặt chổ ngồi
-- tính tiền
-- page myprofile, booking history
+- myprofile, booking history
 
 # Các giao diện
 
 ## Page home
 
-- tạm list movie fake
+- tạm list movie
 - ( chưa làm ) ở đây sẽ có list movie theo lượt book nhiều nhất
 
 ## Page detail movie
