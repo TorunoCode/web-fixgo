@@ -18,6 +18,11 @@ const MovieDetail = () => {
     };
     fetchMovie();
   }, [id]);
+
+  console.log(id);
+  const idMovie = movie._id;
+  const rate = movie.rate;
+
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -27,7 +32,7 @@ const MovieDetail = () => {
           <div className="info">
             <img src={movie.image} alt="" />
             <div className="info-text">
-              <div className="name">CONTORTED</div>
+              <div className="name">{movie.name}</div>
               <div className="rate">
                 <StarRating rating={movie.rate} />
                 <div className="rating">{movie.rate}/10</div>
@@ -68,18 +73,17 @@ const MovieDetail = () => {
         <div className="selectMovie">
           <div className="col-1">
             <div className="col-1-text">
-              Movie: {movie.name}
-              <br /> Date: {movie.releaseTime}
+              <br /> Date:
               <br />
               Time: {movie.runningTime}
             </div>
             <div>
-              <select name="" id="movie">
+              {/* <select name="" id="movie">
                 <option value="1">CONTORTED</option>
                 <option value="1">Conan</option>
                 <option value="1">Ran Mori</option>
                 <option value="1">Kid</option>
-              </select>
+              </select> */}
               <br />
               <select name="" id="date">
                 <option value="1">1/1/2022</option>
@@ -164,7 +168,7 @@ const MovieDetail = () => {
           </div>
         </div>
         <div className="title">Feedback</div>
-        <Feedback />
+        <Feedback idMovie={idMovie} rate={rate} />
       </div>
     </div>
   );

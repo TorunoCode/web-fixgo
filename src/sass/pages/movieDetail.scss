@@ -21,9 +21,11 @@
         }
         &-text {
           font-size: 22px;
+
           .name {
             color: orange;
             padding-bottom: 5px;
+            text-transform: capitalize;
           }
           .rate {
             display: flex;
@@ -37,6 +39,7 @@
             font-size: 18px;
             line-height: 1.5;
             padding-top: 15px;
+            text-transform: capitalize;
             color: rgba(255, 255, 255, 0.7);
           }
         }

@@ -19,17 +19,16 @@ const Movie = () => {
     };
     fetchMovie();
   }, []);
+  console.log(listMovie);
   // handle fillter chung
   const handleFillter = (e) => {
-    const value = e.target.value;
+    const value = e.target.value.toLowerCase();
     const movie = tempList.filter(function (curData) {
       switch (value) {
-        case "All":
+        case "":
           return curData;
-        case "Adventure":
-          return curData.genre === "Adventure";
-        case "Horror":
-          return curData.genre === "Horror";
+        case value:
+          return curData.genre.toLowerCase() === value;
         default:
           return 0;
       }
@@ -53,9 +52,17 @@ const Movie = () => {
           <div className="filter">
             <label htmlFor="">Gener:&nbsp;</label>
             <select className="select" onChange={handleFillter}>
-              <option value="All">All</option>
-              <option value="Horror">Horror</option>
+              <option value="">All</option>
+              <option value="Action">Action</option>
+              <option value="Animation">Animation</option>
               <option value="Adventure">Adventure</option>
+              <option value="Horror">Horror</option>
+              <option value="Thriller">Thriller</option>
+              <option value="Music">Music</option>
+
+              {/* {listMovie.map((item) => (
+                <option value={item.genre}>{item.genre}</option>
+              ))} */}
             </select>
           </div>
           <div className="filter">

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { createPost } from "../../redux/postFeedbackSlice";
+import { createPostFeedback } from "../../redux/postFeedbackSlice";
 import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
@@ -9,12 +9,14 @@ import { Link } from "react-router-dom";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
 
-const Feedback = () => {
+const Feedback = ({ idMovie, rate }) => {
   const post = useSelector((state) => state.postFeedback.postFeedbacks);
   const user = useSelector((state) => state.auth.login?.currentUser);
   const [openModal, setOpenModal] = useState(false);
@@ -22,6 +24,8 @@ const Feedback = () => {
   const [content, setContent] = useState();
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+  const [listFeedback, setListFeedback] = useState([]);
+
   const stars = Array(10).fill(0);
   const handleBtnReview = () => {
     if (user) {
@@ -39,8 +43,25 @@ const Feedback = () => {
       rate: currentValue,
       content_feedback: content,
     };
-    dispatch(createPost(newPost));
+    dispatch(createPostFeedback(newPost));
   };
+  /// feedback
+
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
+  const fetchFeedbacks = async () => {
+    try {
+      const { data } = await axios.get(
+        `/api/commentsFeadback/feadbacks/${idMovie}/0`
+      );
+      setListFeedback(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(listFeedback);
+  // stars
   const handleClick = (value) => {
     setCurrentValue(value);
   };
@@ -52,7 +73,7 @@ const Feedback = () => {
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };
-
+  ////////
   return (
     <div className="container_fb_cm">
       <section className="feedback">
@@ -60,9 +81,9 @@ const Feedback = () => {
         <div className="total_rate">
           <b>Total:</b> 100 feedback
           <div className="rate">
-            <StarRating rating={5.6} />
+            <StarRating rating={rate} />
             &ensp;
-            <div className="rating">5.6/10</div>
+            <div className="rating">{rate}/10</div>
           </div>
           <div className="line_gray"></div>
         </div>

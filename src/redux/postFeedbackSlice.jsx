@@ -3,19 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export const postFeedbackSlice = createSlice({
   name: "postFeedback",
   initialState: {
-    postFeedbacks: [
-      // {
-      //   nameuser: "",
-      //   urlAvatar: "",
-      //   content_feedback: "",
-      // },
-    ],
+    postFeedbacks: [],
   },
   reducers: {
-    createPost: (state, action) => {
+    createPostFeedback: (state, action) => {
       state.postFeedbacks = [...state.postFeedbacks, action.payload];
     },
   },
 });
-export const { createPost } = postFeedbackSlice.actions;
+export const { createPostFeedback } = postFeedbackSlice.actions;
 export default postFeedbackSlice.reducer;

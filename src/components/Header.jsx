@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import Marquee from "react-fast-marquee";
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -15,11 +16,11 @@ const Header = () => {
   const name = useSelector(
     (state) => state.auth.login?.currentUser?.data?.name
   );
-  let menuRef = useRef();
+  let ref = useRef();
   // click chuột ngoài tắt UI
   useEffect(() => {
     let handler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
+      if (ref.current && !ref.current.contains(e.target)) {
         setAfterLogin(false);
         setQuery(false);
       }
@@ -29,10 +30,14 @@ const Header = () => {
       document.removeEventListener("mousedown", handler);
     };
   });
+
   // xử lí logout
   const handleLogOut = () => {
     window.location.reload();
     localStorage.clear();
+  };
+  const handelLose = () => {
+    setQuery(false);
   };
   // features search
   const [listMovie, setListMovie] = useState([]);
@@ -50,6 +55,7 @@ const Header = () => {
     };
     fetchMovie();
   }, []);
+
   return (
     <header>
       <div className="header">
@@ -120,7 +126,7 @@ const Header = () => {
         {afterlogin && (
           <nav className="nav_user">
             <div></div>
-            <div className="nav_user-btn" ref={menuRef}>
+            <div className="nav_user-btn" ref={ref}>
               <Link
                 to="/MyProfile"
                 style={{ textDecoration: "none" }}
@@ -149,19 +155,28 @@ const Header = () => {
         {query && (
           <div className="row_list">
             <div></div>
-            <div className="boxlist">
+            <div className="boxlist" ref={ref}>
               <div className="list">
                 {listMovie
                   .filter((item) => item.name.toLowerCase().includes(query))
                   .map((item) => (
                     <Link
-                      to={`/MovieDetail/${item._id}`}
+                      to={`/MovieDetail/${item.name}`}
                       style={{ textDecoration: "none" }}
+                      onClick={handelLose}
                     >
                       <div key={item._id} className="list_item">
                         <img src={item.image} alt="" />
                         <div className="col_right">
-                          <div className="name">{item.name}</div>
+                          {item.name.length > 17 ? (
+                            <Marquee className="name">
+                              {item.name.toLowerCase()}
+                            </Marquee>
+                          ) : (
+                            <div className="name">
+                              {item.name.toLowerCase()}
+                            </div>
+                          )}
                           <div className="rate">Rate: {item.rate}/10</div>
                           <div className="runningTime">
                             Running Time: {item.runningTime}

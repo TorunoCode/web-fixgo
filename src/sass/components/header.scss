@@ -158,9 +158,7 @@ header {
       top: 60px;
       display: grid;
       grid-template-columns: 665px 300px 235px;
-      z-index: 2;
       .boxlist {
-        // background-color: whitesmoke;
         box-shadow: 0 0 3px orange;
         font-size: 16px;
         font-weight: bold;
@@ -170,6 +168,7 @@ header {
         background-color: #333;
         max-height: 410px;
         overflow: auto;
+        z-index: 1;
         .list {
           margin: 10px 10px;
           .list_item {
@@ -187,6 +186,11 @@ header {
                 padding-top: 1px;
                 color: orange;
                 font-size: 17px;
+                max-width: 200px;
+                text-transform: capitalize;
+                .overlay {
+                  position: relative;
+                }
               }
               .rate {
                 color: white;

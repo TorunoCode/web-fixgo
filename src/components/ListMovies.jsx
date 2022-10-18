@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "../sass/components/listMovie.scss";
 import StarRating from "./subcomponents/StarRating";
 import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
 
 const ListMovie = ({ list }) => {
   const listMovie = list;
-  console.log(listMovie);
   // số lượng item sẽ show ra
   const [quantityShow, setQuantityShow] = useState(5);
   // số lượng item còn lại
@@ -25,15 +25,27 @@ const ListMovie = ({ list }) => {
       <div className="listMovie">
         {listMovie?.slice(0, quantityShow).map((item) => (
           <Link
-            to={`/MovieDetail/${item._id}`}
+            to={`/MovieDetail/${item.name}`}
             style={{ textDecoration: "none" }}
           >
             <div className="itemMovie" key={item._id}>
               <StarRating rating={item.rate} />
               <img src={item.image} alt="" />
-              <div className="name">{item.name}</div>
+              {item.name.length > 17 ? (
+                <Marquee
+                  pauseOnHover={true}
+                  speed={100}
+                  loop={1}
+                  delay={5}
+                  className="name"
+                >
+                  {item.name.toLowerCase()}
+                </Marquee>
+              ) : (
+                <div className="name">{item.name.toLowerCase()}</div>
+              )}
               <div className="genre-rate">
-                Genre: {item.genre} <br />
+                Genre: {item.genre.toLowerCase()} <br />
                 Rate: {item.rate}/10
               </div>
               <div className="btn_buy">BUY TICKET</div>

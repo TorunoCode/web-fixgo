@@ -31,3 +31,13 @@ export const registerUser = async (user, dispatch, toast) => {
     dispatch(registerFailed());
   }
 };
+
+// export const postFeedback = async (postFeedback, dispatch, toast) => {
+//   try {
+//     const res = await axios.post("/add_feadback", postFeedback);
+//     toast.success("Post feedback success!", { autoClose: 2000 });
+//     dispatch(createPostFeedback(res.data));
+//   } catch (error) {
+//     toast.error("error");
+//   }
+// };
