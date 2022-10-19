@@ -48,7 +48,6 @@ const Header = () => {
       let res = await axios.get("/api/movies");
       try {
         setListMovie(res?.data);
-        console.log(listMovie);
       } catch (error) {
         console.log(error);
       }
@@ -169,7 +168,13 @@ const Header = () => {
                         <img src={item.image} alt="" />
                         <div className="col_right">
                           {item.name.length > 17 ? (
-                            <Marquee className="name">
+                            <Marquee
+                              pauseOnHover={true}
+                              speed={100}
+                              loop={1}
+                              delay={5}
+                              className="name"
+                            >
                               {item.name.toLowerCase()}
                             </Marquee>
                           ) : (

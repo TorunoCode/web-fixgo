@@ -10,16 +10,15 @@ const MovieDetail = () => {
   const [payment, setPayment] = useState(false);
   // call lấy data movie detail theo id
   const [movie, setMovie] = useState([]);
-  const { id } = useParams();
+  const { name } = useParams();
   useEffect(() => {
     const fetchMovie = async () => {
-      const { data } = await axios.get(`/api/movies/${id}`);
+      const { data } = await axios.get(`/api/movies/${name}`);
       setMovie(data);
     };
     fetchMovie();
-  }, [id]);
+  }, [name]);
 
-  console.log(id);
   const idMovie = movie._id;
   const rate = movie.rate;
 
@@ -75,7 +74,7 @@ const MovieDetail = () => {
             <div className="col-1-text">
               <br /> Date:
               <br />
-              Time: {movie.runningTime}
+              Time:
             </div>
             <div>
               {/* <select name="" id="movie">

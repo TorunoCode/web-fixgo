@@ -23,6 +23,7 @@ const Feedback = ({ idMovie, rate }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState();
   const [currentValue, setCurrentValue] = useState(0);
+
   const [hoverValue, setHoverValue] = useState(undefined);
   const [listFeedback, setListFeedback] = useState([]);
 
@@ -34,33 +35,52 @@ const Feedback = ({ idMovie, rate }) => {
       toast.warning("Please login !");
     }
   };
+  // const handlePost = () => {
+  //   setOpenModal(false);
+  //   const newPost = {
+  //     nameuser: user.data.name,
+  //     urlAvatar: "xxxx",
+  //     createTime: null,
+  //     rate: currentValue,
+  //     content_feedback: content,
+  //   };
+  //   dispatch(createPostFeedback(newPost));
+  // };
+  // post feedback
   const handlePost = () => {
     setOpenModal(false);
     const newPost = {
-      nameuser: user.data.name,
-      urlAvatar: "xxxx",
-      createTime: null,
+      movieId: idMovie,
+      detail: content,
+      userId: user.data._id,
       rate: currentValue,
-      content_feedback: content,
+      title: "Title",
     };
     dispatch(createPostFeedback(newPost));
-  };
-  /// feedback
-
-  useEffect(() => {
-    fetchFeedbacks();
-  }, []);
-  const fetchFeedbacks = async () => {
     try {
-      const { data } = await axios.get(
-        `/api/commentsFeadback/feadbacks/${idMovie}/0`
-      );
-      setListFeedback(data);
-    } catch (error) {
-      console.log(error);
+      axios.post(`/api/commentsFeadback/add_feadback`, newPost);
+      toast.success("Add feedback success !", { autoClose: 2000 });
+    } catch (err) {
+      toast.error("Failed to add feedback!", { autoClose: 2000 });
     }
   };
+
+  /// get feedback
+  useEffect(() => {
+    const fetchFeedbacks = async () => {
+      try {
+        const { data } = await axios.get(
+          `/api/commentsFeadback/feadbacks/${idMovie}/0`
+        );
+        setListFeedback(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchFeedbacks();
+  }, [idMovie]);
   console.log(listFeedback);
+
   // stars
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -87,7 +107,36 @@ const Feedback = ({ idMovie, rate }) => {
           </div>
           <div className="line_gray"></div>
         </div>
-
+        {listFeedback
+          ?.reverse()
+          .slice(1)
+          .map((item, index) => {
+            return (
+              <div className="item_postFeedback" key={index}>
+                <Link
+                  to="/MyProfile"
+                  className="row_1"
+                  style={{ textDecoration: "none" }}
+                >
+                  <img
+                    src={
+                      user.data.avatar ||
+                      "https://scontent.fsgn13-4.fna.fbcdn.net/v/t1.15752-9/306560976_1478177569326420_2543756426164044655_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=-2G1HRY79g8AX9gnj1V&_nc_ht=scontent.fsgn13-4.fna&oh=03_AVJJPT5lOcfprQA8dsepUNA9iTQNfyq65lt2uhFwlDfRkg&oe=6353AE03"
+                    }
+                    alt=""
+                    className="avt_user"
+                  ></img>
+                  &ensp;
+                  <div className="name_user">{item.userId}</div>
+                </Link>
+                <div className="rate">
+                  <b>Rate:</b> {item.rate}/10
+                </div>
+                <div className="content_feedback">{item.detail}</div>
+                <div className="line"></div>
+              </div>
+            );
+          })}
         {post.map((item, index) => {
           return (
             <div className="item_postFeedback" key={index}>
@@ -105,12 +154,12 @@ const Feedback = ({ idMovie, rate }) => {
                   className="avt_user"
                 ></img>
                 &ensp;
-                <div className="name_user">{item.nameuser}</div>
+                <div className="name_user">{user.data.name}</div>
               </Link>
               <div className="rate">
                 <b>Rate:</b> {item.rate}/10
               </div>
-              <div className="content_feedback">{item.content_feedback}</div>
+              <div className="content_feedback">{item.detail}</div>
               <div className="line"></div>
             </div>
           );

@@ -1,6 +1,5 @@
 ## Hiện tại đang làm
 
-- click detail theo tên
 - Thanh toán ( tại quầy và online )
 - Lịch sử đặt vé
 - feedback
