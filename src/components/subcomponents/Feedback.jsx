@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { createPostFeedback } from "../../redux/postFeedbackSlice";
+import React, { useState, useEffect, useMemo } from "react";
+// import { useDispatch } from "react-redux";
+// import { createPostFeedback } from "../../redux/postFeedbackSlice";
 import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
@@ -17,10 +17,10 @@ const colors = {
 };
 
 const Feedback = ({ idMovie, rate }) => {
-  const post = useSelector((state) => state.postFeedback.postFeedbacks);
+  // const post = useSelector((state) => state.postFeedback.postFeedbacks);
   const user = useSelector((state) => state.auth.login?.currentUser);
   const [openModal, setOpenModal] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [content, setContent] = useState();
   const [currentValue, setCurrentValue] = useState(0);
 
@@ -35,17 +35,7 @@ const Feedback = ({ idMovie, rate }) => {
       toast.warning("Please login !");
     }
   };
-  // const handlePost = () => {
-  //   setOpenModal(false);
-  //   const newPost = {
-  //     nameuser: user.data.name,
-  //     urlAvatar: "xxxx",
-  //     createTime: null,
-  //     rate: currentValue,
-  //     content_feedback: content,
-  //   };
-  //   dispatch(createPostFeedback(newPost));
-  // };
+
   // post feedback
   const handlePost = () => {
     setOpenModal(false);
@@ -56,29 +46,31 @@ const Feedback = ({ idMovie, rate }) => {
       rate: currentValue,
       title: "Title",
     };
-    dispatch(createPostFeedback(newPost));
+    // tạo view feedback giả chứ thật ra render lại mới get lại listfeedback
+    // dispatch(createPostFeedback(newPost));
     try {
-      axios.post(`/api/commentsFeadback/add_feadback`, newPost);
+      axios.post(`/api/commentsFeedback/add_feedback`, newPost);
       toast.success("Add feedback success !", { autoClose: 2000 });
     } catch (err) {
       toast.error("Failed to add feedback!", { autoClose: 2000 });
     }
+    fetchFeedbacks();
   };
-
   /// get feedback
   useEffect(() => {
-    const fetchFeedbacks = async () => {
-      try {
-        const { data } = await axios.get(
-          `/api/commentsFeadback/feadbacks/${idMovie}/0`
-        );
-        setListFeedback(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchFeedbacks();
   }, [idMovie]);
+  const fetchFeedbacks = async () => {
+    try {
+      const { data } = await axios.get(
+        `/api/commentsFeedback/feedbacks/${idMovie}/0`
+      );
+      setListFeedback(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(idMovie);
   console.log(listFeedback);
 
   // stars
@@ -107,9 +99,40 @@ const Feedback = ({ idMovie, rate }) => {
           </div>
           <div className="line_gray"></div>
         </div>
+        {/* {post.map((item, index) => {
+          return (
+            <div className="item_postFeedback" key={index}>
+              <Link
+                to="/MyProfile"
+                className="row_1"
+                style={{ textDecoration: "none" }}
+              >
+                <div className="col1">
+                  <img
+                    src={
+                      user.data.avatar ||
+                      "http://cdn.onlinewebfonts.com/svg/img_264570.png"
+                    }
+                    alt=""
+                    className="avt_user"
+                  ></img>
+                  &ensp;
+                  <div className="name_user">{user.data.name}</div>
+                </div>
+                <div className="time_col2">{item.createdAt}</div>
+              </Link>
+              <div className="rate">
+                <b>Rate:</b> {item.rate}/10
+              </div>
+              <div className="content_feedback">{item.detail}</div>
+              <div className="line"></div>
+            </div>
+          );
+        })} */}
         {listFeedback
           ?.reverse()
           .slice(1)
+          .reverse()
           .map((item, index) => {
             return (
               <div className="item_postFeedback" key={index}>
@@ -118,16 +141,19 @@ const Feedback = ({ idMovie, rate }) => {
                   className="row_1"
                   style={{ textDecoration: "none" }}
                 >
-                  <img
-                    src={
-                      user.data.avatar ||
-                      "https://scontent.fsgn13-4.fna.fbcdn.net/v/t1.15752-9/306560976_1478177569326420_2543756426164044655_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=-2G1HRY79g8AX9gnj1V&_nc_ht=scontent.fsgn13-4.fna&oh=03_AVJJPT5lOcfprQA8dsepUNA9iTQNfyq65lt2uhFwlDfRkg&oe=6353AE03"
-                    }
-                    alt=""
-                    className="avt_user"
-                  ></img>
-                  &ensp;
-                  <div className="name_user">{item.userId}</div>
+                  <div className="col1">
+                    <img
+                      src={
+                        user.data.avatar ||
+                        "http://cdn.onlinewebfonts.com/svg/img_264570.png"
+                      }
+                      alt=""
+                      className="avt_user"
+                    ></img>
+                    &ensp;
+                    <div className="name_user">{item.userName}</div>
+                  </div>
+                  <div className="time_col2">{item.createdAt}</div>
                 </Link>
                 <div className="rate">
                   <b>Rate:</b> {item.rate}/10
@@ -137,33 +163,7 @@ const Feedback = ({ idMovie, rate }) => {
               </div>
             );
           })}
-        {post.map((item, index) => {
-          return (
-            <div className="item_postFeedback" key={index}>
-              <Link
-                to="/MyProfile"
-                className="row_1"
-                style={{ textDecoration: "none" }}
-              >
-                <img
-                  src={
-                    user.data.avatar ||
-                    "https://scontent.fsgn13-4.fna.fbcdn.net/v/t1.15752-9/306560976_1478177569326420_2543756426164044655_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=-2G1HRY79g8AX9gnj1V&_nc_ht=scontent.fsgn13-4.fna&oh=03_AVJJPT5lOcfprQA8dsepUNA9iTQNfyq65lt2uhFwlDfRkg&oe=6353AE03"
-                  }
-                  alt=""
-                  className="avt_user"
-                ></img>
-                &ensp;
-                <div className="name_user">{user.data.name}</div>
-              </Link>
-              <div className="rate">
-                <b>Rate:</b> {item.rate}/10
-              </div>
-              <div className="content_feedback">{item.detail}</div>
-              <div className="line"></div>
-            </div>
-          );
-        })}
+
         <button className="btn_review" onClick={handleBtnReview}>
           Add Review
         </button>

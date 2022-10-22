@@ -29,19 +29,27 @@
     }
     .item_postFeedback {
       padding: 9px 20px 10px 20px;
+      display: grid;
       .row_1 {
-        display: flex;
         height: 30px;
         line-height: 30px;
-        .avt_user {
-          vertical-align: middle;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
+        .col1 {
+          float: left;
+          display: flex;
+          .avt_user {
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          .name_user {
+            color: orange;
+            font-weight: bold;
+          }
         }
-        .name_user {
-          color: orange;
-          font-weight: bold;
+        .time_col2 {
+          float: right;
+          color: white;
         }
       }
       .rate {
