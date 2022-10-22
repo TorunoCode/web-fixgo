@@ -37,7 +37,7 @@ const Feedback = ({ idMovie, rate }) => {
   };
 
   // post feedback
-  const handlePost = () => {
+  const handlePost = async () => {
     setOpenModal(false);
     const newPost = {
       movieId: idMovie,
@@ -49,17 +49,18 @@ const Feedback = ({ idMovie, rate }) => {
     // tạo view feedback giả chứ thật ra render lại mới get lại listfeedback
     // dispatch(createPostFeedback(newPost));
     try {
-      axios.post(`/api/commentsFeedback/add_feedback`, newPost);
+      await axios.post(`/api/commentsFeedback/add_feedback`, newPost);
       toast.success("Add feedback success !", { autoClose: 2000 });
     } catch (err) {
       toast.error("Failed to add feedback!", { autoClose: 2000 });
     }
-    fetchFeedbacks();
+    await fetchFeedbacks();
   };
   /// get feedback
   useEffect(() => {
     fetchFeedbacks();
   }, [idMovie]);
+  console.log(listFeedback.length);
   const fetchFeedbacks = async () => {
     try {
       const { data } = await axios.get(
