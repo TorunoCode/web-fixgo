@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import AvtDefault from "../assets/images/avt_user_default.png";
+
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
 import FormModal from "./subcomponents/FormModal.jsx";
@@ -102,10 +104,7 @@ const Header = () => {
               }}
             >
               <img
-                src={
-                  user.data.avatar ||
-                  "https://scontent.fsgn13-4.fna.fbcdn.net/v/t1.15752-9/306560976_1478177569326420_2543756426164044655_n.png?_nc_cat=107&ccb=1-7&_nc_sid=ae9488&_nc_ohc=-2G1HRY79g8AX9gnj1V&_nc_ht=scontent.fsgn13-4.fna&oh=03_AVJJPT5lOcfprQA8dsepUNA9iTQNfyq65lt2uhFwlDfRkg&oe=6353AE03"
-                }
+                src={user.data.avatar || AvtDefault}
                 alt=""
                 className="avt_user"
               />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import AvtDefault from "../../assets/images/avt_user_default.png";
 // import { useDispatch } from "react-redux";
 // import { createPostFeedback } from "../../redux/postFeedbackSlice";
 import { useSelector } from "react-redux";
@@ -16,7 +17,7 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const Feedback = ({ idMovie, rate }) => {
+const Feedback = ({ idMovie, rate, nameMovie }) => {
   // const post = useSelector((state) => state.postFeedback.postFeedbacks);
   const user = useSelector((state) => state.auth.login?.currentUser);
   const [openModal, setOpenModal] = useState(false);
@@ -92,7 +93,8 @@ const Feedback = ({ idMovie, rate }) => {
       <section className="feedback">
         <div className="title_name">Feedback</div>
         <div className="total_rate">
-          <b>Total:</b> 100 feedback
+          <b>Total:</b> {listFeedback ? listFeedback?.length - 1 : <>0</>}{" "}
+          feedback
           <div className="rate">
             <StarRating rating={rate} />
             &ensp;
@@ -144,10 +146,7 @@ const Feedback = ({ idMovie, rate }) => {
                 >
                   <div className="col1">
                     <img
-                      src={
-                        user.data.avatar ||
-                        "http://cdn.onlinewebfonts.com/svg/img_264570.png"
-                      }
+                      src={user.data.avatar || AvtDefault}
                       alt=""
                       className="avt_user"
                     ></img>
@@ -178,7 +177,7 @@ const Feedback = ({ idMovie, rate }) => {
               </div>
               <div className="container">
                 <div className="title"> Feedback Form</div>
-                <div className="content">Movie: CONTORTED </div>
+                <div className="content">Movie: {nameMovie}</div>
                 <form action="" onSubmit={handlePost}>
                   <div className=" stars">
                     {stars.map((_, index) => {

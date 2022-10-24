@@ -21,6 +21,7 @@ const MovieDetail = () => {
 
   const idMovie = movie._id;
   const rate = movie.rate;
+  const nameMovie = movie.name;
 
   return (
     // bấm thả xuống description
@@ -167,7 +168,7 @@ const MovieDetail = () => {
           </div>
         </div>
         <div className="title">Feedback</div>
-        <Feedback idMovie={idMovie} rate={rate} />
+        <Feedback idMovie={idMovie} rate={rate} nameMovie={nameMovie} />
       </div>
     </div>
   );
