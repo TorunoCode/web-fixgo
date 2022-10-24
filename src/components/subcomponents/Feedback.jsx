@@ -80,7 +80,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
   const handleClick = (value) => {
     setCurrentValue(value);
   };
-
+  ///
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
   };
