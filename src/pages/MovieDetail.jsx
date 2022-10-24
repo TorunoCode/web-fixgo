@@ -20,6 +20,7 @@ const MovieDetail = () => {
   }, [name]);
 
   const idMovie = movie._id;
+  console.log(idMovie);
   const rate = movie.rate;
   const nameMovie = movie.name;
 

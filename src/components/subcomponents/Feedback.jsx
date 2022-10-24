@@ -61,6 +61,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
   useEffect(() => {
     fetchFeedbacks();
   }, [idMovie]);
+
   console.log(listFeedback.length);
   const fetchFeedbacks = async () => {
     try {
