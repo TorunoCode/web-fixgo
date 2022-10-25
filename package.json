@@ -4,6 +4,9 @@
   "proxy": "https://backend-boo.herokuapp.com",
   "private": true,
   "homepage": "https://Alicutun.github.io/",
+  "engines": {
+    "node": "8.19.2"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
