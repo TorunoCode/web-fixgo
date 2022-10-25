@@ -151,7 +151,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
                 >
                   <div className="col1">
                     <img
-                      src={user.data.avatar || AvtDefault}
+                      src={user?.data.avatar || AvtDefault}
                       alt=""
                       className="avt_user"
                     ></img>
