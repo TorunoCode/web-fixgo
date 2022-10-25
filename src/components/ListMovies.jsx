@@ -9,11 +9,13 @@ const ListMovie = ({ list }) => {
   // số lượng item sẽ show ra
   const [quantityShow, setQuantityShow] = useState(5);
   // số lượng item còn lại
-  const [totalQuantity, setTotalQuantity] = useState(listMovie.length - 5);
+  const [totalQuantity, setTotalQuantity] = useState(
+    listMovie?.length - quantityShow
+  );
 
   useEffect(() => {
     setQuantityShow(5);
-    setTotalQuantity(listMovie.length - 5);
+    setTotalQuantity(listMovie?.length - 5);
   }, [listMovie]);
   const handleShowViewMore = (e) => {
     setQuantityShow((prev) => prev + 5);
@@ -28,7 +30,7 @@ const ListMovie = ({ list }) => {
             to={`/MovieDetail/${item.name}`}
             style={{ textDecoration: "none" }}
           >
-            <div className="itemMovie" key={item._id}>
+            <div className="itemMovie" key={item?._id}>
               <StarRating rating={item.rate} />
               <img src={item.image} alt="" />
               {item.name.length > 17 ? (
