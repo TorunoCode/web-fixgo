@@ -25,37 +25,36 @@ const ListMovie = ({ list }) => {
   return (
     <div>
       <div className="listMovie">
-        {Array.isArray(listMovie)
-          ? listMovie?.slice(0, quantityShow).map((item, index) => (
-              <Link
-                to={`/MovieDetail/${item.name}`}
-                style={{ textDecoration: "none" }}
-              >
-                <div className="itemMovie" key={index}>
-                  <StarRating rating={item.rate} />
-                  <img src={item.image} alt="" />
-                  {item.name.length > 17 ? (
-                    <Marquee
-                      pauseOnHover={true}
-                      speed={100}
-                      loop={1}
-                      delay={5}
-                      className="name"
-                    >
-                      {item.name.toLowerCase()}
-                    </Marquee>
-                  ) : (
-                    <div className="name">{item.name.toLowerCase()}</div>
-                  )}
-                  <div className="genre-rate">
-                    Genre: {item.genre.toLowerCase()} <br />
-                    Rate: {item.rate}/10
-                  </div>
-                  <div className="btn_buy">BUY TICKET</div>
-                </div>
-              </Link>
-            ))
-          : null}
+        {listMovie?.slice(0, quantityShow).map((item) => (
+          <Link
+            to={`/MovieDetail/${item.name}`}
+            style={{ textDecoration: "none" }}
+            key={item?._id}
+          >
+            <div className="itemMovie">
+              <StarRating rating={item.rate} />
+              <img src={item.image} alt="" />
+              {item.name.length > 17 ? (
+                <Marquee
+                  pauseOnHover={true}
+                  speed={100}
+                  loop={1}
+                  delay={5}
+                  className="name"
+                >
+                  {item.name.toLowerCase()}
+                </Marquee>
+              ) : (
+                <div className="name">{item.name.toLowerCase()}</div>
+              )}
+              <div className="genre-rate">
+                Genre: {item.genre.toLowerCase()} <br />
+                Rate: {item.rate}/10
+              </div>
+              <div className="btn_buy">BUY TICKET</div>
+            </div>
+          </Link>
+        ))}
       </div>
       <div className="button_xemthem">
         {totalQuantity <= 0 ? (
