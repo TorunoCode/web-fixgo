@@ -1,7 +1,6 @@
 {
   "name": "web-fixgo",
   "version": "0.1.0",
-  "proxy": "https://backend-boo.herokuapp.com",
   "private": true,
   "homepage": "https://Alicutun.github.io/",
   "engines": {

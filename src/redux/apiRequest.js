@@ -11,7 +11,10 @@ import {
 export const loginUser = async (user, dispatch, toast) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("/api/user/login", user);
+    const res = await axios.post(
+      "https://backend-boo.herokuapp.com/api/user/login",
+      user
+    );
     toast.success("Login success!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {
@@ -23,7 +26,10 @@ export const loginUser = async (user, dispatch, toast) => {
 export const registerUser = async (user, dispatch, toast) => {
   dispatch(registerStart());
   try {
-    const res = await axios.post("/api/user/signUp", user);
+    const res = await axios.post(
+      "https://backend-boo.herokuapp.com/api/user/signUp",
+      user
+    );
     dispatch(registerSuccess(res.data));
     toast.success("Create successful account!", { autoClose: 2000 });
   } catch (err) {

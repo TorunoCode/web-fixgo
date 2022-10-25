@@ -9,7 +9,7 @@ const Movie = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      let res = await axios.get("/api/movies");
+      let res = await axios.get("https://backend-boo.herokuapp.com/api/movies");
       try {
         setListMovie(res?.data);
         setTempList(res?.data);

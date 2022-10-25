@@ -13,7 +13,9 @@ const MovieDetail = () => {
   const { name } = useParams();
   useEffect(() => {
     const fetchMovie = async () => {
-      const { data } = await axios.get(`/api/movies/${name}`);
+      const { data } = await axios.get(
+        `https://backend-boo.herokuapp.com/api/movies/${name}`
+      );
       setMovie(data);
     };
     fetchMovie();
