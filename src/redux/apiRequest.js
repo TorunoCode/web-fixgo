@@ -18,7 +18,7 @@ export const loginUser = async (user, dispatch, toast) => {
     toast.success("Login success!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {
-    toast.error(err.response.data.message, { autoClose: 2000 });
+    toast.error(err.response.data?.message, { autoClose: 2000 });
     dispatch(loginFailed());
   }
 };
@@ -33,7 +33,7 @@ export const registerUser = async (user, dispatch, toast) => {
     dispatch(registerSuccess(res.data));
     toast.success("Create successful account!", { autoClose: 2000 });
   } catch (err) {
-    toast.error(err.response.data.message, { autoClose: 2000 });
+    toast.error(err.response.data?.message, { autoClose: 2000 });
     dispatch(registerFailed());
   }
 };

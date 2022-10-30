@@ -4,7 +4,7 @@ import "../sass/pages/movieDetail.scss";
 import StarRating from "../components/subcomponents/StarRating.jsx";
 import Feedback from "../components/subcomponents/Feedback";
 import axios from "axios";
-
+import { format } from "timeago.js";
 const MovieDetail = () => {
   const [description, setDescription] = useState(true);
   const [payment, setPayment] = useState(false);
@@ -20,12 +20,12 @@ const MovieDetail = () => {
     };
     fetchMovie();
   }, [name]);
-
+  console.log(movie);
   const idMovie = movie._id;
-  console.log(idMovie);
   const rate = movie.rate;
   const nameMovie = movie.name;
-
+  console.log(format(movie.createdAt));
+  console.log(format("2022-10-30T11:12:01.978Z", "en_US"));
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -76,17 +76,18 @@ const MovieDetail = () => {
         <div className="selectMovie">
           <div className="col-1">
             <div className="col-1-text">
+              <br /> Cinema:
               <br /> Date:
-              <br />
-              Time:
+              <br /> Session:
             </div>
             <div>
-              {/* <select name="" id="movie">
-                <option value="1">CONTORTED</option>
-                <option value="1">Conan</option>
-                <option value="1">Ran Mori</option>
-                <option value="1">Kid</option>
-              </select> */}
+              <br />
+              <select name="" id="date">
+                <option value="1">Fixgo Quận 1</option>
+                <option value="1">Fixgo Quận 2</option>
+                <option value="1">Fixgo Quận 3</option>
+                <option value="1">Fixgo Quận 4</option>
+              </select>
               <br />
               <select name="" id="date">
                 <option value="1">1/1/2022</option>

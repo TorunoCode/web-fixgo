@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import AvtDefault from "../../assets/images/avt_user_default.png";
 // import { useDispatch } from "react-redux";
 // import { createPostFeedback } from "../../redux/postFeedbackSlice";
+import { format } from "timeago.js";
 import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
@@ -78,7 +79,8 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
   };
   console.log(idMovie);
   console.log(listFeedback);
-
+  console.log(format(listFeedback[4]?.orgirnCreatedAt));
+  console.log(format("2022-10-31T8:12:01.984Z", "en_US"));
   // stars
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -158,7 +160,9 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
                     &ensp;
                     <div className="name_user">{item.userName}</div>
                   </div>
-                  <div className="time_col2">{item.createdAt}</div>
+                  <div className="time_col2">
+                    {format(item.orgirnCreatedAt)}
+                  </div>
                 </Link>
                 <div className="rate">
                   <b>Rate:</b> {item.rate}/10

@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes as Rou, Route } from "react-router-dom";
+import { Routes as Rou, Route, Navigate } from "react-router-dom";
 import Home from "../pages/Home.jsx";
 import Movie from "../pages/Movie.jsx";
 import Event from "../pages/Event.jsx";
@@ -16,6 +16,8 @@ const Routes = () => {
       <Route path="/MovieDetail/:name" element={<MovieDetail />} />
       <Route path="/MyProfile" element={<MyProfile />} />
       <Route path="/BookingHistory" element={<BookingHistory />} />
+      <Route path="/NotFound" element={<>Not found</>} />
+      <Route path="*" element={<Navigate to="/NotFound" />} />
     </Rou>
   );
 };
