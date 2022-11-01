@@ -2,7 +2,6 @@
 
 - Thanh toán ( tại quầy và online )
 - Lịch sử đặt vé
-- feedback
 - comments
 
 ## Cần làm
@@ -27,6 +26,7 @@ Chức năng chính
 - Chức năng star theo rating
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 - Search movie
+- Feedback
 
 ## Chức năng build dang dở chờ xử lí
 

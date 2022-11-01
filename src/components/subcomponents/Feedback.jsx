@@ -109,36 +109,6 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
           </div>
           <div className="line_gray"></div>
         </div>
-        {/* {post.map((item, index) => {
-          return (
-            <div className="item_postFeedback" key={index}>
-              <Link
-                to="/MyProfile"
-                className="row_1"
-                style={{ textDecoration: "none" }}
-              >
-                <div className="col1">
-                  <img
-                    src={
-                      user.data.avatar ||
-                      "http://cdn.onlinewebfonts.com/svg/img_264570.png"
-                    }
-                    alt=""
-                    className="avt_user"
-                  ></img>
-                  &ensp;
-                  <div className="name_user">{user.data.name}</div>
-                </div>
-                <div className="time_col2">{item.createdAt}</div>
-              </Link>
-              <div className="rate">
-                <b>Rate:</b> {item.rate}/10
-              </div>
-              <div className="content_feedback">{item.detail}</div>
-              <div className="line"></div>
-            </div>
-          );
-        })} */}
         {listFeedback
           ?.reverse()
           .slice(1)
