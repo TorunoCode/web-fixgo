@@ -2,7 +2,6 @@
 
 - Thanh toán ( tại quầy và online )
 - Lịch sử đặt vé
-- comments
 
 ## Cần làm
 
@@ -30,7 +29,6 @@ Chức năng chính
 
 ## Chức năng build dang dở chờ xử lí
 
-- feedback
 - đặt chổ ngồi
 - myprofile, booking history
 
