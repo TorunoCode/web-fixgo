@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import "../sass/pages/movieDetail.scss";
 import StarRating from "../components/subcomponents/StarRating.jsx";
 import Feedback from "../components/subcomponents/Feedback";
+import Booking from "../components/subcomponents/Booking";
 import axios from "axios";
-import { format } from "timeago.js";
+
 const MovieDetail = () => {
   const [description, setDescription] = useState(true);
-  const [payment, setPayment] = useState(false);
+  // const [payment, setPayment] = useState(false);
   // call lấy data movie detail theo id
   const [movie, setMovie] = useState([]);
   const { name } = useParams();
@@ -21,11 +22,7 @@ const MovieDetail = () => {
     fetchMovie();
   }, [name]);
   console.log(movie);
-  const idMovie = movie._id;
-  const rate = movie.rate;
-  const nameMovie = movie.name;
-  console.log(format(movie.createdAt));
-  console.log(format("2022-10-30T11:12:01.978Z", "en_US"));
+
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -45,7 +42,8 @@ const MovieDetail = () => {
                 <b>Cast:</b> {movie.cast} <br />
                 <b>Genre:</b> {movie.genre} <br />
                 <b>Release time:</b> {movie.releaseTime} <br />
-                <b>Running time:</b> {movie.runningTime} <br />
+                <b>Running time:</b> {movie.runningTime} minutes
+                <br />
                 <b>Language:</b> {movie.language} <br />
               </div>
             </div>
@@ -73,106 +71,13 @@ const MovieDetail = () => {
           {description && <p>&emsp; &emsp; {movie.describe}</p>}
         </div>
         <div className="title">Booking</div>
-        <div className="selectMovie">
-          <div className="col-1">
-            <div className="col-1-text">
-              <br /> Cinema:
-              <br /> Date:
-              <br /> Session:
-            </div>
-            <div>
-              <br />
-              <select name="" id="date">
-                <option value="1">Fixgo Quận 1</option>
-                <option value="1">Fixgo Quận 2</option>
-                <option value="1">Fixgo Quận 3</option>
-                <option value="1">Fixgo Quận 4</option>
-              </select>
-              <br />
-              <select name="" id="date">
-                <option value="1">1/1/2022</option>
-                <option value="1">2/1/2022</option>
-                <option value="1">3/1/2022</option>
-                <option value="1">4/1/2022</option>
-              </select>
-              <br />
-              <select name="" id="time">
-                <option value="1">9:30</option>
-                <option value="1">11:30</option>
-                <option value="1">15:30</option>
-                <option value="1">20:30</option>
-              </select>
-            </div>
-          </div>
-          <div className="col-2">
-            <div className="flex">
-              <div className="available">
-                <div className="seat"></div> &nbsp;Avaliable
-              </div>
-              <div className="selected">
-                <div className="seat"></div> &nbsp;Selected
-              </div>
-              <div className="occupied">
-                <div className="seat"></div> &nbsp;Occupied
-              </div>
-            </div>
-            <div className="screen"></div>
-            <div className="seat-parent">
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-            </div>
-          </div>
-          <div className="col-3">
-            You selected <span id="count">0</span> seats <br />
-            Price ticket: $ <br />
-            <button className="btPay" onClick={() => setPayment(!payment)}>
-              <i className="fa-solid fa-angles-right"></i> Buy Ticket
-            </button>
-            {payment && (
-              <div className="optionpay">
-                <div>Select Payment Method</div>
-                <button>
-                  <i className="fa-regular fa-hand-point-right"></i> At checkout
-                  counters
-                </button>
-                <br />
-                <button>
-                  <i className="fa-regular fa-hand-point-right"></i> With PayPal
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
+        <Booking idMovie={movie._id} nameMovie={movie.name} />
         <div className="title">Feedback</div>
-        <Feedback idMovie={idMovie} rate={rate} nameMovie={nameMovie} />
+        <Feedback
+          idMovie={movie._id}
+          rate={movie.rate}
+          nameMovie={movie.name}
+        />
       </div>
     </div>
   );

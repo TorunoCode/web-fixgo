@@ -66,7 +66,6 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
     fetchFeedbacks();
   }, [idMovie]);
 
-  console.log(listFeedback.length);
   const fetchFeedbacks = async () => {
     try {
       const { data } = await axios.get(
@@ -78,15 +77,11 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
     }
   };
   console.log(idMovie);
-  console.log(listFeedback);
-  console.log(format(listFeedback[4]?.orgirnCreatedAt));
-  console.log(format("2022-10-31T8:12:01.984Z", "en_US"));
   // stars
   const handleClick = (value) => {
     setCurrentValue(value);
   };
   ///
-  //
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
   };
