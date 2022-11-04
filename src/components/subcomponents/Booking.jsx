@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../sass/components/subcomponents/booking.scss";
-import SeatPicker from "react-seat-picker";
+// import SeatPicker from "react-seat-picker";
 import axios from "axios";
 // ngon lành cành trúc khế
 const Booking = ({ idMovie, nameMovie }) => {
@@ -242,14 +242,14 @@ const Booking = ({ idMovie, nameMovie }) => {
           </div>
           <div className="screen"></div>
           <div className="importpicker">
-            <SeatPicker
+            {/* <SeatPicker
               addSeatCallback={addSeatCallback}
               removeSeatCallback={removeSeatCallback}
               rows={rows}
               alpha
               maxReservableSeats={10}
               visible
-            />
+            /> */}
           </div>
         </div>
         {selected.length !== 0 ? (
