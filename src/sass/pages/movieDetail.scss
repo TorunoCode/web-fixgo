@@ -88,7 +88,7 @@
         padding-top: 7px;
         padding-bottom: 5px;
         perspective: 1000px;
-        .seat {
+        .seatx {
           background-color: gray;
           height: 15px;
           width: 18px;
@@ -105,10 +105,10 @@
           div {
             display: flex;
           }
-          .selected .seat {
+          .selectedx .seatx {
             background-color: green;
           }
-          .occupied .seat {
+          .occupiedx .seatx {
             background-color: orange;
           }
         }
@@ -121,12 +121,38 @@
           box-shadow: 0px 2px 8px whitesmoke;
           transform: rotateX(-50deg);
         }
-        .seat-parent {
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          gap: 10px;
-          width: 50%;
-          margin: auto;
+        .importpicker {
+          margin-left: -27px;
+          .seat {
+            background-color: gray;
+            height: 25px;
+            margin: 2px 5px 0px 0px;
+          }
+          .seat__number {
+            margin-top: 3px;
+          }
+          // .seat-picker {
+          //   margin: auto;
+          // }
+          .seat--reserved {
+            background-color: orange;
+          }
+
+          .seat--selected {
+            background-color: green;
+          }
+
+          .seat-picker {
+            margin: auto;
+          }
+
+          .seat-picker_row {
+          }
+
+          .seat-picker__row__number {
+            margin-bottom: -8px;
+            color: orange;
+          }
         }
       }
       .col-3 {
