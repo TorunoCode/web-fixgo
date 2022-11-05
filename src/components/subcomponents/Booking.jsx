@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../sass/components/subcomponents/booking.scss";
-// import SeatPicker from "react-seat-picker";
+// @ts-ignoreaaa
+import SeatPicker from "react-seat-picker";
 import axios from "axios";
-// ngon lành cành trúc khế
+// ngon lành cành trúc khế lun
 const Booking = ({ idMovie, nameMovie }) => {
   const [payment, setPayment] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -242,14 +243,14 @@ const Booking = ({ idMovie, nameMovie }) => {
           </div>
           <div className="screen"></div>
           <div className="importpicker">
-            {/* <SeatPicker
+            <SeatPicker
               addSeatCallback={addSeatCallback}
               removeSeatCallback={removeSeatCallback}
               rows={rows}
               alpha
               maxReservableSeats={10}
               visible
-            /> */}
+            />
           </div>
         </div>
         {selected.length !== 0 ? (
@@ -283,48 +284,48 @@ const Booking = ({ idMovie, nameMovie }) => {
 };
 
 export default Booking;
-{
-  /* {openModal && (
-            <div className="modal-booking">
-              <div className="modal-booking-form">
-                <div>
-                  <button className="btnX" onClick={() => setOpenModal(false)}>
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </div>
-                <div className="container">
-                  <div className="title"> Booking Form</div>
-                  <div className="content">
-                    <div className="row">
-                      <div className="coll">Movie:</div>
-                      <div className="colr">{nameMovie}</div>
-                    </div>
-                    <div className="row">
-                      <div className="coll">Cinema:</div>
-                      <div className="colr">Fixgo quận 1</div>
-                    </div>
-                    <div className="row">
-                      <div className="coll">Date:</div>
-                      <div className="colr">{iddate}</div>
-                    </div>
-                    <div className="row">
-                      <div className="coll">Session:</div>
-                      <div className="colr">9:30</div>
-                    </div>
-                    <div className="row">
-                      <div className="coll">Seat:</div>
-                      <div className="colr">10,11,12</div>
-                    </div>
-                    <div className="row">
-                      <div className="coll">Price:</div>
-                      <div className="colr">10$</div>
-                    </div>
-                  </div>
-                  <form action="" onSubmit={handleBooking}>
-                    <button className="button">Booking</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          )} */
-}
+// {
+//   /* {openModal && (
+//             <div className="modal-booking">
+//               <div className="modal-booking-form">
+//                 <div>
+//                   <button className="btnX" onClick={() => setOpenModal(false)}>
+//                     <i class="fa-solid fa-xmark"></i>
+//                   </button>
+//                 </div>
+//                 <div className="container">
+//                   <div className="title"> Booking Form</div>
+//                   <div className="content">
+//                     <div className="row">
+//                       <div className="coll">Movie:</div>
+//                       <div className="colr">{nameMovie}</div>
+//                     </div>
+//                     <div className="row">
+//                       <div className="coll">Cinema:</div>
+//                       <div className="colr">Fixgo quận 1</div>
+//                     </div>
+//                     <div className="row">
+//                       <div className="coll">Date:</div>
+//                       <div className="colr">{iddate}</div>
+//                     </div>
+//                     <div className="row">
+//                       <div className="coll">Session:</div>
+//                       <div className="colr">9:30</div>
+//                     </div>
+//                     <div className="row">
+//                       <div className="coll">Seat:</div>
+//                       <div className="colr">10,11,12</div>
+//                     </div>
+//                     <div className="row">
+//                       <div className="coll">Price:</div>
+//                       <div className="colr">10$</div>
+//                     </div>
+//                   </div>
+//                   <form action="" onSubmit={handleBooking}>
+//                     <button className="button">Booking</button>
+//                   </form>
+//                 </div>
+//               </div>
+//             </div>
+//           )} */
+// }

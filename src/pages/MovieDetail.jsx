@@ -71,6 +71,8 @@ const MovieDetail = () => {
           {description && <p>&emsp; &emsp; {movie.describe}</p>}
         </div>
         <div className="title">Booking</div>
+        {/* <Booking idMovie={movie._id} nameMovie={movie.name} />
+         */}
         <Booking idMovie={movie._id} nameMovie={movie.name} />
         <div className="title">Feedback</div>
         <Feedback
