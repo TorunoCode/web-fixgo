@@ -22,7 +22,7 @@ const MovieDetail = () => {
     fetchMovie();
   }, [name]);
   console.log(movie);
-
+  console.log(typeof movie.releaseTime);
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -42,7 +42,8 @@ const MovieDetail = () => {
                 <b>Cast:</b> {movie.cast} <br />
                 <b>Genre:</b> {movie.genre} <br />
                 <b>Release time:</b>{" "}
-                {movie.releaseTime.slice(0, 10).split("-").reverse().join("-")}{" "}
+                {movie.releaseTime &&
+                  movie.releaseTime.slice(0, 10).split("-").reverse().join("-")}
                 <br />
                 <b>Running time:</b> {movie.runningTime} minutes
                 <br />
