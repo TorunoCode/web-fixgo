@@ -23,8 +23,8 @@ const Booking = ({ idMovie, nameMovie }) => {
 
   const addSeatCallback = ({ row, number, id }, addCb) => {
     setSelected((prevItems) => [...prevItems, number]);
-    const newTooltip = `Cancel seat ${number}`;
-    addCb(row, number, id, newTooltip);
+    // const newTooltip = `Cancel seat ${number}`;
+    addCb(row, number, id);
   };
   console.log(selected);
   const removeSeatCallback = ({ row, number, id }, removeCb) => {
