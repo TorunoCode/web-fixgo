@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../sass/components/subcomponents/booking.scss";
 // @ts-ignoreaaa
-import SeatPicker from "react-seat-picker";
+import SeatPicker from "../../react-seat-picker/dist/index";
 import axios from "axios";
 // ngon lành cành trúc khế lun
 const Booking = ({ idMovie, nameMovie }) => {
