@@ -4,7 +4,7 @@ import "../../sass/components/subcomponents/booking.scss";
 import SeatPicker from "react-seat-picker";
 import axios from "axios";
 // ngon lành cành trúc khế lun
-const Booking = ({ idMovie, nameMovie }) => {
+const Bookinglocal = ({ idMovie, nameMovie }) => {
   const [payment, setPayment] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
@@ -283,7 +283,7 @@ const Booking = ({ idMovie, nameMovie }) => {
   );
 };
 
-export default Booking;
+export default Bookinglocal;
 // {
 //   /* {openModal && (
 //             <div className="modal-booking">
