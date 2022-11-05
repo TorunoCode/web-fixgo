@@ -5,7 +5,7 @@ import axios from "axios";
 
 const BookingHistory = () => {
   const [data, setData] = useState([]);
-  const [pageSize, setPageSize] = useState(5);
+  const [pageSize, setPageSize] = useState(8);
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get(

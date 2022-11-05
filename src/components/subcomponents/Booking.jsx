@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../sass/components/subcomponents/booking.scss";
 // @ts-ignoreaaa
-import SeatPicker from "../../react-seat-picker/dist/index";
+import SeatPicker from "./react-seat-picker/dist/index";
 import axios from "axios";
 // ngon lành cành trúc khế lun
 const Booking = ({ idMovie, nameMovie }) => {
@@ -193,40 +193,48 @@ const Booking = ({ idMovie, nameMovie }) => {
     <div>
       <div className="selectMovie">
         <div className="col-1">
-          <div className="col-1-text">
-            Movie:
-            <br /> Cinema:
-            <br /> Date:
-            <br /> Session:
-          </div>
           <div>
-            <div style={{ color: "orange" }}> {nameMovie}</div>
-            <select id="cinema" onChange={(e) => setIdCinema(e.target.value)}>
-              <option value="">-- Select Cinema --</option>
-              {cinema?.map((items, index) => (
-                <option key={index} value={items._id}>
-                  {items.name}
-                </option>
-              ))}
-            </select>
+            <div className="row">
+              <div className="label"> Movie:</div>
+              <div style={{ color: "orange" }}> {nameMovie}</div>
+            </div>
+            <div className="row">
+              <div className="label">Cinema:</div>{" "}
+              <select id="cinema" onChange={(e) => setIdCinema(e.target.value)}>
+                <option value="">-- Select Cinema --</option>
+                {cinema?.map((items, index) => (
+                  <option key={index} value={items._id}>
+                    {items.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="row">
+              <div className="label">Date:</div>
+              <select id="date" onChange={(e) => setIdDate(e.target.value)}>
+                <option value="">-- Select Date --</option>
+                {date?.map((items, index) => (
+                  <option key={index} value={items}>
+                    {items.slice(0, 10).split("-").reverse().join("-")}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="row">
+              <div className="label">Session:</div>{" "}
+              <select id="time" onChange={(e) => setIdSession(e.target.value)}>
+                <option value="">-- Select Session --</option>
+                {sesscion?.map((items, index) => (
+                  <option key={index} value={items}>
+                    {items}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <br />
-            <select id="date" onChange={(e) => setIdDate(e.target.value)}>
-              <option value="">-- Select Date --</option>
-              {date?.map((items, index) => (
-                <option key={index} value={items}>
-                  {items}
-                </option>
-              ))}
-            </select>
+
             <br />
-            <select id="time" onChange={(e) => setIdSession(e.target.value)}>
-              <option value="">-- Select Session --</option>
-              {sesscion?.map((items, index) => (
-                <option key={index} value={items}>
-                  {items}
-                </option>
-              ))}
-            </select>
           </div>
         </div>
         <div className="col-2">

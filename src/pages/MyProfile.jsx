@@ -43,7 +43,11 @@ const MyProfile = () => {
             <InputFields label="Phone:" data={phone} setData={setPhone} />
             <InputFields
               label="Account creation date:"
-              data={user?.data.createdAt}
+              data={user?.data.createdAt
+                .slice(0, 10)
+                .split("-")
+                .reverse()
+                .join("-")}
               setData={setCreatedAt}
             />
           </div>
