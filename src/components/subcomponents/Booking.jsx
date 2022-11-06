@@ -189,6 +189,7 @@ const Booking = ({ idMovie, nameMovie }) => {
   }, [idsesscion]);
 
   const handleBooking = () => {};
+
   return (
     <div>
       <div className="selectMovie">

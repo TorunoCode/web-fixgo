@@ -73,6 +73,20 @@ const Movie = () => {
               <option value="decrease">High to low</option>
             </select>
           </div>
+          <div className="filter">
+            <label htmlFor="">Country:&nbsp;</label>
+            <select className="select">
+              <option value="">All</option>
+              <option value="">Update soon..</option>
+            </select>
+          </div>
+          <div className="filter">
+            <label htmlFor="">Year:&nbsp;</label>
+            <select className="select">
+              <option value="">All</option>
+              <option value="">Update soon..</option>
+            </select>
+          </div>
         </div>
         {listMovie.length > 0 && <ListMovie list={listMovie} />}
       </div>

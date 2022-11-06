@@ -24,7 +24,7 @@ Chức năng chính
 - Logout
 - Chức năng star theo rating
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
-- Search movie
+- Search movie theo name, cast
 - Feedback
 
 ## Chức năng build dang dở chờ xử lí

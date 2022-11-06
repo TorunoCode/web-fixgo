@@ -5,7 +5,7 @@ import axios from "axios";
 
 const BookingHistory = () => {
   const [data, setData] = useState([]);
-  const [pageSize, setPageSize] = useState(8);
+  const [pageSize, setPageSize] = useState(5);
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get(
@@ -21,7 +21,13 @@ const BookingHistory = () => {
       { field: "_id", headerName: "ID", width: 200 },
       { field: "name", headerName: "NAME", width: 240 },
       { field: "genre", headerName: "CATEGORY", width: 160 },
-      { field: "isActive", headerName: "Active", width: 100 },
+      {
+        field: "isActive",
+        headerName: "Active",
+        width: 100,
+        type: "boolean",
+        // edittable: true,
+      },
     ],
     []
   );
@@ -57,6 +63,9 @@ const BookingHistory = () => {
             rowsPerPageOptions={[5, 10, 20]}
             pageSize={pageSize}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            // getRowClassName={(params) =>
+            //   params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
+            // }
           />
         </div>
       </div>

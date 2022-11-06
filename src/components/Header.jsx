@@ -62,7 +62,9 @@ const Header = () => {
     <header>
       <div className="header">
         <div className="main">
-          <div className="logo">FixGo</div>
+          <Link to="/Home" style={{ textDecoration: "none" }}>
+            <div className="logo">FixGo</div>{" "}
+          </Link>
           <div className="navbar">
             <ul>
               <Link to="/Home">
@@ -88,7 +90,7 @@ const Header = () => {
               <input
                 className="ipsearch"
                 type="text"
-                placeholder="Search by name movie.."
+                placeholder="Search by name movie, cast.."
                 name="search"
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -151,13 +153,18 @@ const Header = () => {
           </nav>
         )}
         {name ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
+        {/* search */}
         {query && (
           <div className="row_list">
             <div></div>
             <div className="boxlist" ref={ref}>
               <div className="list">
                 {listMovie
-                  .filter((item) => item.name.toLowerCase().includes(query))
+                  .filter(
+                    (item) =>
+                      item.name.toLowerCase().includes(query) ||
+                      item.cast.toLowerCase().includes(query)
+                  )
                   .map((item) => (
                     <Link
                       to={`/MovieDetail/${item.name}`}
@@ -183,9 +190,7 @@ const Header = () => {
                             </div>
                           )}
                           <div className="rate">Rate: {item.rate}/10</div>
-                          <div className="runningTime">
-                            Running Time: {item.runningTime}
-                          </div>
+                          <div className="runningTime">Cast: {item.cast}</div>
                         </div>
                       </div>
                     </Link>
