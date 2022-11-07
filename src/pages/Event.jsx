@@ -4,7 +4,7 @@ import {
   dataBlogMovie,
   dataHotMovie,
 } from "../components/subcomponents/datafake/dataBlogMovie";
-
+//a
 function ItemBlogMovie({ item }) {
   return (
     <div className="item24h_item">
