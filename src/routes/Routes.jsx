@@ -2,7 +2,7 @@ import React from "react";
 import { Routes as Rou, Route, Navigate } from "react-router-dom";
 import Home from "../pages/Home.jsx";
 import Movie from "../pages/Movie.jsx";
-import Event from "../pages/Event.jsx";
+import News from "../pages/News.jsx";
 import MovieDetail from "../pages/MovieDetail.jsx";
 import MyProfile from "../pages/MyProfile.jsx";
 import BookingHistory from "../pages/BookingHistory.jsx";
@@ -12,7 +12,7 @@ const Routes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/Movie" element={<Movie />} />
-      <Route path="/Event" element={<Event />} />
+      <Route path="/News" element={<News />} />
       <Route path="/MovieDetail/:name" element={<MovieDetail />} />
       <Route path="/MyProfile" element={<MyProfile />} />
       <Route path="/BookingHistory" element={<BookingHistory />} />

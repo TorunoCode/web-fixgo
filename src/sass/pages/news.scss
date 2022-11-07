@@ -1,5 +1,6 @@
-.event {
-  background: white;
+.news {
+  // background: white;
+  color: white;
   font-family: "Lexend", sans-serif;
   .main {
     font-family: auto;
@@ -9,7 +10,7 @@
       padding-top: 10px;
       padding-bottom: 10px;
       .title {
-        color: black;
+        color: orange;
         font-weight: bold;
         font-size: 25px;
         text-transform: uppercase;
@@ -19,6 +20,7 @@
         margin: auto;
         border-bottom: 1px solid gray;
         margin-bottom: 10px;
+        // color: orange;
       }
       .menu24h ul {
         list-style-type: none;
@@ -28,7 +30,7 @@
       }
       .menu24h ul li {
         display: block;
-        color: black;
+        // color: black;
         font-weight: bold;
         text-align: center;
         padding: 13px 12px;
@@ -40,7 +42,7 @@
         border-radius: 10px;
       }
       .menu24h ul li:hover {
-        background-color: yellow;
+        background-color: gray;
       }
       .menu24h ul li.dkdn {
         float: right;
@@ -75,31 +77,25 @@
         border-radius: 8px;
         cursor: pointer;
       }
+      .title24hx {
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24px;
+        padding-bottom: 5px;
+      }
       .title24h {
         font-size: 24px;
         line-height: 32px;
         font-weight: 600;
         cursor: pointer;
       }
-      .title24h:hover {
-        color: orange;
-      }
-      .title24hx:hover {
-        color: orange;
-      }
-      .title24hx {
-        font-size: 20px;
-        line-height: 32px;
-        font-weight: 600;
-        padding-bottom: 5px;
-        cursor: pointer;
-        line-height: 24px;
-      }
+
       .noidung24h {
         display: block;
         overflow: hidden;
         font-size: 14px;
-        color: #333;
+        // color: #333;
         line-height: 22px;
         padding: 10px 0;
       }
@@ -107,17 +103,17 @@
         display: block;
         overflow: hidden;
         font-size: 14px;
-        color: #333;
+        // color: #333;
         line-height: 22px;
         padding: 10px 0;
         cursor: pointer;
-        border-top: 1px solid #eee;
+        border-top: 1px solid orange;
       }
       .noidung24hx:hover {
         color: orange;
       }
       .main24hphai {
-        margin-top: 20px;
+        margin-top: 30px;
         width: 380px;
       }
       .main24htrai_2 {
@@ -126,7 +122,7 @@
       .item24h_item {
         display: flex;
         column-gap: 10px;
-        border-top: 1px solid #eee;
+        border-top: 1px solid orange;
         padding-top: 10px;
         padding-bottom: 10px;
       }
@@ -143,7 +139,7 @@
       }
       .item24h_right_time {
         padding-top: 10px;
-        color: #333;
+        // color: #333;
       }
       .item24h_item img {
         border-radius: 8px;
@@ -151,6 +147,7 @@
         cursor: pointer;
       }
       .main24hphai img {
+        width: 380px;
         margin-top: 10px;
         border-radius: 8px;
         cursor: pointer;
@@ -167,7 +164,7 @@
       }
       .chudegachduoi {
         display: block;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid orange;
         line-height: 26px;
         font-size: 16px;
         color: #888;
@@ -211,7 +208,7 @@
         overflow: hidden;
         line-height: 1.3em;
         font-size: 14px;
-        color: #333;
+        // color: #333;
         cursor: pointer;
         &:hover {
           color: orange;
@@ -231,7 +228,7 @@
         display: block;
         overflow: hidden;
         font-size: 16px;
-        color: #333;
+        // color: #333;
       }
       .giasanphammoix {
         display: block;
@@ -250,24 +247,34 @@
         display: block;
         line-height: 26px;
         font-size: 16px;
-        color: #288ad6;
+        color: orange;
         text-transform: uppercase;
         padding: 10px 0 6px;
         font-family: "Roboto Condensed", sans-serif;
         font-weight: 600;
       }
-      .fixanh img {
-        width: 380px;
-        border-radius: 8px;
-      }
-      .thegioithieu24h {
+      .thegioithieu24hx {
+        margin-bottom: 10px;
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(2, 1fr);
       }
+      .item_thegioithieux img {
+        width: 120px;
+        width: 185px;
+        margin: auto;
+        padding-bottom: 5px;
+        cursor: pointer;
+      }
+
+      .thegioithieu24h {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+      }
 
       .item_thegioithieu img {
-        width: 185px;
+        width: 120px;
         margin: auto;
         padding-bottom: 5px;
         cursor: pointer;
@@ -277,10 +284,13 @@
         overflow: hidden;
         line-height: 1.3em;
         font-size: 14px;
-        color: #333;
+        // color: #333;
         cursor: pointer;
       }
       .item_thegioithieu div:hover {
+        color: orange;
+      }
+      .item_thegioithieux div:hover {
         color: orange;
       }
     }

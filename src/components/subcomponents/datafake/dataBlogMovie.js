@@ -62,23 +62,26 @@ export const dataHotMovie = [
   },
   {
     id: 1,
-    image: "",
-    title: "",
+    image: "https://cdn.galaxycine.vn/media/2022/9/6/450_1662468991892.jpg",
+    title: "Phim Hay Tháng 09.2022: Tháng Phim Kinh Dị",
     time: "6 phút trước",
-    content: "",
+    content:
+      "Kết thúc quý III của năm 2022, tháng 09 tới đây sẽ là màn chào sân đầy ấn tượng khi có hàng loạt tác phẩm thuộc thể loại kinh dị cùng lúc “oanh tạc” màn ảnh.",
   },
   {
     id: 1,
-    image: "",
-    title: "",
+    image: "https://cdn.galaxycine.vn/media/2022/8/3/450_1659520487779.jpg",
+    title: "Phim Hay Tháng 08.2022: Đông Tây Náo Loạn Phòng Vé",
     time: "6 phút trước",
-    content: "",
+    content:
+      "Cùng Fixgo Cinema  chào tháng mới với những tựa phim hay nhất sắp được ra mắt. Tiếp tục đem đến trải nghiệm ",
   },
   {
     id: 1,
-    image: "",
-    title: "",
+    image: "https://cdn.galaxycine.vn/media/2022/7/9/450_1657348309941.jpg",
+    title: "Phim Hay Tháng 07.2022: Thần Sấm Đại Chiến Binh Đoàn Vàng",
     time: "6 phút trước",
-    content: "",
+    content:
+      "Sau khi khởi động mùa hè 2022 với hàng loạt tựa phim nổi bật trong tháng 06, hãy cùng đến tới những tác phẩm sẽ mở màn cho quý III năm nay!",
   },
 ];

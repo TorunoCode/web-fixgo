@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../sass/pages/event.scss";
+import "../sass/pages/news.scss";
 import {
   dataBlogMovie,
   dataHotMovie,
 } from "../components/subcomponents/datafake/dataBlogMovie";
-//a
+
 function ItemBlogMovie({ item }) {
   return (
     <div className="item24h_item">
@@ -29,19 +29,30 @@ function ItemHotMovie({ item }) {
     </div>
   );
 }
-const Event = () => {
+const News = () => {
   const [review, setReView] = useState(true);
+
   return (
-    <div className="event">
+    <div className="news">
       <div className="main">
         <div className="tag_movie">
           <div>
             <div className="menu24h">
               <ul>
-                <li onClick={() => setReView(!review)}>Movie Reviews</li>
-                <li onClick={() => setReView(!review)}>Hot movie</li>
-                <li>Career</li>
-                <li>promotion</li>
+                <li
+                  onClick={() => setReView(true)}
+                  style={review ? { color: "orange" } : null}
+                >
+                  Movie Reviews
+                </li>
+                <li
+                  onClick={() => setReView(false)}
+                  style={review ? null : { color: "orange" }}
+                >
+                  Hot movie
+                </li>
+                {/* <li>Career</li>
+                <li>promotion</li> */}
                 <li className="dkdn">Fixgo - Fan cuồng Cúc Tịnh Y</li>
               </ul>
             </div>
@@ -112,7 +123,9 @@ const Event = () => {
                   </>
                 ) : (
                   <>
-                    <div className="title">Hot Movie</div>
+                    <div className="title" style={{ marginBottom: "10px" }}>
+                      Hot Movie
+                    </div>
                     {dataHotMovie.map((item, index) => (
                       <ItemHotMovie key={index} item={item} />
                     ))}
@@ -123,32 +136,31 @@ const Event = () => {
 
               <div className="main24hphai">
                 <img
-                  src="https://cdn.tgdd.vn/2022/07/banner/380X215-380x215.gif"
+                  src="https://64.media.tumblr.com/f14da695c8d48b26368ed984db8f9b8a/tumblr_nqx83r5hqP1qczmzbo1_500.gif"
                   alt=""
                 />
                 <div className="chudehot">CHỦ ĐỀ HOT</div>
                 <div className="taghot">
                   <button>
-                    <i class="fa-regular fa-circle-dot"></i>&ensp;Mẹo không phải
-                    ai cũng biết
+                    <i class="fa-regular fa-circle-dot"></i>&ensp;Đón chờ các
+                    siêu phẩm rạp cận tết 2022
                   </button>
                   <button>
-                    <i class="fa-regular fa-circle-dot"></i>&ensp;Thế giới phụ
-                    kiện
+                    <i class="fa-regular fa-circle-dot"></i>&ensp;Thế giới anime
                   </button>
                   <button>
                     <i class="fa-regular fa-circle-dot"></i>&ensp;Tất tần tật về
-                    IOS 16
+                    Spider Man
                   </button>
                   <button>
                     {" "}
-                    <i class="fa-regular fa-circle-dot"></i>&ensp;Thế giới đồng
-                    hồ
+                    <i class="fa-regular fa-circle-dot"></i>&ensp;Sự khác biệt
+                    giữa Marvel và DC
                   </button>
                   <button>
                     {" "}
-                    <i class="fa-regular fa-circle-dot"></i>&ensp;Samsung
-                    Unpacked 2022 có gì ?
+                    <i class="fa-regular fa-circle-dot"></i>&ensp;Chùm siêu anh
+                    hùng DC ra mắt năm 2022
                   </button>
                 </div>
                 <div className="chudegachduoi">THẢO LUẬN NHIỀU</div>
@@ -179,57 +191,73 @@ const Event = () => {
                     Trailer Thor: Love And Thunder Tiết Lộ Kẻ Sát Thần Đáng Sợ
                   </div>
                 </div>
-
                 <div className="chudexanh">EVocher</div>
-                <div className="fixanh">
-                  <img
-                    src="https://cdn.tgdd.vn/Files/2022/08/02/1452676/minigame-tim-hieu-the-he-gap-dot-pha-3_1280x720-300x200.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="title24hx">
-                  Nhập mã SPPMWG giảm 10% tối đa 100K khi thanh toán qua ví
-                  ShopeePay
+                <div className="thegioithieu24hx">
+                  <div className="item_thegioithieux">
+                    <img
+                      src="https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg"
+                      alt=""
+                    />
+                    <div>VNPAY-QR Tặng Deal Cực Cháy</div>
+                  </div>
+                  <div className="item_thegioithieux">
+                    <img
+                      src="https://cdn.galaxycine.vn/media/2022/10/5/300x450-gc_1664939520575.jpg"
+                      alt=""
+                    />
+                    <div>Tung Deal IELTS - Phê Cùng Bom Tấn</div>
+                  </div>
                 </div>
                 <div className="thegioithieu24h">
                   <div className="item_thegioithieu">
                     <img
-                      src="https://cdn.tgdd.vn/Files/2022/08/02/1452699/dien-thoai-vivo-giam-gia-1_1280x720-300x200.jpg"
+                      src="https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg"
+                      alt=""
+                    />
+                    <div>VNPAY-QR Tặng Deal Cực Cháy</div>
+                  </div>
+                  <div className="item_thegioithieu">
+                    <img
+                      src="https://cdn.galaxycine.vn/media/2022/10/5/300x450-gc_1664939520575.jpg"
+                      alt=""
+                    />
+                    <div>Tung Deal IELTS - Phê Cùng Bom Tấn</div>
+                  </div>
+                  <div className="item_thegioithieu">
+                    <img
+                      src="https://cdn.galaxycine.vn/media/2022/10/27/back2shool-digital-300x450-1663573378238_1666859670287.jpg"
+                      alt=""
+                    />
+                    <div>Fixgo Cinema - Back To School 2022</div>
+                  </div>
+                  <div className="item_thegioithieu">
+                    <img
+                      src="https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg"
                       alt=""
                     />
                     <div>
-                      Tất tần tật các mẫu smartphone Vivo tinh tế, sang trọng
-                      đang giảm giá cực ngon
+                      Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem phim
+                      tại hệ thống rạp Galaxy Cinema toàn quốc.
                     </div>
                   </div>
                   <div className="item_thegioithieu">
                     <img
-                      src="https://cdn.tgdd.vn/Files/2022/08/02/1452809/itelisw-41-501_1280x720-300x200.jpg"
+                      src="https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg"
                       alt=""
                     />
                     <div>
-                      Bạn còn nhớ Itel ISW-41 - mẫu smartwatch giá rẻ giảm sốc
-                      300K kèm quà ngon
+                      Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem phim
+                      tại hệ thống rạp Galaxy Cinema toàn quốc.
                     </div>
                   </div>
                   <div className="item_thegioithieu">
                     <img
-                      src="https://cdn.tgdd.vn/Files/2022/08/01/1452422/dien-thoai-samsung-doc-quyen-1_1280x720-300x200.jpg"
+                      src="https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg"
                       alt=""
                     />
                     <div>
-                      Smartphone độc quyền nhà Samsung giảm sốc tới nóc, SamFans
-                      tậu ngay đi
-                    </div>
-                  </div>
-                  <div className="item_thegioithieu">
-                    <img
-                      src="https://cdn.tgdd.vn/Files/2022/07/31/1452322/realme85g-281_1280x720-300x200.jpg"
-                      alt=""
-                    />
-                    <div>
-                      Điện thoại Realme 5G giá rẻ nhất đang có ưu đãi trả góp
-                      0%, sắm cực dễ dàng
+                      Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem phim
+                      tại hệ thống rạp Galaxy Cinema toàn quốc.
                     </div>
                   </div>
                 </div>
@@ -238,7 +266,10 @@ const Event = () => {
           </div>
         </div>
 
-        <div className="tag_movie">
+        <div
+          className="tag_movie"
+          style={{ marginTop: "10px", borderTop: "1px solid gray" }}
+        >
           <div className="title">Fixgo Cinema</div>
           <div>
             <br />
@@ -284,4 +315,4 @@ const Event = () => {
   );
 };
 
-export default Event;
+export default News;
