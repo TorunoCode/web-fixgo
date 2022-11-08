@@ -25,7 +25,6 @@ const Home = () => {
         </div>
         <div className="tag_movie">
           <div className="title">Comming Soon</div>
-          {listMovie.length > 0 && <ListMovie list={listMovie} />}
         </div>
         <div className="tag_movie">
           <div className="title">Movie Blog</div>
