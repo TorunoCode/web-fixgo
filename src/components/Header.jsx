@@ -12,6 +12,7 @@ import axios from "axios";
 import Marquee from "react-fast-marquee";
 
 const Header = () => {
+  // xử lí lấy 2 chữ cuối trong name .split(' ').slice(-2).join(' ')
   const [openModal, setOpenModal] = useState(false);
   const [afterlogin, setAfterLogin] = useState(false);
   const user = useSelector((state) => state.auth.login?.currentUser);
@@ -168,7 +169,10 @@ const Header = () => {
                 alt=""
                 className="avt_user"
               />
-              &nbsp;{user.data.name}
+              &nbsp;
+              {(user.data.fullname &&
+                user.data.fullname.split(" ").slice(-2).join(" ")) ||
+                user.data.name}
             </button>
           ) : (
             <button

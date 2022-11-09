@@ -14,7 +14,6 @@ const MyProfile = () => {
   // const [password, setPassword] = useState();
   const [fullname, setFullname] = useState("No data");
   const [phone, setPhone] = useState("No data");
-  const [dateupdate, setDateUpdate] = useState("");
   const [avatar, setAvatar] = useState(user.data.avatar);
   const [gender, setGender] = useState("No data");
   // const [dateofBbirth, setDateofBirth] = useState("01-01-2001");
@@ -22,24 +21,26 @@ const MyProfile = () => {
     "I’m everything you ever want to be but can’t have or be."
   );
 
-  // post feedback
-  const handleEdit = async () => {
+  // post edit profile
+  const handleEdit = async (e) => {
+    e.preventDefault();
     // setOpenModal(false);
-    const newPost = {
+    const newEdit = {
       _id: user.data._id,
-      profile: biography,
+      biography: biography,
+      avatar: avatar,
+      gender: gender,
+      phone: phone,
     };
-    // tạo view feedback giả chứ thật ra render lại mới get lại listfeedback
-    // dispatch(createPostFeedback(newPost));
-    // try {
-    //   await axios.post(
-    //     `https://backend-boo.herokuapp.com/api/commentsFeedback/add_feedback`,
-    //     newPost
-    //   );
-    //   toast.success("Add feedback success !", { autoClose: 2000 });
-    // } catch (err) {
-    //   toast.error("Failed to add feedback!", { autoClose: 2000 });
-    // }
+    try {
+      await axios.post(
+        `https://backend-boo.herokuapp.com/api/user/update`,
+        newEdit
+      );
+      toast.success("Edit success !", { autoClose: 2000 });
+    } catch (err) {
+      toast.error("Failed to edit!", { autoClose: 2000 });
+    }
     await handleEdit();
   };
   // useEffect(() => {
@@ -77,7 +78,7 @@ const MyProfile = () => {
 
         <div className="text">Form edit profile</div>
 
-        <form action="" className="form_edit">
+        <form action="" className="form_edit" onSubmit={handleEdit}>
           <div className="main_form">
             <InputFields
               label="Full name: "
@@ -104,6 +105,7 @@ const MyProfile = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };

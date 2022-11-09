@@ -76,7 +76,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
       console.log(error);
     }
   };
-  console.log(idMovie);
+  console.log(listFeedback);
   // stars
   const handleClick = (value) => {
     setCurrentValue(value);

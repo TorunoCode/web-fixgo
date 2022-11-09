@@ -1,0 +1,204 @@
+.mainVocher {
+  width: 1200px;
+  margin: auto;
+  font-family: "Lexend", sans-serif;
+  .fixfont-family {
+    display: flex;
+    column-gap: 20px;
+    font-family: auto;
+    .mainVocher_right {
+      width: 880px;
+    }
+    .title_Vocher {
+      padding: 10px 0px;
+      display: block;
+      overflow: hidden;
+      font-size: 20px;
+      color: orange;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 24px;
+    }
+    .item_posts {
+      width: 280px;
+      overflow: hidden;
+      border-radius: 12px;
+      position: relative;
+      background: #f4f4f4;
+      border: 1px solid orange;
+      box-shadow: 0 0 3px orange;
+
+      &:hover {
+        box-shadow: 0 0 10px orange;
+      }
+    }
+    .item_posts img {
+      cursor: pointer;
+      width: 279px;
+      margin: auto;
+    }
+
+    .imgtitle {
+      display: flex;
+    }
+    .imgtitle img {
+      width: 40px;
+      height: 40px;
+      margin: 10px;
+    }
+    .title_itemx {
+      cursor: pointer;
+      margin-top: 10px;
+      color: #333;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .title_item {
+      cursor: pointer;
+      margin-top: 10px;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .cucduoititle {
+      padding-top: 3px;
+      display: flex;
+      column-gap: 5px;
+    }
+    .cucduoititle div {
+      border-radius: 4px;
+      padding: 3px 5px;
+
+      font-size: 10px;
+    }
+    .cucxanh {
+      background: green;
+      color: white;
+    }
+    .cucxam {
+      color: #666;
+    }
+    .item_posts ul {
+      list-style-type: disc !important;
+      display: block;
+      overflow: hidden;
+      padding: 10px 0px 5px 15px;
+    }
+    .item_posts ul li {
+      color: orange;
+      font-size: 13px;
+      padding: 0 0 10px;
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .item_posts ul li:hover {
+      font-size: 13.2px;
+    }
+    .viewgamenoibat {
+      padding: 0 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .vocher_nentang {
+      box-shadow: 0 0 5px orange;
+      margin: 10px;
+      padding-left: 10px;
+      padding-bottom: 10px;
+      display: grid;
+      border-radius: 10px;
+      background: #f4f4f4;
+      .menu_nentang ul {
+        margin-left: 80px;
+        li {
+          border: 1px solid orange;
+          border-radius: 5px;
+          color: orange;
+          cursor: pointer;
+          display: block;
+          float: left;
+          font-size: 14px;
+          margin-left: 10px;
+          margin-right: 9px;
+          padding: 10px 15px;
+          text-align: center;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .list_anh {
+      padding-top: 40px;
+      display: grid;
+      row-gap: 5px;
+      padding-bottom: 10px;
+    }
+    .list_anh img {
+      cursor: pointer;
+      width: 299px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin: auto;
+    }
+    .list_anh img:hover {
+      width: 300px;
+    }
+    .item_app {
+      display: grid;
+    }
+    .item_app .imgtitle {
+      padding-bottom: 5px;
+      border-top: 1px solid #dfdfdf;
+      border-bottom: 1px solid #dfdfdf;
+      border-left: 2px solid #dfdfdf;
+      border-right: 2px solid #dfdfdf;
+      border-radius: 5px;
+    }
+    .item_app .imgtitle img {
+      cursor: pointer;
+    }
+    .item_app .imgtitle .imgtitle_right .title_item:hover {
+      color: orange;
+      font-size: 14.2px;
+    }
+    .thecach {
+      height: 10px;
+    }
+    .thethaoluannhieux {
+      display: flex;
+    }
+    .sox {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      color: #999;
+      background: #f4f4f4;
+      padding: 0 12px;
+      height: 35px;
+      line-height: 37px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .noidungsox {
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .noidungsox:hover {
+      font-size: 13.1px;
+    }
+    .title_Vocherx {
+      padding: 20px 0px 10px 0px;
+      display: block;
+      overflow: hidden;
+      font-size: 18px;
+      color: orange;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 24px;
+    }
+  }
+}
