@@ -95,7 +95,7 @@ const Booking = ({ idMovie, nameMovie }) => {
             <div className="row">
               <div className="label">Cinema:</div>{" "}
               <select id="cinema" onChange={(e) => setIdCinema(e.target.value)}>
-                <option value="">-- Select Cinema --</option>
+                <option value=""> -- Select Cinema --</option>
                 {cinema?.map((items, index) => (
                   <option key={index} value={items._id}>
                     {items.name}
@@ -145,6 +145,16 @@ const Booking = ({ idMovie, nameMovie }) => {
           </div>
           <div className="screen"></div>
           <div className="importpicker">
+            {/* {seat?.map((items, index) => (
+              <SeatPicker
+                addSeatCallback={addSeatCallback}
+                removeSeatCallback={removeSeatCallback}
+                rows={items}
+                alpha
+                maxReservableSeats={10}
+                visible
+              />
+            ))} */}
             {seat.length !== 0 ? (
               <SeatPicker
                 addSeatCallback={addSeatCallback}

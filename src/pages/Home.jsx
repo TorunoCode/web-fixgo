@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../sass/pages/home.scss";
 import ListMovie from "../components/ListMovies";
 import axios from "axios";
+import VocherHome from "../components/subcomponents/VocherHome";
 
 const Home = () => {
   const [listMovie, setListMovie] = useState([]);
@@ -31,6 +32,7 @@ const Home = () => {
         </div>
         <div className="tag_movie">
           <div className="title">Promotion news</div>
+          <VocherHome />
         </div>
       </div>
     </div>

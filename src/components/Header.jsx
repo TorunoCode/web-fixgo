@@ -170,8 +170,10 @@ const Header = () => {
                 className="avt_user"
               />
               &nbsp;
-              {(user.data.fullname &&
-                user.data.fullname.split(" ").slice(-2).join(" ")) ||
+              {(user.data.fullName &&
+                (user.data.fullName.length > 14
+                  ? user.data.fullName.split(" ").slice(-2).join(" ")
+                  : user.data.fullName)) ||
                 user.data.name}
             </button>
           ) : (

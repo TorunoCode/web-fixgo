@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/components/subcomponents/vocher.scss";
+import "../../sass/components/subcomponents/vocherHome.scss";
 import { dataVocher } from "./Datafake";
 
 function ItemPosts({ item }) {
@@ -43,20 +43,20 @@ function ItemApp({ item }) {
     </div>
   );
 }
-const Vocher = () => {
+const VocherHome = () => {
   return (
     <div>
-      <div className="mainVocher">
+      <div className="mainVocherHome">
         <div className="fixfont-family">
           <div className="mainVocher_right">
-            <div className="title_Vocher">New promotion</div>
+            {/* <div className="title_Vocher">New promotion</div> */}
             <div className="viewgamenoibat">
               {dataVocher.map((item, index) => (
                 <ItemPosts key={index} item={item} />
               ))}
             </div>
 
-            <div className="vocher_nentang">
+            {/* <div className="vocher_nentang">
               <div className="title_Vocher">Website Fixgo on platform</div>
               <div className="menu_nentang">
                 <ul>
@@ -78,7 +78,7 @@ const Vocher = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="mainVocher_left">
             <div className="list_anh">
@@ -92,7 +92,7 @@ const Vocher = () => {
                 alt=""
               />
             </div>
-            <div className="title_Vocher">Phim xem nhiều</div>
+            {/* <div className="title_Vocher">Phim xem nhiều</div>
             <div className="item_app">
               {dataVocher.map((item, index) => (
                 <ItemApp key={index} item={item} />
@@ -128,7 +128,7 @@ const Vocher = () => {
                   thể nghe gọi trực tiếp
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="thecach"></div>
@@ -137,4 +137,4 @@ const Vocher = () => {
   );
 };
 
-export default Vocher;
+export default VocherHome;

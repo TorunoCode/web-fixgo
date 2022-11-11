@@ -12,13 +12,14 @@ import axios from "axios";
 const MyProfile = () => {
   const user = useSelector((state) => state.auth.login?.currentUser);
   // const [password, setPassword] = useState();
-  const [fullname, setFullname] = useState("No data");
-  const [phone, setPhone] = useState("No data");
-  const [avatar, setAvatar] = useState(user.data.avatar);
-  const [gender, setGender] = useState("No data");
+  const [fullname, setFullname] = useState(user?.data.fullName || "No data");
+  const [phone, setPhone] = useState(user?.data.phone || "No data");
+  const [avatar, setAvatar] = useState(user?.data.avatar || "Default");
+  const [gender, setGender] = useState(user?.data.gender || "No data");
   // const [dateofBbirth, setDateofBirth] = useState("01-01-2001");
   const [biography, setBiography] = useState(
-    "I’m everything you ever want to be but can’t have or be."
+    user?.data.biography ||
+      "I’m everything you ever want to be but can’t have or be."
   );
 
   // post edit profile
@@ -31,6 +32,7 @@ const MyProfile = () => {
       avatar: avatar,
       gender: gender,
       phone: phone,
+      fullName: fullname,
     };
     try {
       await axios.post(
@@ -58,12 +60,14 @@ const MyProfile = () => {
           />
         </div>
         <div className="row_mid">
-          <div className="name">{user?.data.fullname || user?.data.name}</div>
+          <div className="name">{user?.data.fullName || user?.data.name}</div>
           <div className="biography">{user?.data.biography || biography}</div>
         </div>
         <div className="text">Info default</div>
 
         <div className="default_main">
+          <div className="left">User:</div>
+          <div className="default">{user?.data.name}</div>
           <div className="left">Email:</div>
           <div className="default">{user?.data.email}</div>
           <div className="left">Account creation date:</div>
@@ -91,11 +95,7 @@ const MyProfile = () => {
               data={biography}
               setData={setBiography}
             />
-            <InputFields
-              label="Gender:"
-              data={user?.data.gender}
-              setData={setGender}
-            />
+            <InputFields label="Gender:" data={gender} setData={setGender} />
             <InputFields
               label="Link avatar:"
               data={user?.data.avatar}

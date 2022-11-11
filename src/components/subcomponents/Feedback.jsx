@@ -65,7 +65,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
   useEffect(() => {
     fetchFeedbacks();
   }, [idMovie]);
-
+  console.log(idMovie);
   const fetchFeedbacks = async () => {
     try {
       const { data } = await axios.get(
@@ -112,18 +112,20 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
             return (
               <div className="item_postFeedback" key={index}>
                 <Link
-                  to="/MyProfile"
+                  to=""
                   className="row_1"
                   style={{ textDecoration: "none" }}
                 >
                   <div className="col1">
                     <img
-                      src={user?.data.avatar || AvtDefault}
+                      src={item.avatar || AvtDefault}
                       alt=""
                       className="avt_user"
                     ></img>
                     &ensp;
-                    <div className="name_user">{item.userName}</div>
+                    <div className="name_user">
+                      {item.fullName || item.userName}
+                    </div>
                   </div>
                   <div className="time_col2">
                     {format(item.orgirnCreatedAt)}
