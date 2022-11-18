@@ -35,8 +35,7 @@ Chức năng chính
 
 ## Chức năng build dang dở chờ xử lí
 
-- đặt chổ ngồi
-- myprofile, booking history
+- booking history
 
 # Các giao diện
 
@@ -59,10 +58,21 @@ Chức năng chính
 
 ## Page Booking history
 
-## Page movie: ở đây sẽ fillter phim theo thể loại này kia
+- lịch sử mà user đã đặt vé
+
+## Page movie
+
+- fillter phim theo thể loại này kia
 
 //// Chức năng tương lai
 
 - làm thêm quên mật khẩu ( gửi mail SendGrip )
 - Tri ân khách hàng
 - nạp tiền vào tài khoản từ ví momo
+
+## BE cần
+
+- hiện tên ghế ngồi thay vì id ghế
+- làm api booking history cho user
+- thêm movie thêm field để phân loại (năm phát hành, đất nước, phim đang chiếu, phim sắp chiếu, phim hot tháng vừa qua)
+- xây dựng voucher giảm giá, bắp nước khi đặt vé
