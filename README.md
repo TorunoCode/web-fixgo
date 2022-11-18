@@ -1,14 +1,18 @@
+## Lỗi vặt
+
+- menu click khi vào myprofile, booking history
+- render seat khi thay đổi section
+- name voucher k phải vocher
+- render page detail để cập nhật rate khi vừa feedback xong
+
 ## Hiện tại đang làm
 
-- Thanh toán ( tại quầy và online )
 - Lịch sử đặt vé
 
 ## Cần làm
 
-- javascript book chổ ngồi
-- Xử lí feedback gồm comment và start click rate
-- edit formmodal để use chung cho account vs rating
 - fillter movie chỉnh lại dạng khác select
+- thêm page support
 
 ## Chức năng đã xong
 
@@ -26,6 +30,8 @@ Chức năng chính
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 - Search movie theo name, cast
 - Feedback
+- Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
+- Thanh toán paypal
 
 ## Chức năng build dang dở chờ xử lí
 
@@ -57,5 +63,6 @@ Chức năng chính
 
 //// Chức năng tương lai
 
-- làm thêm quên mật khẩu ( gửi mail SendGrip)
+- làm thêm quên mật khẩu ( gửi mail SendGrip )
 - Tri ân khách hàng
+- nạp tiền vào tài khoản từ ví momo

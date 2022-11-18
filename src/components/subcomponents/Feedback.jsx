@@ -111,11 +111,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
           .map((item, index) => {
             return (
               <div className="item_postFeedback" key={index}>
-                <Link
-                  to=""
-                  className="row_1"
-                  style={{ textDecoration: "none" }}
-                >
+                <div className="row_1">
                   <div className="col1">
                     <img
                       src={item.avatar || AvtDefault}
@@ -130,7 +126,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
                   <div className="time_col2">
                     {format(item.orgirnCreatedAt)}
                   </div>
-                </Link>
+                </div>
                 <div className="rate">
                   <b>Rate:</b> {item.rate}/10
                 </div>

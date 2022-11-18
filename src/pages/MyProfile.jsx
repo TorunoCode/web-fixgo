@@ -53,11 +53,7 @@ const MyProfile = () => {
       <div className="main">
         <div className="image">
           <img src={BackgroundDefault} alt="" className="background" />
-          <img
-            src={user?.data.avatar || AvtDefault}
-            alt=""
-            className="avt_user"
-          />
+          <img src={avatar || AvtDefault} alt="" className="avt_user" />
         </div>
         <div className="row_mid">
           <div className="name">{user?.data.fullName || user?.data.name}</div>
@@ -98,7 +94,7 @@ const MyProfile = () => {
             <InputFields label="Gender:" data={gender} setData={setGender} />
             <InputFields
               label="Link avatar:"
-              data={user?.data.avatar}
+              data={avatar}
               setData={setAvatar}
             />
             <button className="btnEdit">Edit now</button>

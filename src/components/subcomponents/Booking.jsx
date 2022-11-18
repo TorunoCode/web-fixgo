@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../../sass/components/subcomponents/booking.scss";
-// @ts-ignoreaaa
+import { useSelector } from "react-redux";
 import SeatPicker from "./react-seat-picker/dist/index";
 import axios from "axios";
-// ngon lành cành trúc khế lun
+// Toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
+
 const Booking = ({ idMovie, nameMovie }) => {
   const [payment, setPayment] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -20,13 +24,18 @@ const Booking = ({ idMovie, nameMovie }) => {
   const [seat, setSeat] = useState([]);
 
   const [selected, setSelected] = useState([]);
+  const [idselected, setIdSelected] = useState([]);
 
   const addSeatCallback = ({ row, number, id }, addCb) => {
     setSelected((prevItems) => [...prevItems, number]);
+    setIdSelected((prevItems) => [...prevItems, id]);
+
     // const newTooltip = `Cancel seat ${number}`;
     addCb(row, number, id);
   };
   console.log(selected);
+  console.log(idselected);
+
   const removeSeatCallback = ({ row, number, id }, removeCb) => {
     setSelected((list) => list.filter((item) => item !== number));
     removeCb(row, number);
@@ -40,6 +49,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep1/${idMovie}`
       );
+      setSeat(null);
       await setCinema(data);
     };
     fetchCinema();
@@ -52,6 +62,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep2/${idMovie}/${idcinema}`
       );
+      setSeat(null);
       await setDate(data);
     };
     fetchDate();
@@ -64,6 +75,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
       );
+      setSeat(null);
       await setSesscion(data);
     };
     fetchSesscion();
@@ -81,15 +93,32 @@ const Booking = ({ idMovie, nameMovie }) => {
     fetchSeat();
   }, [idsesscion]);
   console.log(seat);
-  const handleBooking = () => {};
+  // post booking
 
+  const user = useSelector((state) => state.auth.login?.currentUser);
+  const handleBooking = async () => {
+    setOpenModal(false);
+    const bookSeat = {
+      idShowing: seat.idShowing,
+      data: idselected,
+    };
+    await axios.post(
+      `https://backend-boo.herokuapp.com/api/movies/booking/add/${user.data._id}`,
+      bookSeat
+    );
+  };
+  const newPage = () => {
+    window.open(
+      `https://backend-boo.herokuapp.com/api/paypal/pay/${user.data._id}`
+    );
+  };
   return (
     <div>
       <div className="selectMovie">
         <div className="col-1">
           <div>
             <div className="row">
-              <div className="label"> Movie:</div>
+              <div className="label">Movie:</div>
               <div style={{ color: "orange" }}> {nameMovie}</div>
             </div>
             <div className="row">
@@ -145,29 +174,20 @@ const Booking = ({ idMovie, nameMovie }) => {
           </div>
           <div className="screen"></div>
           <div className="importpicker">
-            {/* {seat?.map((items, index) => (
-              <SeatPicker
-                addSeatCallback={addSeatCallback}
-                removeSeatCallback={removeSeatCallback}
-                rows={items}
-                alpha
-                maxReservableSeats={10}
-                visible
-              />
-            ))} */}
-            {seat.length !== 0 ? (
-              <SeatPicker
-                addSeatCallback={addSeatCallback}
-                removeSeatCallback={removeSeatCallback}
-                rows={seat}
-                alpha
-                maxReservableSeats={10}
-                visible
-              />
-            ) : null}
+            {seat &&
+              (seat?.length !== 0 ? (
+                <SeatPicker
+                  addSeatCallback={addSeatCallback}
+                  removeSeatCallback={removeSeatCallback}
+                  rows={seat.data}
+                  alpha
+                  maxReservableSeats={10}
+                  visible
+                />
+              ) : null)}
           </div>
         </div>
-        {selected.length !== 0 ? (
+        {selected?.length !== 0 ? (
           <div className="col-3">
             You selected <span id="count">{selected.length}</span> /10 seats
             <br />
@@ -186,13 +206,17 @@ const Booking = ({ idMovie, nameMovie }) => {
                 </button>
                 <br />
                 <button onClick={handleBooking}>
-                  <i className="fa-regular fa-hand-point-right"></i> With PayPal
+                  <div onClick={newPage}>
+                    <i className="fa-regular fa-hand-point-right"></i> With
+                    PayPal
+                  </div>
                 </button>
               </div>
             )}
           </div>
         ) : null}
       </div>
+      <ToastContainer />
     </div>
   );
 };
