@@ -12,6 +12,8 @@ const Booking = ({ idMovie, nameMovie }) => {
   const [payment, setPayment] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [cinema, setCinema] = useState([]);
   const [idcinema, setIdCinema] = useState("");
 
@@ -33,8 +35,8 @@ const Booking = ({ idMovie, nameMovie }) => {
     // const newTooltip = `Cancel seat ${number}`;
     addCb(row, number, id);
   };
-  console.log(selected);
-  console.log(idselected);
+  // console.log(selected);
+  // console.log(idselected);
 
   const removeSeatCallback = ({ row, number, id }, removeCb) => {
     setSelected((list) => list.filter((item) => item !== number));
@@ -49,7 +51,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep1/${idMovie}`
       );
-      setSeat(null);
+      await setSeat(null);
       await setCinema(data);
     };
     fetchCinema();
@@ -62,7 +64,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep2/${idMovie}/${idcinema}`
       );
-      setSeat(null);
+      await setSeat(null);
       await setDate(data);
     };
     fetchDate();
@@ -75,7 +77,7 @@ const Booking = ({ idMovie, nameMovie }) => {
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
       );
-      setSeat(null);
+      await setSeat(null);
       await setSesscion(data);
     };
     fetchSesscion();
@@ -85,10 +87,12 @@ const Booking = ({ idMovie, nameMovie }) => {
   // call api Seat
   useEffect(() => {
     const fetchSeat = async () => {
+      setIsLoading(true);
       const { data } = await axios.get(
         `https://backend-boo.herokuapp.com/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
       );
       await setSeat(data);
+      await setIsLoading(false);
     };
     fetchSeat();
   }, [idsesscion]);
@@ -134,7 +138,12 @@ const Booking = ({ idMovie, nameMovie }) => {
             </div>
             <div className="row">
               <div className="label">Date:</div>
-              <select id="date" onChange={(e) => setIdDate(e.target.value)}>
+              <select
+                id="date"
+                onChange={(e) => {
+                  setIdDate(e.target.value);
+                }}
+              >
                 <option value="">-- Select Date --</option>
                 {date?.map((items, index) => (
                   <option key={index} value={items}>
@@ -182,6 +191,7 @@ const Booking = ({ idMovie, nameMovie }) => {
                   rows={seat.data}
                   alpha
                   maxReservableSeats={10}
+                  loading={isLoading}
                   visible
                 />
               ) : null)}

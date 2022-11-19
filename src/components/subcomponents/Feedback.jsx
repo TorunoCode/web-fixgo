@@ -76,7 +76,7 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
       console.log(error);
     }
   };
-  console.log(listFeedback);
+  console.log("listfeedback", listFeedback);
   // stars
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -95,7 +95,8 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
       <section className="feedback">
         <div className="title_name">Feedback</div>
         <div className="total_rate">
-          <b>Total:</b> {listFeedback ? listFeedback?.length - 1 : <>0</>}{" "}
+          <b>Total:</b>{" "}
+          {listFeedback.length !== 0 ? listFeedback?.length - 1 : <>0</>}{" "}
           feedback
           <div className="rate">
             <StarRating rating={rate} />
