@@ -10,7 +10,7 @@ const StarRating = ({ rating }) => {
   const starRating = useRef();
   starRating.current = starPercentageRounded;
 
-  console.log("star: " + starRating.current);
+  // console.log("star: " + starRating.current);
 
   return (
     <div className="star-outer">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
+import { loginUser } from "../redux/apiRequest";
 import "../sass/pages/myprofile.scss";
 import InputFields from "../components/subcomponents/InputFields";
 import AvtDefault from "../assets/images/avt_user_default.png";
@@ -45,9 +46,9 @@ const MyProfile = () => {
     }
     await handleEdit();
   };
-  // useEffect(() => {
-  //   handleEdit();
-  // }, [x]);
+  useEffect(() => {
+    loginUser();
+  }, [user?.data]);
   return (
     <div className="container_myprofile">
       <div className="main">

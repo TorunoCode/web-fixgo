@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useSelector } from "react-redux";
 import "../sass/pages/bookingHistory.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
@@ -6,10 +7,12 @@ import axios from "axios";
 const BookingHistory = () => {
   const [data, setData] = useState([]);
   const [pageSize, setPageSize] = useState(5);
+  const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
+  console.log(idUser);
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get(
-        "https://backend-boo.herokuapp.com/api/movies"
+        `https://backend-boo.herokuapp.com/api/movies/historyBooking/${idUser}`
       );
       setData(data);
     };
@@ -18,16 +21,20 @@ const BookingHistory = () => {
   console.log(data);
   const columns = useMemo(
     () => [
-      { field: "_id", headerName: "ID", width: 200 },
-      { field: "name", headerName: "NAME", width: 240 },
-      { field: "genre", headerName: "CATEGORY", width: 160 },
-      {
-        field: "isActive",
-        headerName: "Active",
-        width: 100,
-        type: "boolean",
-        // edittable: true,
-      },
+      { field: "idBill", headerName: "ID", width: 200 },
+      { field: "movie", headerName: "NAME", width: 240 },
+      { field: "cinema", headerName: "CINEMA", width: 160 },
+      { field: "date", headerName: "DATE", width: 160 },
+      { field: "session", headerName: "SESSION", width: 160 },
+      { field: "listItem", headerName: "SEAT", width: 160 },
+      { field: "createDate", headerName: "CREATE", width: 160 },
+      // {
+      //   field: "isActive",
+      //   headerName: "Active",
+      //   width: 100,
+      //   type: "boolean",
+      //   // edittable: true,
+      // },
     ],
     []
   );
@@ -58,7 +65,7 @@ const BookingHistory = () => {
         >
           <DataGrid
             rows={data}
-            getRowId={(row) => row._id}
+            getRowId={(row) => row.idBill}
             columns={columns}
             rowsPerPageOptions={[5, 10, 20]}
             pageSize={pageSize}

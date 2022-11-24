@@ -111,11 +111,15 @@ const Booking = ({ idMovie, nameMovie }) => {
       bookSeat
     );
   };
-  const newPage = () => {
+  const open = () => {
     window.open(
       `https://backend-boo.herokuapp.com/api/paypal/pay/${user.data._id}`
     );
   };
+  const newPage = () => {
+    setTimeout(open, 1500);
+  };
+
   return (
     <div>
       <div className="selectMovie">

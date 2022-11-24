@@ -18,7 +18,13 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const Feedback = ({ idMovie, rate, nameMovie }) => {
+const Feedback = ({
+  idMovie,
+  rate,
+  nameMovie,
+  listFeedback,
+  setListFeedback,
+}) => {
   // const post = useSelector((state) => state.postFeedback.postFeedbacks);
   const user = useSelector((state) => state.auth.login?.currentUser);
   const [openModal, setOpenModal] = useState(false);
@@ -27,7 +33,6 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
   const [currentValue, setCurrentValue] = useState(0);
 
   const [hoverValue, setHoverValue] = useState(undefined);
-  const [listFeedback, setListFeedback] = useState([]);
 
   const stars = Array(10).fill(0);
   const handleBtnReview = () => {
@@ -105,37 +110,31 @@ const Feedback = ({ idMovie, rate, nameMovie }) => {
           </div>
           <div className="line_gray"></div>
         </div>
-        {listFeedback
-          ?.reverse()
-          .slice(1)
-          .reverse()
-          .map((item, index) => {
-            return (
-              <div className="item_postFeedback" key={index}>
-                <div className="row_1">
-                  <div className="col1">
-                    <img
-                      src={item.avatar || AvtDefault}
-                      alt=""
-                      className="avt_user"
-                    ></img>
-                    &ensp;
-                    <div className="name_user">
-                      {item.fullName || item.userName}
-                    </div>
-                  </div>
-                  <div className="time_col2">
-                    {format(item.orgirnCreatedAt)}
+        {listFeedback?.slice(0, -1).map((item, index) => {
+          return (
+            <div className="item_postFeedback" key={index}>
+              <div className="row_1">
+                <div className="col1">
+                  <img
+                    src={item.avatar || AvtDefault}
+                    alt=""
+                    className="avt_user"
+                  ></img>
+                  &ensp;
+                  <div className="name_user">
+                    {item.fullName || item.userName}
                   </div>
                 </div>
-                <div className="rate">
-                  <b>Rate:</b> {item.rate}/10
-                </div>
-                <div className="content_feedback">{item.detail}</div>
-                <div className="line"></div>
+                <div className="time_col2">{format(item.orgirnCreatedAt)}</div>
               </div>
-            );
-          })}
+              <div className="rate">
+                <b>Rate:</b> {item.rate}/10
+              </div>
+              <div className="content_feedback">{item.detail}</div>
+              <div className="line"></div>
+            </div>
+          );
+        })}
 
         <button className="btn_review" onClick={handleBtnReview}>
           Add Review

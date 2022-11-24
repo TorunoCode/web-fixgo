@@ -11,6 +11,8 @@ const MovieDetail = () => {
   // const [payment, setPayment] = useState(false);
   // call lấy data movie detail theo id
   const [movie, setMovie] = useState([]);
+  // render khi có listfeedback
+  const [listFeedback, setListFeedback] = useState([]);
   const { name } = useParams();
   useEffect(() => {
     const fetchMovie = async () => {
@@ -20,9 +22,8 @@ const MovieDetail = () => {
       setMovie(data);
     };
     fetchMovie();
-  }, [name]);
-  console.log(movie);
-  console.log(typeof movie.releaseTime);
+  }, [name, listFeedback]);
+
   return (
     // bấm thả xuống description
     <div className="detail">
@@ -79,6 +80,8 @@ const MovieDetail = () => {
         <Booking idMovie={movie._id} nameMovie={movie.name} />
         <div className="title">Feedback</div>
         <Feedback
+          listFeedback={listFeedback}
+          setListFeedback={setListFeedback}
           idMovie={movie._id}
           rate={movie.rate}
           nameMovie={movie.name}

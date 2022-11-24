@@ -69,6 +69,7 @@ const Movie = () => {
             <label htmlFor="">Rate:&nbsp;</label>
             <select className="select" onChange={handleSort}>
               {/* <option value="Default">Default</option> */}
+              <option value="">Default</option>
               <option value="increase">Low to high</option>
               <option value="decrease">High to low</option>
             </select>
