@@ -12,7 +12,7 @@ export const loginUser = async (user, dispatch, toast) => {
   dispatch(loginStart());
   try {
     const res = await axios.post(
-      "https://backend-boo.herokuapp.com/api/user/login",
+      "https://backend-boo.vercel.app/api/user/login",
       user
     );
     toast.success("Login success!", { autoClose: 2000 });
@@ -27,7 +27,7 @@ export const registerUser = async (user, dispatch, toast) => {
   dispatch(registerStart());
   try {
     const res = await axios.post(
-      "https://backend-boo.herokuapp.com/api/user/signUp",
+      "https://backend-boo.vercel.app/api/user/signUp",
       user
     );
     dispatch(registerSuccess(res.data));

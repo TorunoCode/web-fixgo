@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "../sass/pages/home.scss";
 import ListMovie from "../components/ListMovies";
 import axios from "axios";
-import VocherHome from "../components/subcomponents/VocherHome";
+import VoucherHome from "../components/subcomponents/VoucherHome";
 
 const Home = () => {
   const [listMovie, setListMovie] = useState([]);
   useEffect(() => {
     const fetchMovie = async () => {
-      let res = await axios.get("https://backend-boo.herokuapp.com/api/movies");
+      let res = await axios.get("https://backend-boo.vercel.app/api/movies");
       try {
         setListMovie(res?.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const Home = () => {
         </div>
         <div className="tag_movie">
           <div className="title">Promotion news</div>
-          <VocherHome />
+          <VoucherHome />
         </div>
       </div>
     </div>

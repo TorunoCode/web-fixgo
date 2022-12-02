@@ -12,7 +12,7 @@ const BookingHistory = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/movies/historyBooking/${idUser}`
+        `https://backend-boo.vercel.app/api/movies/historyBooking/${idUser}`
       );
       setData(data);
     };
@@ -21,41 +21,24 @@ const BookingHistory = () => {
   console.log(data);
   const columns = useMemo(
     () => [
-      { field: "idBill", headerName: "ID", width: 200 },
-      { field: "movie", headerName: "NAME", width: 240 },
-      { field: "cinema", headerName: "CINEMA", width: 160 },
-      { field: "date", headerName: "DATE", width: 160 },
-      { field: "session", headerName: "SESSION", width: 160 },
-      { field: "listItem", headerName: "SEAT", width: 160 },
-      { field: "createDate", headerName: "CREATE", width: 160 },
-      // {
-      //   field: "isActive",
-      //   headerName: "Active",
-      //   width: 100,
-      //   type: "boolean",
-      //   // edittable: true,
-      // },
+      { field: "idBill", headerName: "ID", width: 100 },
+      { field: "movie", headerName: "MOVIE NAME", width: 200 },
+      { field: "cinema", headerName: "CINEMA", width: 150 },
+      { field: "date", headerName: "DATE", width: 100 },
+      { field: "session", headerName: "SESSION", width: 100 },
+      { field: "listItem", headerName: "SEAT", width: 200 },
+      { field: "createDate", headerName: "CREATE", width: 100 },
     ],
     []
   );
   return (
     <div className="container_bh">
       <div className="main">
-        <div className="title">Hi, Hàn Vân Tịch</div>
-        <div className="form_list">
-          <div className="row_1">Recent Booking History</div>
-          <div className="row_2">
-            <div className="text">Ticket ID</div>
-            <div className="text">Movie name</div>
-            <div className="text">Seat</div>
-            <div className="text">Departure</div>
-            <div className="text">Price</div>
-            <div className="text">Booked</div>
-          </div>
-        </div>
+        <div className="title">Recent Booking History</div>
         <div
           style={{
-            height: 500,
+            marginTop: 20,
+            marginBottom: 20,
             width: "100%",
             border: "1px solid gray",
             "box-shadow": "1px 1px 5px 0 gray",
@@ -64,6 +47,7 @@ const BookingHistory = () => {
           }}
         >
           <DataGrid
+            autoHeight
             rows={data}
             getRowId={(row) => row.idBill}
             columns={columns}

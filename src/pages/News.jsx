@@ -4,7 +4,7 @@ import {
   dataBlogMovie,
   dataHotMovie,
 } from "../components/subcomponents/Datafake";
-import Vocher from "../components/subcomponents/Vocher";
+import Voucher from "../components/subcomponents/Voucher";
 
 function ItemBlogMovie({ item }) {
   return (
@@ -79,7 +79,7 @@ const News = () => {
             </div>
             <div className="themain24h">
               {vocher ? (
-                <Vocher />
+                <Voucher />
               ) : (
                 <>
                   {" "}

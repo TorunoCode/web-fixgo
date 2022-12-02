@@ -37,7 +37,7 @@ const MyProfile = () => {
     };
     try {
       await axios.post(
-        `https://backend-boo.herokuapp.com/api/user/update`,
+        `https://backend-boo.vercel.app/api/user/update`,
         newEdit
       );
       toast.success("Edit success !", { autoClose: 2000 });

@@ -49,7 +49,7 @@ const Booking = ({ idMovie, nameMovie }) => {
   useEffect(() => {
     const fetchCinema = async () => {
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/movies/findMovieStep1/${idMovie}`
+        `https://backend-boo.vercel.app/api/movies/findMovieStep1/${idMovie}`
       );
       await setSeat(null);
       await setCinema(data);
@@ -62,7 +62,7 @@ const Booking = ({ idMovie, nameMovie }) => {
   useEffect(() => {
     const fetchDate = async () => {
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/movies/findMovieStep2/${idMovie}/${idcinema}`
+        `https://backend-boo.vercel.app/api/movies/findMovieStep2/${idMovie}/${idcinema}`
       );
       await setSeat(null);
       await setDate(data);
@@ -75,7 +75,7 @@ const Booking = ({ idMovie, nameMovie }) => {
   useEffect(() => {
     const fetchSesscion = async () => {
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
+        `https://backend-boo.vercel.app/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
       );
       await setSeat(null);
       await setSesscion(data);
@@ -89,7 +89,7 @@ const Booking = ({ idMovie, nameMovie }) => {
     const fetchSeat = async () => {
       setIsLoading(true);
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
+        `https://backend-boo.vercel.app/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
       );
       await setSeat(data);
       await setIsLoading(false);
@@ -107,13 +107,13 @@ const Booking = ({ idMovie, nameMovie }) => {
       data: idselected,
     };
     await axios.post(
-      `https://backend-boo.herokuapp.com/api/movies/booking/add/${user.data._id}`,
+      `https://backend-boo.vercel.app/api/movies/booking/add/${user.data._id}`,
       bookSeat
     );
   };
   const open = () => {
     window.open(
-      `https://backend-boo.herokuapp.com/api/paypal/pay/${user.data._id}`
+      `https://backend-boo.vercel.app/api/paypal/pay/${user.data._id}`
     );
   };
   const newPage = () => {

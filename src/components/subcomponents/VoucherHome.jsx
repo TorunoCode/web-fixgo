@@ -43,7 +43,7 @@ function ItemApp({ item }) {
     </div>
   );
 }
-const VocherHome = () => {
+const VoucherHome = () => {
   return (
     <div>
       <div className="mainVocherHome">
@@ -137,4 +137,4 @@ const VocherHome = () => {
   );
 };
 
-export default VocherHome;
+export default VoucherHome;

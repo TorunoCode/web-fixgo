@@ -57,7 +57,7 @@ const Feedback = ({
     // dispatch(createPostFeedback(newPost));
     try {
       await axios.post(
-        `https://backend-boo.herokuapp.com/api/commentsFeedback/add_feedback`,
+        `https://backend-boo.vercel.app/api/commentsFeedback/add_feedback`,
         newPost
       );
       toast.success("Add feedback success !", { autoClose: 2000 });
@@ -74,7 +74,7 @@ const Feedback = ({
   const fetchFeedbacks = async () => {
     try {
       const { data } = await axios.get(
-        `https://backend-boo.herokuapp.com/api/commentsFeedback/feedbacks/${idMovie}/0`
+        `https://backend-boo.vercel.app/api/commentsFeedback/feedbacks/${idMovie}/0`
       );
       setListFeedback(data);
     } catch (error) {

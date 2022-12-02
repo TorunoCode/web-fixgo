@@ -1,9 +1,7 @@
 ## Lỗi vặt
 
 - menu click khi vào myprofile, booking history
-- render seat khi thay đổi section
-- name voucher k phải vocher
-- render page detail để cập nhật rate khi vừa feedback xong
+- render booking còn 50%
 
 ## Hiện tại đang làm
 
