@@ -56,7 +56,8 @@ const Booking = ({ idMovie, nameMovie }) => {
     };
     fetchCinema();
   }, [idMovie]);
-  console.log("idcinema " + idcinema);
+  console.log(cinema);
+  // console.log("idcinema " + idcinema);
 
   // call api Date
   useEffect(() => {
@@ -69,7 +70,7 @@ const Booking = ({ idMovie, nameMovie }) => {
     };
     fetchDate();
   }, [idcinema]);
-  console.log("iddate " + iddate);
+  // console.log("iddate " + iddate);
 
   // call api Session
   useEffect(() => {
@@ -82,7 +83,7 @@ const Booking = ({ idMovie, nameMovie }) => {
     };
     fetchSesscion();
   }, [iddate]);
-  console.log("idsesscion: " + idsesscion);
+  // console.log("idsesscion: " + idsesscion);
 
   // call api Seat
   useEffect(() => {
@@ -96,7 +97,7 @@ const Booking = ({ idMovie, nameMovie }) => {
     };
     fetchSeat();
   }, [idsesscion]);
-  console.log(seat);
+  // console.log(seat);
   // post booking
 
   const user = useSelector((state) => state.auth.login?.currentUser);
@@ -119,7 +120,13 @@ const Booking = ({ idMovie, nameMovie }) => {
   const newPage = () => {
     setTimeout(open, 1500);
   };
-
+  const handleBtnBuy = () => {
+    if (user) {
+      setPayment(!payment);
+    } else {
+      toast.warning("Please login !");
+    }
+  };
   return (
     <div>
       <div className="selectMovie">
@@ -208,7 +215,7 @@ const Booking = ({ idMovie, nameMovie }) => {
             Seat: {selected.toString()}
             <br />
             Price: {totalprice}$ <br />
-            <button className="btPay" onClick={() => setPayment(!payment)}>
+            <button className="btPay" onClick={handleBtnBuy}>
               <i className="fa-solid fa-angles-right"></i> Buy Ticket
             </button>
             {payment && (
