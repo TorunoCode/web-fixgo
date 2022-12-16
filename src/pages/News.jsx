@@ -38,6 +38,7 @@ const News = () => {
   return (
     <div className="news">
       <div className="main">
+        <div className="noBE">No Backend</div>
         <div className="tag_movie">
           <div>
             <div className="menu24h">

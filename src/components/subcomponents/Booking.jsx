@@ -127,6 +127,9 @@ const Booking = ({ idMovie, nameMovie }) => {
       toast.warning("Please login !");
     }
   };
+  const handleUpdate = () => {
+    toast.warning("Update soon !");
+  };
   return (
     <div>
       <div className="selectMovie">
@@ -221,7 +224,7 @@ const Booking = ({ idMovie, nameMovie }) => {
             {payment && (
               <div className="optionpay">
                 <div>Select Payment Method</div>
-                <button>
+                <button onClick={handleUpdate}>
                   <i className="fa-regular fa-hand-point-right"></i> At checkout
                   counters
                 </button>
