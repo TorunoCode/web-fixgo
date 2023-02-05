@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 
 import { store, persistor } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const Layout = () => {
   return (
@@ -17,11 +16,6 @@ const Layout = () => {
         <BrowserRouter>
           <Header />
           <Routes />
-          <MessengerCustomerChat
-            pageId="<100089819840953>"
-            appId="<1620897148361329>"
-          />
-          ,
           <Footer />
         </BrowserRouter>
       </PersistGate>
