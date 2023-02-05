@@ -5,17 +5,13 @@ import "normalize.css";
 import "./assets/css/fontawesome-icons/css/all.min.css";
 import Layout from "./components/Layout";
 import reportWebVitals from "./reportWebVitals";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
 
-  <Layout />,
-  <MessengerCustomerChat
-    pageId="<100089819840953>"
-    appId="<1620897148361329>"
-  />
+  <Layout />
+
   // </React.StrictMode>
 );
 
