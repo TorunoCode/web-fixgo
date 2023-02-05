@@ -90,48 +90,42 @@ export const dataVocher = [
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/11/1/combo-u22-digital-300x450_1667285239633.jpg",
-    imgTitle:
-      "https://cdn.tgdd.vn/GameApp/2/276446/Screentshots/gunny-origin-song-lai-cam-giac-ga-game-ban-sung-toa-do-276446-logo-07-04-2022.png",
-    titlePost:
-      "Gunny Origin - Sống Lại Cảm Giác Gà: game bắn súng tọa độ Gunny",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
   {
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg",
-    imgTitle: "https://cdn.tgdd.vn/2022/01/GameApp/icon-200x200.jpg",
-    titlePost: "Vua Hải Tặc CMN - Tái hiện thế giới One Piece siêu chân thật",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
   {
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/11/4/glx-t11-1200x1800_1667571519490.jpg",
-    imgTitle:
-      "https://cdn.tgdd.vn/GameApp/3/249053/Screentshots/3q-cmn--choi-met-nghi-249053-logo-16-08-2021.png",
-    titlePost: "3Q CMN - Game thẻ tướng Tam Quốc thế hệ mới",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
   {
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/11/1/combo-u22-digital-300x450_1667285239633.jpg",
-    imgTitle:
-      "https://cdn.tgdd.vn/GameApp/2/276446/Screentshots/gunny-origin-song-lai-cam-giac-ga-game-ban-sung-toa-do-276446-logo-07-04-2022.png",
-    titlePost:
-      "Gunny Origin - Sống Lại Cảm Giác Gà: game bắn súng tọa độ Gunny",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
   {
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg",
-    imgTitle: "https://cdn.tgdd.vn/2022/01/GameApp/icon-200x200.jpg",
-    titlePost: "Vua Hải Tặc CMN - Tái hiện thế giới One Piece siêu chân thật",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
   {
     id: 1,
     imagePost:
       "https://cdn.galaxycine.vn/media/2022/11/4/glx-t11-1200x1800_1667571519490.jpg",
-    imgTitle:
-      "https://cdn.tgdd.vn/GameApp/3/249053/Screentshots/3q-cmn--choi-met-nghi-249053-logo-16-08-2021.png",
-    titlePost: "3Q CMN - Game thẻ tướng Tam Quốc thế hệ mới",
+    imgTitle: "https://cdn.tgdd.vn/2020/04/GameApp/image-180x180.png",
+    titlePost: "Vocher siêu hot - Bắp Nước Siêu Hạt Dẻ",
   },
 ];

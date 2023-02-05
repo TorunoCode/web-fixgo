@@ -11,38 +11,38 @@ function ItemPosts({ item }) {
         <div className="imgtitle_right">
           <div className="title_itemx">{item.titlePost}</div>
           <div className="cucduoititle">
-            <div className="cucxanh">Miễn phí</div>
-            <div className="cucxam">Nhập vai</div>
+            <div className="cucxanh">100% Free </div>
+            <div className="cucxam">Vip Level 2</div>
           </div>
         </div>
       </div>
       <ul>
         <li>
-          <i class="fa-regular fa-hand-point-right"></i>&nbsp;Tổng hợp 10 điện
-          thoại chơi Gunny Origin mượt mà, đáng mua nhất
+          <i class="fa-regular fa-hand-point-right"></i>&nbsp;Lưu mã ngay thôi
+          !!!
         </li>
         <li>
-          <i class="fa-regular fa-hand-point-right"></i>&nbsp;WOW và SUPER cái
-          nào ngon hơn trong Gunny Orgin? Top SUPER
+          <i class="fa-regular fa-hand-point-right"></i>&nbsp;Còn chần chừ gì
+          nữa @@ <br></br>Nhanh tay kẻo hết mã nào ae{" <33333 "}
         </li>
       </ul>
     </div>
   );
 }
-function ItemApp({ item }) {
-  return (
-    <div className="imgtitle">
-      <img src={item.imgTitle} alt="" />
-      <div className="imgtitle_right">
-        <div className="title_item">{item.titlePost}</div>
-        <div className="cucduoititle">
-          <div className="cucxanh">Miễn phí</div>
-          <div className="cucxam">Nhập vai</div>
-        </div>
-      </div>
-    </div>
-  );
-}
+// function ItemApp({ item }) {
+//   return (
+//     <div className="imgtitle">
+//       <img src={item.imgTitle} alt="" />
+//       <div className="imgtitle_right">
+//         <div className="title_item">{item.titlePost}</div>
+//         <div className="cucduoititle">
+//           <div className="cucxanh">Miễn phí</div>
+//           <div className="cucxam">Nhập vai</div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 const Voucher = () => {
   return (
     <div>
@@ -92,40 +92,38 @@ const Voucher = () => {
                 alt=""
               />
             </div>
-            <div className="title_Vocher">Phim xem nhiều</div>
+            {/* <div className="title_Vocher">Phim xem nhiều</div>
             <div className="item_app">
               {dataVocher.map((item, index) => (
                 <ItemApp key={index} item={item} />
               ))}
-            </div>
-            <div className="title_Vocherx">Tin hot gần đây</div>
+            </div> */}
+            <div className="title_Vocherx">Recent Hot News</div>
             <div className="list_xemnhieutuanqua">
               <div className="thethaoluannhieu">
                 <div className="sox">1</div>
                 <div className="noidungsox">
-                  Tuyển tập TOP 5 chiếc iPhone pin trâu nhất 2022 thỏa thích sử
-                  dụng cả ngày dài!
+                  Ezra Miller Chìm Trong Scandal, Tương Lai Nào Cho The Flash Và
+                  DCEU?
                 </div>
               </div>
               <div className="thethaoluannhieu">
                 <div className="sox">2</div>
                 <div className="noidungsox">
-                  Gọi tên TOP 5 điện thoại Samsung pin trâu đáng mua nhất 2022
-                  tại TGDĐ
+                  Chi Tiết Đoạn Phim Doctor Strange 2 Trình Chiếu Tại Comic Con
                 </div>
               </div>
               <div className="thethaoluannhieu">
                 <div className="sox">3</div>
                 <div className="noidungsox">
-                  Đừng bỏ qua loạt iPhone giảm giá ngon, đáng sắm nhất chương
-                  trình sale tại TGDĐ!
+                  Bóc Trứng Phục Sinh Doctor Strange In The Multiverse Of
+                  Madness!
                 </div>
               </div>
               <div className="thethaoluannhieu">
                 <div className="sox">4</div>
                 <div className="noidungsox">
-                  5 mẫu smartwatch đáng mua ở giá dưới 2 triệu, một số mẫu có
-                  thể nghe gọi trực tiếp
+                  Trailer Thor: Love And Thunder Tiết Lộ Kẻ Sát Thần Đáng Sợ
                 </div>
               </div>
             </div>

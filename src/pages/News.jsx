@@ -38,7 +38,6 @@ const News = () => {
   return (
     <div className="news">
       <div className="main">
-        <div className="noBE">No Backend</div>
         <div className="tag_movie">
           <div>
             <div className="menu24h">
@@ -75,7 +74,9 @@ const News = () => {
                 </li>
                 {/* <li>Career</li>
                 <li>promotion</li> */}
-                <li className="dkdn">Fixgo - Fan cuồng Cúc Tịnh Y</li>
+                <li className="dkdn">
+                  Fixgo - Rạp chiếu phim 3 thành viên UTE
+                </li>
               </ul>
             </div>
             <div className="themain24h">
@@ -141,10 +142,10 @@ const News = () => {
                           <iframe
                             width="800"
                             height="450"
-                            src="https://www.youtube.com/embed/red9YvYlPWg"
+                            src="https://www.youtube.com/embed/M25zXBIUVr0"
                             title="YouTube video player"
                             frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen
                           ></iframe>
                         </div>
