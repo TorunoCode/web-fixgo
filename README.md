@@ -1,15 +1,13 @@
 ## Lỗi vặt
 
-- menu click khi vào myprofile, booking history
-- render booking còn 50%
+- Đã fix gần như hoàn thiện
 
 ## Hiện tại đang làm
 
-- Lịch sử đặt vé
+- render update profile
 
 ## Cần làm
 
-- fillter movie chỉnh lại dạng khác select
 - thêm page support
 
 ## Chức năng đã xong
@@ -17,10 +15,14 @@
 Chức năng chính
 
 - Login
+  - Check all input
+  - Your-email is incorrect
   - User does not exist
   - Wrong password !
   - Login success
 - Register
+  - Check all input
+  - Your-email is incorrect
   - Email exist
   - Create successful account !
 - Logout
@@ -28,6 +30,14 @@ Chức năng chính
 - Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 - Search movie theo name, cast
 - Feedback
+- Change My Profile
+  - Check fullname: 1 tên bao gồm 2 từ trển lên,
+    trong tên chỉ được phép có chữ và khoảng trắng,
+    1 tên có tối đa 5 từ,
+    1 từ có tối da 6 ký tự,
+    giữa 2 từ chỉ được phép có 1 khoảng trắng,
+  - Check phone: 2 số đầu 03 05 07 08 09 và 8 số
+  - Check url image
 - Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
 - Thanh toán paypal
 

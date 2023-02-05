@@ -12,6 +12,26 @@ const Login = ({ ModalLogin }) => {
   const [password, setPassword] = useState("");
   // const test = { email, password };
   const dispatch = useDispatch();
+  const [validationMsg, setValidationMsg] = useState({});
+  const [message, setMessage] = useState("");
+
+  const validateAll = () => {
+    var reg = /^\w+@[a-zA-Z]{3,}\.com$/i;
+    const msg = {};
+    if (!email) {
+      msg.email = "Please input your Email";
+    } else if (!reg.test(email)) {
+      msg.email = "Your-email is incorrect";
+    }
+
+    if (!password) {
+      msg.password = "Please input your Password";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,6 +39,8 @@ const Login = ({ ModalLogin }) => {
       email: email,
       password: password,
     };
+    const isValid = validateAll();
+    if (!isValid) return;
     loginUser(newUser, dispatch, toast);
   };
 
@@ -30,16 +52,23 @@ const Login = ({ ModalLogin }) => {
         <form onSubmit={handleLogin}>
           <input
             type="email"
-            placeholder="Email.."
+            placeholder="Your-email@gmail.com"
             className="input_data"
             onChange={(e) => setEmail(e.target.value)}
           />
+          {validationMsg.email && (
+            <i className="validate">{validationMsg.email}</i>
+          )}
+
           <input
             type="password"
             placeholder="Password.."
             className="input_data"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {validationMsg.password && (
+            <i className="validate">{validationMsg.password}</i>
+          )}
           <div className="flex">
             <div className="label_checkbox">
               <input type="checkbox" />

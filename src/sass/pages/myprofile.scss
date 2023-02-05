@@ -71,10 +71,16 @@
       border: 1px solid orange;
       box-shadow: 1px 1px 5px 0 orange;
       background-color: white;
-      .btnEdit {
-        margin: 5px 0 15px 120px;
-        padding: 10px 20px 10px 15px;
+      .validate {
+        display: block;
+        margin: 5px 0px -10px 160px;
+        color: orange;
         font-size: 15px;
+      }
+      .btnEdit {
+        margin: 15px 0 25px 160px;
+        padding: 10px 20px 10px 15px;
+        font-size: 16px;
         font-weight: bold;
         color: orange;
         background: none;

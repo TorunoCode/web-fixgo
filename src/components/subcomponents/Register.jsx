@@ -17,6 +17,28 @@ const Register = ({ ModalLogin }) => {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
+  const [validationMsg, setValidationMsg] = useState({});
+  const [message, setMessage] = useState("");
+
+  const validateAll = () => {
+    var reg = /^\w+@[a-zA-Z]{3,}\.com$/i;
+    const msg = {};
+    if (!email) {
+      msg.email = "Please input your Email";
+    } else if (!reg.test(email)) {
+      msg.email = "Your-email is incorrect";
+    }
+    if (!password) {
+      msg.password = "Please input your Password";
+    }
+    if (!username) {
+      msg.username = "Please input your Username";
+    }
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
     const newUser = {
@@ -24,6 +46,8 @@ const Register = ({ ModalLogin }) => {
       password: password,
       name: username,
     };
+    const isValid = validateAll();
+    if (!isValid) return;
     registerUser(newUser, dispatch, toast);
   };
   return (
@@ -34,22 +58,31 @@ const Register = ({ ModalLogin }) => {
         <form onSubmit={handleRegister}>
           <input
             type="email"
-            placeholder="Email address.."
+            placeholder="Your-mmail address.."
             className="input_data"
             onChange={(e) => setEmail(e.target.value)}
           />
+          {validationMsg.email && (
+            <i className="validate">{validationMsg.email}</i>
+          )}
           <input
             type="password"
             placeholder="Password.."
             className="input_data"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {validationMsg.password && (
+            <i className="validate">{validationMsg.password}</i>
+          )}
           <input
             type="text"
             placeholder="Username.."
             className="input_data"
             onChange={(e) => setUsername(e.target.value)}
           />
+          {validationMsg.username && (
+            <i className="validate">{validationMsg.username}</i>
+          )}
           <button className="btnLogin">Register</button>
         </form>
       </div>
