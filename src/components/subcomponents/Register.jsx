@@ -29,10 +29,12 @@ const Register = ({ ModalLogin }) => {
       msg.email = "Your-email is incorrect";
     }
     if (!password) {
-      msg.password = "Please input your Password";
+      msg.password = "Please input your password";
     }
     if (!username) {
-      msg.username = "Please input your Username";
+      msg.username = "Please input your username";
+    } else if (email.length > 15) {
+      msg.username = "Username must be less than 15 characters";
     }
     setValidationMsg(msg);
     if (Object.keys(msg).length > 0) return false;

@@ -71,6 +71,12 @@
       border: 1px solid orange;
       box-shadow: 1px 1px 5px 0 orange;
       background-color: white;
+      .text_title {
+        text-align: center;
+        color: orange;
+        font-size: 25px;
+        font-weight: bold;
+      }
       .validate {
         display: block;
         margin: 5px 0px -10px 160px;

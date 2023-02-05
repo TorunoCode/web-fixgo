@@ -127,6 +127,7 @@ const MyProfile = () => {
 
         <form action="" className="form_edit" onSubmit={handleEdit}>
           <div className="main_form">
+            <div className="text_title">Change your information</div>
             <InputFields
               label="Full name: "
               data={fullname}
