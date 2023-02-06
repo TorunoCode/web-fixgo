@@ -37,11 +37,13 @@ const Support = () => {
                     Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
                   </div>
                 </div>
-                <div className="title">Questions and suggestions</div>
+                <div className="title">
+                  Questions and suggestions (bị load chậm)
+                </div>
                 <div className="plugincmt">
                   <div
                     class="fb-comments"
-                    href="https://web-fixgo.vercel.app/"
+                    href="https://www.youtube.com/channel/UCC43krXpGPTFYR6H8L8f4rA"
                     width=""
                     numposts="5"
                   ></div>
