@@ -14,33 +14,34 @@
 
 Chức năng chính
 
-- Login
-  - Check all input
+- 1. Login
+  - Kiểm tra các input chưa nhập
   - Your-email is incorrect
   - User does not exist
   - Wrong password !
   - Login success
-- Register
-  - Check all input
+- 2. Register
+  - Kiểm tra các input chưa nhập
   - Your-email is incorrect
   - Email exist
   - Create successful account !
-- Logout
-- Chức năng star theo rating
-- Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
-- Search movie theo name, cast
-- Feedback
-- Change My Profile
+- 3. Logout
+- 4. Chức năng star theo rating
+- 5. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
+- 6. Search movie theo name, cast
+- 7. Feedback nội dung và đánh giá 1-10 sao
+- 8. Change My Profile (chưa render login dc)
   - Check fullname: 1 tên bao gồm 2 từ trển lên,
     trong tên chỉ được phép có chữ và khoảng trắng,
     1 tên có tối đa 5 từ,
     1 từ có tối da 6 ký tự,
     giữa 2 từ chỉ được phép có 1 khoảng trắng,
-  - Check phone: 2 số đầu 03 05 07 08 09 và 8 số
+  - Check phone: 2 số đầu 03 05 07 08 09 và 8 số cuối (tổng 10 số)
   - Check url image
-- Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
-- Thanh toán paypal
-- Messenger chatbot
+- 9. Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
+- 10. Thanh toán paypal
+- 11. Send receipt qua email user
+- 12. Messenger chatbot
 
 ## Chức năng build dang dở chờ xử lí
 
@@ -78,6 +79,11 @@ Chức năng chính
 - làm thêm quên mật khẩu ( gửi mail SendGrip )
 - Tri ân khách hàng
 - nạp tiền vào tài khoản từ ví momo
+
+## Page support
+
+- liên kết fanpage facebook
+- comments bằng tài khoản facebook k cần đăng nhập vào Fixgo
 
 ## BE cần
 

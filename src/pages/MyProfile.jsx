@@ -8,7 +8,8 @@ import BackgroundDefault from "../assets/images/backgroudUserDefault.png";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "../redux/apiRequest";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth.login?.currentUser);
@@ -63,6 +64,7 @@ const MyProfile = () => {
   // console.log(check.test(text1.toLowerCase()));
   // console.log(check.test(text2));
   // console.log(check.test(text3));
+  const dispatch = useDispatch();
 
   // post edit profile
   const handleEdit = async (e) => {
@@ -78,16 +80,7 @@ const MyProfile = () => {
     };
     const isValid = validateAll();
     if (!isValid) return;
-    else
-      try {
-        await axios.post(
-          `https://backend-boo.vercel.app/api/user/update`,
-          newEdit
-        );
-        toast.success("Edit success !", { autoClose: 2000 });
-      } catch (err) {
-        toast.error("Failed to edit!", { autoClose: 2000 });
-      }
+    else await updateProfile(newEdit, dispatch, toast);
     await handleEdit();
   };
   useEffect(() => {

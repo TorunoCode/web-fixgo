@@ -54,6 +54,14 @@ const authSlice = createSlice({
     //   state.login.isFetching = false;
     //   state.login.error = true;
     // },
+    // update
+    update: (state, action) => {
+      state.login.currentUser.data.biography = action.payload.data.biography;
+      state.login.currentUser.data.avatar = action.payload.data.avatar;
+      state.login.currentUser.data.gender = action.payload.data.gender;
+      state.login.currentUser.data.phone = action.payload.data.phone;
+      state.login.currentUser.data.fullName = action.payload.data.fullName;
+    },
   },
 });
 export const {
@@ -64,5 +72,6 @@ export const {
   registerSuccess,
   registerFailed,
   logoutSuccess,
+  update,
 } = authSlice.actions;
 export default authSlice.reducer;

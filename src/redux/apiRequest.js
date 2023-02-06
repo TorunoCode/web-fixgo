@@ -6,6 +6,7 @@ import {
   registerFailed,
   registerStart,
   registerSuccess,
+  update,
 } from "./authSlice";
 
 export const loginUser = async (user, dispatch, toast) => {
@@ -15,6 +16,7 @@ export const loginUser = async (user, dispatch, toast) => {
       "https://backend-boo.vercel.app/api/user/login",
       user
     );
+    console.log(res);
     toast.success("Login success!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {
@@ -35,6 +37,20 @@ export const registerUser = async (user, dispatch, toast) => {
   } catch (err) {
     toast.error(err.response.data?.message, { autoClose: 2000 });
     dispatch(registerFailed());
+  }
+};
+
+export const updateProfile = async (user, dispatch, toast) => {
+  try {
+    const res = await axios.post(
+      `https://backend-boo.vercel.app/api/user/update`,
+      user
+    );
+    console.log(res.data);
+    await dispatch(update(res.data));
+    toast.success("Edit success !", { autoClose: 2000 });
+  } catch (err) {
+    toast.error("Failed to edit!", { autoClose: 2000 });
   }
 };
 
