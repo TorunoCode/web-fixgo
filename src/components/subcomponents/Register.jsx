@@ -18,10 +18,9 @@ const Register = ({ ModalLogin }) => {
   const dispatch = useDispatch();
 
   const [validationMsg, setValidationMsg] = useState({});
-  const [message, setMessage] = useState("");
 
   const validateAll = () => {
-    var reg = /^\w+@[a-zA-Z]{3,}\.com$/i;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const msg = {};
     if (!email) {
       msg.email = "Please input your Email";
@@ -33,7 +32,7 @@ const Register = ({ ModalLogin }) => {
     }
     if (!username) {
       msg.username = "Please input your username";
-    } else if (email.length > 15) {
+    } else if (username.length > 15) {
       msg.username = "Username must be less than 15 characters";
     }
     setValidationMsg(msg);

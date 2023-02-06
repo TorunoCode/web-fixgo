@@ -131,16 +131,18 @@ const Header = () => {
                   <i class="fa-brands fa-hotjar"></i> News
                 </li>
               </Link>
-              <li
-                onClick={() => handleShow4()}
-                style={
-                  show4
-                    ? { backgroundColor: " lightyellow", color: "orange" }
-                    : null
-                }
-              >
-                <i class="fa-solid fa-headset"></i> Suport
-              </li>
+              <Link to="/Support">
+                <li
+                  onClick={() => handleShow4()}
+                  style={
+                    show4
+                      ? { backgroundColor: " lightyellow", color: "orange" }
+                      : null
+                  }
+                >
+                  <i class="fa-solid fa-headset"></i> Suport
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="search">

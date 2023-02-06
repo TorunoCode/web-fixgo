@@ -40,10 +40,11 @@ Chức năng chính
   - Check url image
 - Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
 - Thanh toán paypal
+- Messenger chatbot
 
 ## Chức năng build dang dở chờ xử lí
 
-- booking history
+- comment
 
 # Các giao diện
 
@@ -81,6 +82,5 @@ Chức năng chính
 ## BE cần
 
 - hiện tên ghế ngồi thay vì id ghế
-- làm api booking history cho user
 - thêm movie thêm field để phân loại (năm phát hành, đất nước, phim đang chiếu, phim sắp chiếu, phim hot tháng vừa qua)
 - xây dựng voucher giảm giá, bắp nước khi đặt vé

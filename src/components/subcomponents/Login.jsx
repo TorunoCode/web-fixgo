@@ -13,7 +13,6 @@ const Login = ({ ModalLogin }) => {
   // const test = { email, password };
   const dispatch = useDispatch();
   const [validationMsg, setValidationMsg] = useState({});
-  const [message, setMessage] = useState("");
 
   const validateAll = () => {
     var reg = /^\w+@[a-zA-Z]{3,}\.com$/i;

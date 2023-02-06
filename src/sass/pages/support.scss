@@ -1,0 +1,157 @@
+.support {
+  // background: white;
+  color: white;
+  .main {
+    font-family: auto;
+    width: 1200px;
+    margin: 0 auto;
+    font-family: "Lexend", sans-serif;
+
+    .tag_movie {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      .title {
+        color: orange;
+        font-weight: bold;
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+      .titlex {
+        margin: 20px 0;
+        color: orange;
+        font-weight: bold;
+        font-size: 22px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .themain24h {
+        width: 1200px;
+        margin: auto;
+        display: flex;
+        column-gap: 20px;
+      }
+      .main24htrai {
+        width: 800px;
+        .fanpage {
+          margin-top: 10px;
+          display: grid;
+          grid-template-columns: 340px 440px;
+          column-gap: 20px;
+          row-gap: 5px;
+          .text {
+            line-height: 25px;
+          }
+          .textx {
+            color: blue;
+            font-weight: bold;
+            font-size: 19px;
+          }
+        }
+        .plugincmt {
+          margin: 20px 125px;
+          background-color: #f4f4f4;
+        }
+      }
+
+      .main24hphai {
+        margin-top: 20px;
+        width: 380px;
+        .item24h_item {
+          display: flex;
+          column-gap: 10px;
+          border-top: 1px solid orange;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .item24h_right_title {
+          display: block;
+          overflow: hidden;
+          line-height: 28px;
+          font-size: 22px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .item24h_right_title:hover {
+          color: orange;
+        }
+        .item24h_right_time {
+          padding-top: 10px;
+          // color: #333;
+        }
+        .item24h_item img {
+          border-radius: 8px;
+          width: 250px;
+          cursor: pointer;
+        }
+        .img {
+          width: 380px;
+          margin-top: 10px;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+        .chudehot {
+          display: block;
+          line-height: 26px;
+          font-size: 16px;
+          color: #888;
+          text-transform: uppercase;
+          padding: 10px 0 6px;
+          font-family: "Roboto Condensed", sans-serif;
+          font-weight: 600;
+        }
+        .chudegachduoi {
+          display: block;
+          border-bottom: 1px solid orange;
+          line-height: 26px;
+          font-size: 16px;
+          color: #888;
+          text-transform: uppercase;
+          padding: 10px 0 6px;
+          font-family: "Roboto Condensed", sans-serif;
+          font-weight: 600;
+        }
+        .taghot button {
+          margin-right: 5px;
+          margin-bottom: 5px;
+          padding: 4px 7px;
+          border-radius: 9px;
+          background: orange;
+          color: #fff;
+          font-size: 11px;
+          border: none;
+          cursor: pointer;
+        }
+        .taghot button i {
+          font-size: 10px;
+        }
+        .thethaoluannhieu {
+          padding-top: 5px;
+          display: flex;
+        }
+        .so {
+          float: left;
+          margin: 10px;
+          padding: 4px 9px;
+          background: #f4f4f4;
+          font-size: 20px;
+
+          color: #cbcbcb;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .noidungso {
+          padding-top: 5px;
+          display: block;
+          overflow: hidden;
+          line-height: 1.3em;
+          font-size: 14px;
+          // color: #333;
+          cursor: pointer;
+          &:hover {
+            color: orange;
+          }
+        }
+      }
+    }
+  }
+}

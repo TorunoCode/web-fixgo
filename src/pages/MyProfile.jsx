@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { loginUser } from "../redux/apiRequest";
 import "../sass/pages/myprofile.scss";
@@ -31,7 +31,6 @@ const MyProfile = () => {
   // 1 từ có tối da 6 ký tự
   // giữa 2 từ chỉ được phép có 1 khoảng trắng
   const [validationMsg, setValidationMsg] = useState({});
-  const [message, setMessage] = useState("");
 
   const validateAll = () => {
     var reg_fullname =

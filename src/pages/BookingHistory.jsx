@@ -21,7 +21,7 @@ const BookingHistory = () => {
   console.log(data);
   const columns = useMemo(
     () => [
-      { field: "idBill", headerName: "ID", width: 100 },
+      { field: "idBill", headerName: "ID", width: 150 },
       { field: "movie", headerName: "MOVIE NAME", width: 200 },
       { field: "cinema", headerName: "CINEMA", width: 150 },
       { field: "date", headerName: "DATE", width: 100 },
@@ -54,9 +54,14 @@ const BookingHistory = () => {
             rowsPerPageOptions={[5, 10, 20]}
             pageSize={pageSize}
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-            // getRowClassName={(params) =>
-            //   params.indexRelativeToCurrentPage % 2 === 0 ? "even" : "odd"
-            // }
+            sx={{
+              boxShadow: 2,
+              border: 2,
+              borderColor: "orange",
+              "& .MuiDataGrid-cell:hover": {
+                color: "orange",
+              },
+            }}
           />
         </div>
       </div>
