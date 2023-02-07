@@ -101,59 +101,75 @@ const MyProfile = () => {
 
           <div className="biography">{user?.data.biography || biography}</div>
         </div>
-        <div className="text">Info default</div>
+        <div className="backgroundgif">
+          <div className="margingif">
+            <div className="text">Info default</div>
 
-        <div className="default_main">
-          <div className="left">User:</div>
-          <div className="default">{user?.data.name}</div>
-          <div className="left">Email:</div>
-          <div className="default">{user?.data.email}</div>
-          <div className="left">Account creation date:</div>
-          <div className="default">
-            {user?.data.createdAt.slice(0, 10).split("-").reverse().join("-")}
-          </div>
-          <div className="left">Update profile date: </div>
-          <div className="default">
-            {user?.data.updatedAt.slice(0, 10).split("-").reverse().join("-")}
+            <div className="default_main">
+              <div className="left">User:</div>
+              <div className="default">{user?.data.name}</div>
+              <div className="left">Email:</div>
+              <div className="default">{user?.data.email}</div>
+              <div className="left">Account creation date:</div>
+              <div className="default">
+                {user?.data.createdAt
+                  .slice(0, 10)
+                  .split("-")
+                  .reverse()
+                  .join("-")}
+              </div>
+              <div className="left">Update profile date: </div>
+              <div className="default">
+                {user?.data.updatedAt
+                  .slice(0, 10)
+                  .split("-")
+                  .reverse()
+                  .join("-")}
+              </div>
+            </div>
+
+            {/* <div className="text">Form edit profile</div> */}
+
+            <form action="" className="form_edit" onSubmit={handleEdit}>
+              <div className="main_form">
+                <div className="text_title">Change your information</div>
+                <InputFields
+                  label="Full name: "
+                  data={fullname}
+                  setData={setFullname}
+                />
+
+                {validationMsg.fullname && (
+                  <i className="validate">{validationMsg.fullname}</i>
+                )}
+                <InputFields label="Phone:" data={phone} setData={setPhone} />
+                {validationMsg.phone && (
+                  <i className="validate">{validationMsg.phone}</i>
+                )}
+                <InputFields
+                  label="Biography:"
+                  data={biography}
+                  setData={setBiography}
+                />
+
+                <InputFields
+                  label="Gender:"
+                  data={gender}
+                  setData={setGender}
+                />
+                <InputFields
+                  label="Link avatar:"
+                  data={avatar}
+                  setData={setAvatar}
+                />
+                {validationMsg.avatar && (
+                  <i className="validate">{validationMsg.avatar}</i>
+                )}
+                <button className="btnEdit">Edit now</button>
+              </div>
+            </form>
           </div>
         </div>
-
-        <div className="text">Form edit profile</div>
-
-        <form action="" className="form_edit" onSubmit={handleEdit}>
-          <div className="main_form">
-            <div className="text_title">Change your information</div>
-            <InputFields
-              label="Full name: "
-              data={fullname}
-              setData={setFullname}
-            />
-
-            {validationMsg.fullname && (
-              <i className="validate">{validationMsg.fullname}</i>
-            )}
-            <InputFields label="Phone:" data={phone} setData={setPhone} />
-            {validationMsg.phone && (
-              <i className="validate">{validationMsg.phone}</i>
-            )}
-            <InputFields
-              label="Biography:"
-              data={biography}
-              setData={setBiography}
-            />
-
-            <InputFields label="Gender:" data={gender} setData={setGender} />
-            <InputFields
-              label="Link avatar:"
-              data={avatar}
-              setData={setAvatar}
-            />
-            {validationMsg.avatar && (
-              <i className="validate">{validationMsg.avatar}</i>
-            )}
-            <button className="btnEdit">Edit now</button>
-          </div>
-        </form>
       </div>
       <ToastContainer />
     </div>

@@ -46,60 +46,71 @@
         text-align: center;
       }
     }
-
-    .text {
-      margin-top: 30px;
-      text-transform: uppercase;
-      font-size: 20px;
-      color: orange;
-      font-weight: bold;
-    }
-    .default_main {
+    .backgroundgif {
+      background-image: url("../../assets/images/backgroundformmyprofile.gif");
+      background-repeat: no-repeat;
+      background-size: 100% 700px;
       margin-top: 20px;
-      font-size: 20px;
-      display: grid;
-      grid-template-columns: 240px 300px;
-      line-height: 30px;
-      .left {
-        font-weight: bold;
-        font-size: 20px;
-      }
-    }
-    .form_edit {
-      margin: 20px auto;
-      padding: 20px 50px 0 0;
-      border-radius: 10px;
-      width: 80%;
+      margin-bottom: 20px;
+      border-radius: 30px;
       border: 1px solid orange;
-      box-shadow: 1px 1px 5px 0 orange;
-      background-color: white;
-      .text_title {
-        text-align: center;
-        color: orange;
-        font-size: 25px;
-        font-weight: bold;
-      }
-      .validate {
-        display: block;
-        margin: 5px 0px -10px 160px;
-        color: orange;
-        font-size: 15px;
-      }
-      .btnEdit {
-        margin: 15px 0 25px 160px;
-        padding: 10px 20px 10px 15px;
-        font-size: 16px;
-        font-weight: bold;
-        color: orange;
-        background: none;
-        text-align: center;
-        border-radius: 5px;
-        border: 1px solid orange;
-        cursor: pointer;
-        &:hover {
-          background: orange;
-          color: whitesmoke;
-          box-shadow: 0 0 5px orange;
+      .margingif {
+        margin-top: 20px;
+        padding: 20px 30px 20px 30px;
+        .text {
+          text-transform: uppercase;
+          font-size: 20px;
+          color: orange;
+          font-weight: bold;
+        }
+        .default_main {
+          margin-top: 20px;
+          font-size: 20px;
+          display: grid;
+          grid-template-columns: 240px 300px;
+          line-height: 30px;
+          .left {
+            font-weight: bold;
+            font-size: 20px;
+          }
+        }
+        .form_edit {
+          margin: 20px auto;
+          padding: 20px 50px 0 0;
+          border-radius: 10px;
+          width: 80%;
+          border: 1px solid orange;
+          box-shadow: 1px 1px 5px 0 orange;
+          background-color: white;
+          .text_title {
+            text-align: center;
+            color: orange;
+            font-size: 25px;
+            font-weight: bold;
+          }
+          .validate {
+            display: block;
+            margin: 5px 0px -10px 160px;
+            color: orange;
+            font-size: 15px;
+          }
+          .btnEdit {
+            margin: 15px 0 25px 160px;
+            padding: 10px 20px 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: orange;
+            background: none;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid orange;
+            cursor: pointer;
+            &:hover {
+              background: orange;
+              color: whitesmoke;
+              box-shadow: 0 0 5px orange;
+            }
+          }
         }
       }
     }
