@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
 import StarRating from "./StarRating";
-import { Link } from "react-router-dom";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -110,32 +109,35 @@ const Feedback = ({
           </div>
           <div className="line_gray"></div>
         </div>
-        {listFeedback?.slice(0, -1).map((item, index) => {
-          return (
-            <div className="item_postFeedback" key={index}>
-              <div className="row_1">
-                <div className="col1">
-                  <img
-                    src={item.avatar || AvtDefault}
-                    alt=""
-                    className="avt_user"
-                  ></img>
-                  &ensp;
-                  <div className="name_user">
-                    {item.fullName || item.userName}
+        <div className="overflow">
+          {listFeedback?.slice(0, -1).map((item, index) => {
+            return (
+              <div className="item_postFeedback" key={index}>
+                <div className="row_1">
+                  <div className="col1">
+                    <img
+                      src={item.avatar || AvtDefault}
+                      alt=""
+                      className="avt_user"
+                    ></img>
+                    &ensp;
+                    <div className="name_user">
+                      {item.fullName || item.userName}
+                    </div>
+                  </div>
+                  <div className="time_col2">
+                    {format(item.orgirnCreatedAt)}
                   </div>
                 </div>
-                <div className="time_col2">{format(item.orgirnCreatedAt)}</div>
+                <div className="rate">
+                  <b>Rate:</b> {item.rate}/10
+                </div>
+                <div className="content_feedback">{item.detail}</div>
+                <div className="line"></div>
               </div>
-              <div className="rate">
-                <b>Rate:</b> {item.rate}/10
-              </div>
-              <div className="content_feedback">{item.detail}</div>
-              <div className="line"></div>
-            </div>
-          );
-        })}
-
+            );
+          })}
+        </div>
         <button className="btn_review" onClick={handleBtnReview}>
           Add Review
         </button>

@@ -6,6 +6,7 @@
   .feedback {
     border: 1px solid gray;
     border-radius: 10px;
+
     .title_name {
       margin: 10px 0 0 20px;
       color: orange;
@@ -27,46 +28,61 @@
         margin: 10px 150px 0 150px;
       }
     }
-    .item_postFeedback {
-      padding: 9px 20px 10px 20px;
-      display: grid;
-      .row_1 {
-        height: 30px;
-        line-height: 30px;
-        .col1 {
-          float: left;
-          display: flex;
-          .avt_user {
-            vertical-align: middle;
-            width: 30px;
-            height: 30px;
-            object-fit: cover;
-            border-radius: 50%;
+    .overflow {
+      max-height: 351px;
+      overflow: auto;
+      .item_postFeedback {
+        padding: 9px 20px 10px 20px;
+        display: grid;
+        .row_1 {
+          height: 30px;
+          line-height: 30px;
+          .col1 {
+            float: left;
+            display: flex;
+            .avt_user {
+              vertical-align: middle;
+              width: 30px;
+              height: 30px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+            .name_user {
+              color: orange;
+              font-weight: bold;
+            }
           }
-          .name_user {
-            color: orange;
-            font-weight: bold;
+          .time_col2 {
+            float: right;
+            color: white;
           }
         }
-        .time_col2 {
-          float: right;
-          color: white;
+        .rate {
+          margin-top: 5px;
+        }
+        .content_feedback {
+          margin-top: 5px;
+          margin-bottom: 10px;
+          overflow-x: hidden;
+        }
+        .line {
+          margin-top: 10px;
+          height: 1px;
+          background-color: orange;
+          width: 100%;
         }
       }
-      .rate {
-        margin-top: 5px;
-      }
-      .content_feedback {
-        margin-top: 5px;
-        margin-bottom: 10px;
-        overflow-x: hidden;
-      }
-      .line {
-        margin-top: 10px;
-        height: 1px;
-        background-color: orange;
-        width: 100%;
-      }
+    }
+    .overflow::-webkit-scrollbar {
+      width: 8px;
+    }
+    .overflow::-webkit-scrollbar-thumb {
+      background-image: linear-gradient(to bottom, orange, #ddd);
+      border-radius: 100rem;
+    }
+    .overflow::-webkit-scrollbar-track {
+      background-color: gray;
+      border-radius: 100rem;
     }
     .btn_review {
       display: block;

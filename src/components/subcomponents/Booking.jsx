@@ -102,7 +102,7 @@ const Booking = ({ idMovie, nameMovie }) => {
 
   const user = useSelector((state) => state.auth.login?.currentUser);
   const handleBooking = async () => {
-    setOpenModal(false);
+    // setOpenModal(false);
     const bookSeat = {
       idShowing: seat.idShowing,
       data: idselected,
@@ -116,9 +116,11 @@ const Booking = ({ idMovie, nameMovie }) => {
     window.open(
       `https://backend-boo.vercel.app/api/paypal/pay/${user.data._id}`
     );
+
+    window.location.reload(false);
   };
-  const newPage = () => {
-    setTimeout(open, 1500);
+  const newPage = async () => {
+    await setTimeout(open, 1500);
   };
   const handleBtnBuy = () => {
     if (user) {
@@ -224,16 +226,15 @@ const Booking = ({ idMovie, nameMovie }) => {
             {payment && (
               <div className="optionpay">
                 <div>Select Payment Method</div>
-                <button onClick={handleUpdate}>
-                  <i className="fa-regular fa-hand-point-right"></i> At checkout
-                  counters
-                </button>
-                <br />
                 <button onClick={handleBooking}>
                   <div onClick={newPage}>
                     <i className="fa-regular fa-hand-point-right"></i> With
                     PayPal
                   </div>
+                </button>
+                <br />
+                <button onClick={handleUpdate}>
+                  <i className="fa-regular fa-hand-point-right"></i> With Momo
                 </button>
               </div>
             )}
