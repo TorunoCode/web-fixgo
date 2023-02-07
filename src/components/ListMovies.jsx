@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 
 const ListMovie = ({ list }) => {
   const listMovie = list;
-  console.log(listMovie);
+  // console.log(listMovie);
   // số lượng item sẽ show ra
   const [quantityShow, setQuantityShow] = useState(5);
   // số lượng item còn lại

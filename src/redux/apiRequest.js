@@ -17,7 +17,7 @@ export const loginUser = async (user, dispatch, toast) => {
       "https://backend-boo.vercel.app/api/user/login",
       user
     );
-    console.log(res);
+    // console.log(res);
     toast.success("Login success!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {
@@ -48,7 +48,7 @@ export const updateProfile = async (user, dispatch, toast) => {
       `https://backend-boo.vercel.app/api/user/update`,
       user
     );
-    console.log(res.data);
+    // console.log(res.data);
     await dispatch(update(res.data));
     toast.success("Edit success !", { autoClose: 2000 });
   } catch (err) {

@@ -19,7 +19,7 @@ const Movie = () => {
     };
     fetchMovie();
   }, []);
-  console.log(listMovie);
+  // console.log(listMovie);
   // handle fillter chung
   const handleFillter = (e) => {
     const value = e.target.value.toLowerCase();
