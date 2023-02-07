@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import FormModal from "./subcomponents/FormModal.jsx";
 import { useSelector } from "react-redux";
 // Toast
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Marquee from "react-fast-marquee";
@@ -35,9 +35,10 @@ const Header = () => {
   });
 
   // xử lí logout
-  const handleLogOut = () => {
+  const handleLogOut = (e) => {
     window.location.reload();
     localStorage.clear();
+    toast.success("Logout success!", { autoClose: 2000 });
   };
 
   const handelLose = () => {

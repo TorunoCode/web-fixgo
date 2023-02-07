@@ -10,9 +10,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../redux/apiRequest";
+import Loading from "../components/Loading";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth.login?.currentUser);
+  const pending = useSelector((state) => state.auth.login?.isupdate);
   // const [password, setPassword] = useState();
   const [fullname, setFullname] = useState(user?.data.fullName || "No data");
   const [phone, setPhone] = useState(user?.data.phone || "No data");
@@ -88,6 +90,7 @@ const MyProfile = () => {
   }, [user?.data]);
   return (
     <div className="container_myprofile">
+      {pending && <Loading />}
       <div className="main">
         <div className="image">
           <img src={BackgroundDefault} alt="" className="background" />

@@ -6,6 +6,7 @@ import {
   registerFailed,
   registerStart,
   registerSuccess,
+  updateStart,
   update,
 } from "./authSlice";
 
@@ -41,6 +42,7 @@ export const registerUser = async (user, dispatch, toast) => {
 };
 
 export const updateProfile = async (user, dispatch, toast) => {
+  dispatch(updateStart());
   try {
     const res = await axios.post(
       `https://backend-boo.vercel.app/api/user/update`,

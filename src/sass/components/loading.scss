@@ -5,9 +5,10 @@
   left: 0;
   right: 0;
   display: flex;
+  z-index: 100;
   .loading {
     margin: auto;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
 }

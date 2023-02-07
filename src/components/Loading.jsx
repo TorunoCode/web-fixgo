@@ -7,9 +7,9 @@ const Loading = () => {
       <div className="loading">
         <ReactLoading
           type="spinningBubbles"
-          color="gray"
-          height={200}
-          width={200}
+          color="orange"
+          height={150}
+          width={150}
         />
       </div>
     </div>

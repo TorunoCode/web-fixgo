@@ -26,6 +26,7 @@ Chức năng chính
   - Email exist
   - Create successful account !
 - 3. Logout
+  - Logout success !
 - 4. Chức năng star theo rating
 - 5. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 - 6. Search movie theo name, cast

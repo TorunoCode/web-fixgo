@@ -7,6 +7,7 @@ import MovieDetail from "../pages/MovieDetail.jsx";
 import MyProfile from "../pages/MyProfile.jsx";
 import BookingHistory from "../pages/BookingHistory.jsx";
 import Support from "../pages/Support.jsx";
+import NotFound from "../components/subcomponents/NotFound.jsx";
 const Routes = () => {
   return (
     <Rou>
@@ -18,7 +19,7 @@ const Routes = () => {
       <Route path="/MyProfile" element={<MyProfile />} />
       <Route path="/BookingHistory" element={<BookingHistory />} />
       <Route path="/Support" element={<Support />} />
-      <Route path="/NotFound" element={<>Not found</>} />
+      <Route path="/NotFound" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/NotFound" />} />
     </Rou>
   );
