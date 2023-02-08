@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../redux/apiRequest";
 import Loading from "../components/Loading";
+import axios from "axios";
 
 const MyProfile = () => {
   const user = useSelector((state) => state.auth.login?.currentUser);
@@ -88,17 +89,52 @@ const MyProfile = () => {
   useEffect(() => {
     loginUser();
   }, [user?.data]);
+
+  // upload image
+  const [image, setImage] = useState();
+  const submitImage = async () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "j3sbr9ix");
+    try {
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dlh4vw39j/image/upload",
+        data
+      );
+      // console.log(res);
+      setAvatar(res.data.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    submitImage();
+  }, [image]);
+  ///////
+
   return (
     <div className="container_myprofile">
       {pending && <Loading />}
       <div className="main">
         <div className="image">
           <img src={BackgroundDefault} alt="" className="background" />
-          <img src={avatar || AvtDefault} alt="" className="avt_user" />
+
+          <div className="upload">
+            <img src={avatar || AvtDefault} alt="" className="avt_user" />
+            <div className="round">
+              <input
+                type="file"
+                onChange={(e) => {
+                  setImage(e.target.files[0]);
+                }}
+              />
+              <i class="fa-solid fa-camera"></i>
+            </div>
+          </div>
         </div>
         <div className="row_mid">
+          {/* <button onClick={submitImage}>Upload</button> */}
           <div className="name">{user?.data.fullName || user?.data.name}</div>
-
           <div className="biography">{user?.data.biography || biography}</div>
         </div>
         <div className="backgroundgif">
@@ -152,16 +188,20 @@ const MyProfile = () => {
                   setData={setBiography}
                 />
 
-                <InputFields
+                {/* <InputFields
                   label="Gender:"
                   data={gender}
                   setData={setGender}
-                />
-                <InputFields
-                  label="Link avatar:"
-                  data={avatar}
-                  setData={setAvatar}
-                />
+                /> */}
+                {image ? (
+                  <></>
+                ) : (
+                  <InputFields
+                    label="Link avatar:"
+                    data={avatar}
+                    setData={setAvatar}
+                  />
+                )}
                 {validationMsg.avatar && (
                   <i className="validate">{validationMsg.avatar}</i>
                 )}

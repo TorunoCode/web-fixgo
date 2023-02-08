@@ -4,9 +4,8 @@ body {
   font-family: "Lexend", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* scrollbar */
-  height: 500vh;
 }
+/* scrollbar */
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -17,6 +16,8 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
   background-color: gray;
   border-radius: 100rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

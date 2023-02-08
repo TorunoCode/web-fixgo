@@ -1,27 +1,15 @@
-## Lỗi vặt
-
-- Đã fix gần như hoàn thiện
-
-## Hiện tại đang làm
-
-- render update profile
-
-## Cần làm
-
-- thêm page support
-
 ## Chức năng đã xong
 
 Chức năng chính
 
 - 1. Login
-  - Kiểm tra các input chưa nhập
+  - Check các input chưa nhập
   - Your-email is incorrect
   - User does not exist
   - Wrong password !
   - Login success
 - 2. Register
-  - Kiểm tra các input chưa nhập
+  - Check các input chưa nhập
   - Your-email is incorrect
   - Email exist
   - Create successful account !
@@ -31,7 +19,7 @@ Chức năng chính
 - 5. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 - 6. Search movie theo name, cast
 - 7. Feedback nội dung và đánh giá 1-10 sao
-- 8. Change My Profile (chưa render login dc)
+- 8. Change My Profile
   - Check fullname: 1 tên bao gồm 2 từ trển lên,
     trong tên chỉ được phép có chữ và khoảng trắng,
     1 tên có tối đa 5 từ,
@@ -43,10 +31,6 @@ Chức năng chính
 - 10. Thanh toán paypal
 - 11. Send receipt qua email user
 - 12. Messenger chatbot
-
-## Chức năng build dang dở chờ xử lí
-
-- comment
 
 # Các giao diện
 
@@ -75,12 +59,6 @@ Chức năng chính
 
 - fillter phim theo thể loại này kia
 
-//// Chức năng tương lai
-
-- làm thêm quên mật khẩu ( gửi mail SendGrip )
-- Tri ân khách hàng
-- nạp tiền vào tài khoản từ ví momo
-
 ## Page support
 
 - liên kết fanpage facebook
@@ -88,6 +66,11 @@ Chức năng chính
 
 ## BE cần
 
-- hiện tên ghế ngồi thay vì id ghế
 - thêm movie thêm field để phân loại (năm phát hành, đất nước, phim đang chiếu, phim sắp chiếu, phim hot tháng vừa qua)
 - xây dựng voucher giảm giá, bắp nước khi đặt vé
+
+## Chức năng tương lai
+
+- làm thêm quên mật khẩu ( gửi mail SendGrip )
+- Tri ân khách hàng
+- nạp tiền vào tài khoản từ ví momo
