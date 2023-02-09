@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Marquee from "react-fast-marquee";
+import { GoogleLogout } from "@leecheuk/react-google-login";
 
 const Header = () => {
   // xử lí lấy 2 chữ cuối trong name .split(' ').slice(-2).join(' ')
@@ -33,6 +34,8 @@ const Header = () => {
       document.removeEventListener("mousedown", handler);
     };
   });
+  const clientId =
+    "1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com";
 
   // xử lí logout
   const handleLogOut = (e) => {
@@ -40,7 +43,9 @@ const Header = () => {
     localStorage.clear();
     toast.success("Logout success!", { autoClose: 2000 });
   };
-
+  const onSuccess = () => {
+    console.log("Success logout google");
+  };
   const handelLose = () => {
     setQuery(false);
   };
@@ -212,9 +217,25 @@ const Header = () => {
               >
                 <div className="nav_user-btn-children">Booking History</div>
               </Link>
-              <div className="nav_user-btn-children" onClick={handleLogOut}>
+
+              {/* <div className="nav_user-btn-children" onClick={handleLogOut}>
                 <i class="fa-solid fa-right-from-bracket"></i> Log Out
-              </div>
+              </div> */}
+              <GoogleLogout
+                clientId={clientId}
+                onLogoutSuccess={onSuccess}
+                render={(renderProps) => (
+                  <div
+                    className="nav_user-btn-children"
+                    onClick={() => {
+                      renderProps.onClick();
+                      handleLogOut();
+                    }}
+                  >
+                    <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                  </div>
+                )}
+              />
             </div>
           </nav>
         )}

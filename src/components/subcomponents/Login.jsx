@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 // Toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoginGoogle from "./LoginGoogle";
 
 const Login = ({ ModalLogin }) => {
   const [email, setEmail] = useState("");
@@ -90,8 +91,10 @@ const Login = ({ ModalLogin }) => {
         </div>
         <div className="txt">--- or sign in with ---</div>
         <div className="login_icon">
-          <i class="fa-brands fa-facebook-f">acebook</i>&emsp;
-          <i class="fa-brands fa-google">oogle</i>
+          <div className="facebook">
+            <i class="fa-brands fa-facebook-f">acebook</i>&emsp;
+          </div>
+          <LoginGoogle />
         </div>
       </div>
     </div>

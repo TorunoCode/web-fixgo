@@ -26,6 +26,37 @@ export const loginUser = async (user, dispatch, toast) => {
   }
 };
 
+// Login Google Account
+export const loginGoogle = async (user, dispatch, toast) => {
+  dispatch(loginStart());
+  try {
+    const res = await axios.post(
+      " https://backend-boo.vercel.app/api/oAuthGoogleRoutes/login",
+      user
+    );
+    console.log(res);
+    toast.success("Successful login with Google!", { autoClose: 2000 });
+    dispatch(loginSuccess(res.data));
+  } catch (err) {
+    toast.error(err.response.data?.message, { autoClose: 2000 });
+    dispatch(loginFailed());
+  }
+};
+
+// Login Facebook Account
+export const loginFacebook = async (user, dispatch, toast) => {
+  dispatch(loginStart());
+  try {
+    const res = await axios.post("", user);
+    console.log(res);
+    toast.success("Successful login with Facebook!", { autoClose: 2000 });
+    dispatch(loginSuccess(res.data));
+  } catch (err) {
+    toast.error(err.response.data?.message, { autoClose: 2000 });
+    dispatch(loginFailed());
+  }
+};
+
 export const registerUser = async (user, dispatch, toast) => {
   dispatch(registerStart());
   try {

@@ -17,6 +17,8 @@ const Home = () => {
     };
     fetchMovie();
   }, []);
+  // login Google
+
   return (
     <div className="home">
       <div className="main">

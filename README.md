@@ -20,6 +20,7 @@ Chức năng chính
 - 6. Search movie theo name, cast
 - 7. Feedback nội dung và đánh giá 1-10 sao
 - 8. Change My Profile
+  - Chọn avt từ máy
   - Check fullname: 1 tên bao gồm 2 từ trển lên,
     trong tên chỉ được phép có chữ và khoảng trắng,
     1 tên có tối đa 5 từ,
