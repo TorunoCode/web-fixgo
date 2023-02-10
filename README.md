@@ -2,36 +2,46 @@
 
 Chức năng chính
 
-- 1. Login
-  - Check các input chưa nhập
-  - Your-email is incorrect
-  - User does not exist
-  - Wrong password !
-  - Login success
-- 2. Register
-  - Check các input chưa nhập
-  - Your-email is incorrect
-  - Email exist
-  - Create successful account !
-- 3. Logout
-  - Logout success !
-- 4. Chức năng star theo rating
-- 5. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
-- 6. Search movie theo name, cast
-- 7. Feedback nội dung và đánh giá 1-10 sao
-- 8. Change My Profile
-  - Chọn avt từ máy
-  - Check fullname: 1 tên bao gồm 2 từ trển lên,
-    trong tên chỉ được phép có chữ và khoảng trắng,
-    1 tên có tối đa 5 từ,
-    1 từ có tối da 6 ký tự,
-    giữa 2 từ chỉ được phép có 1 khoảng trắng,
-  - Check phone: 2 số đầu 03 05 07 08 09 và 8 số cuối (tổng 10 số)
-  - Check url image
-- 9. Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
-- 10. Thanh toán paypal
-- 11. Send receipt qua email user
-- 12. Messenger chatbot
+1. Login
+
+- Check các input chưa nhập
+- Your-email is incorrect
+- User does not exist
+- Wrong password !
+- Login success
+
+2. Login with Account Google
+3. Login with Account Facebook
+4. Register
+
+- Check các input chưa nhập
+- Your-email is incorrect
+- Email exist
+- Create successful account !
+
+5. Logout
+
+- Logout success !
+
+6. Chức năng star theo rating
+7. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
+8. Search movie theo name, cast
+9. Feedback nội dung và đánh giá 1-10 sao
+10. Change My Profile
+
+- Chọn avt từ máy
+- Check fullname: 1 tên bao gồm 2 từ trển lên,
+  trong tên chỉ được phép có chữ và khoảng trắng,
+  1 tên có tối đa 5 từ,
+  1 từ có tối da 6 ký tự,
+  giữa 2 từ chỉ được phép có 1 khoảng trắng,
+- Check phone: 2 số đầu 03 05 07 08 09 và 8 số cuối (tổng 10 số)
+- Check url image
+
+11. Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
+12. Thanh toán paypal
+13. Send receipt qua email user
+14. Messenger chatbot
 
 # Các giao diện
 

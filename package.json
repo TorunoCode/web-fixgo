@@ -33,6 +33,7 @@
     "react-tooltip": "^4.5.0",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "t-a-e-3d-carousel-reactjs": "^1.0.8",
     "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4"
   },
