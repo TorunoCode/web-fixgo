@@ -34,7 +34,6 @@ export const loginGoogle = async (user, dispatch, toast) => {
       " https://backend-boo.vercel.app/api/oAuthGoogleRoutes/login",
       user
     );
-    console.log(res);
     toast.success("Successful login with Google!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {
@@ -47,8 +46,10 @@ export const loginGoogle = async (user, dispatch, toast) => {
 export const loginFacebook = async (user, dispatch, toast) => {
   dispatch(loginStart());
   try {
-    const res = await axios.post("", user);
-    console.log(res);
+    const res = await axios.post(
+      "https://backend-boo.vercel.app/api/oAuthFacebookRoutes/login",
+      user
+    );
     toast.success("Successful login with Facebook!", { autoClose: 2000 });
     dispatch(loginSuccess(res.data));
   } catch (err) {

@@ -1,7 +1,13 @@
 import React from "react";
 import "../sass/pages/support.scss";
+import { useEffect } from "react";
 
 const Support = () => {
+  useEffect(() => {
+    if (window.FB) {
+      window.FB.XFBML.parse();
+    }
+  }, []);
   return (
     <div className="support">
       <div className="main">

@@ -95,11 +95,6 @@ const Register = ({ ModalLogin }) => {
             Sign In
           </div>
         </div>
-        <div className="txt">--- or sign in with ---</div>
-        <div className="login_icon">
-          <i class="fa-brands fa-facebook-f">acebook</i>&emsp;
-          <i class="fa-brands fa-google">oogle</i>
-        </div>
       </div>
     </div>
   );

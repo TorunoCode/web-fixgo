@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import GoogleLogin from "@leecheuk/react-google-login";
 import { gapi } from "gapi-script";
 import { loginGoogle } from "../../redux/apiRequest";

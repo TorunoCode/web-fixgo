@@ -41,6 +41,7 @@ const Header = () => {
   const handleLogOut = (e) => {
     window.location.reload();
     localStorage.clear();
+    // window.FB.logout();
     toast.success("Logout success!", { autoClose: 2000 });
   };
   const onSuccess = () => {

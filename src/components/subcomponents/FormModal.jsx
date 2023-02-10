@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Login from "./Login";
 import Register from "./Register";
 import "../../sass/components/subcomponents/formModal.scss";
-
 import { useSelector } from "react-redux";
 import Loading from "../Loading";
+import LoginFacebook from "./LoginFacebook";
+import LoginGoogle from "./LoginGoogle";
 
 const FormModal = ({ closeModal }) => {
   // Default cho login = true mở sẵn.. khi lick dô thì login = false còn register = true
@@ -31,6 +32,12 @@ const FormModal = ({ closeModal }) => {
         ) : (
           <Register ModalLogin={setLogin} />
         )}
+
+        <div className="txt">--- or sign in with ---</div>
+        <div className="login_icon">
+          <LoginFacebook />
+          <LoginGoogle />
+        </div>
 
         {/* {login && <Login ModalLogin={setLogin} ModalRegister={setRegister} />}
         {register && (
