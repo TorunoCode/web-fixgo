@@ -2,8 +2,31 @@
   .main {
     width: 1200px;
     margin: 0 auto;
+
     .carousel_____container {
       width: 1200px !important;
+      margin-top: 5px !important;
+      height: 65vh !important;
+    }
+    .carousel_____image-overlay {
+      border-radius: 20px !important;
+    }
+    .carousel____right,
+    .carousel____left {
+      box-shadow: 0 0 10px gray;
+
+      opacity: 0.6;
+      filter: blur(3px);
+      pointer-events: none;
+    }
+    .carousel_____image {
+      border-radius: 20px !important;
+    }
+    .carousel____middle {
+      box-shadow: 0 0 8px orange;
+    }
+    .carousel_____arrow-indicators {
+      color: #ffa500cc;
     }
     .tag_movie {
       padding-top: 10px;
