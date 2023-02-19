@@ -43,9 +43,7 @@ const Support = () => {
                     Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh
                   </div>
                 </div>
-                <div className="title">
-                  Questions and suggestions (bị load chậm)
-                </div>
+                <div className="title">Questions and suggestions</div>
                 <div className="plugincmt">
                   <div
                     class="fb-comments"

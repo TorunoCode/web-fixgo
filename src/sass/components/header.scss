@@ -9,12 +9,15 @@ header {
     height: 70px;
     .main {
       display: grid;
-      grid-template-columns: 0.9fr 4fr 2.5fr 1.5fr;
+      grid-template-columns: 1.12fr 4fr 2.5fr 1.5fr;
       color: white;
       position: relative;
       .logo {
+        font-family: cursive;
+        font-weight: bold;
+        text-transform: uppercase;
         color: orange;
-        font-size: 40px;
+        font-size: 36px;
         cursor: pointer;
         line-height: 70px;
         transform: translateY(-2px);

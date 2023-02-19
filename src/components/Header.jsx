@@ -158,7 +158,6 @@ const Header = () => {
                 className="ipsearch"
                 type="text"
                 placeholder="Search by name movie, cast.."
-                name="search"
                 onChange={(e) => setQuery(e.target.value)}
               />
               <div>

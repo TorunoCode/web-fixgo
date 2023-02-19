@@ -23,7 +23,7 @@ Chức năng chính
 
 - Logout success !
 
-6. Chức năng star theo rating
+6. Chức năng đổ màu star theo rating
 7. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 8. Search movie theo name, cast
 9. Feedback nội dung và đánh giá 1-10 sao

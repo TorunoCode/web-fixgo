@@ -22,14 +22,7 @@ const Home = () => {
       title: "black panther",
       url: "https://kyty.vn/wp-content/uploads/2021/06/black-panther-744x419-1.png",
     },
-    {
-      title: "quantumania",
-      url: "https://media.lottecinemavn.com/Media/WebAdmin/5235749112e74ed298a08a78ef8f5f65.jpg",
-    },
-    {
-      title: "muon gap nhau",
-      url: "https://media.lottecinemavn.com/Media/WebAdmin/83e122bdee42481aa9810d62d3cd76e1.jpg",
-    },
+
     {
       title: " decibel",
       url: "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/t/h/thumb-decibel.jpg",
@@ -64,13 +57,13 @@ const Home = () => {
           <div className="title">Now Showing</div>
           {listMovie.length > 0 && <ListMovie list={listMovie} />}
         </div>
-        <div className="tag_movie">
+        <div className="tag_movie" style={{ marginBottom: "20px" }}>
           <div className="title">Comming Soon</div>
         </div>
-        <div className="tag_movie">
+        {/* <div className="tag_movie">
           <div className="title">Promotion news</div>
           <VoucherHome />
-        </div>
+        </div> */}
       </div>
     </div>
   );

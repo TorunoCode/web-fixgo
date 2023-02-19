@@ -118,7 +118,6 @@ const MyProfile = () => {
       <div className="main">
         <div className="image">
           <img src={BackgroundDefault} alt="" className="background" />
-
           <div className="upload">
             <img src={avatar || AvtDefault} alt="" className="avt_user" />
             <div className="round">
