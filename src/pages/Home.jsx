@@ -4,16 +4,8 @@ import ListMovie from "../components/ListMovies";
 import axios from "axios";
 import Carousel from "t-a-e-3d-carousel-reactjs";
 
-import { loginGoogle } from "../redux/apiRequest";
-import { useDispatch } from "react-redux";
-// Toast
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { GoogleLogin } from "@react-oauth/google";
-
 const Home = () => {
   const [listMovie, setListMovie] = useState([]);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -41,16 +33,16 @@ const Home = () => {
       url: "https://techbiz.vn/attachments/1671172015866-jpeg.153",
     },
     {
-      title: "vagabond",
-      url: "https://ghienreview.com/wp-content/uploads/2020/04/Ghien-review-Vagabond-08.jpg",
+      title: "magic mike",
+      url: "https://sgp1.digitaloceanspaces.com/cdns.dep365.com/wp-content/uploads/2023/02/phim-chieu-rap-2023-4.jpg",
     },
     {
       title: "tro tan ruc ro",
       url: "https://img.idesign.vn/2022/12/thumb_fixed.jpg",
     },
     {
-      title: "nhu y vuong phi",
-      url: "https://static2.vieon.vn/vieplay-image/carousel_web_v4/2021/02/01/xmx1qm8g_1920x1080-nhuyphuongphi521563d51527914e1e564407d8467d84.jpg",
+      title: "muon gap anh",
+      url: "https://cdn.dep365.com/wp-content/uploads/2023/02/phim-chieu-rap-2023-6-1.jpg?strip=all&lossy=1&quality=90&webp=90&avif=60&w=800&ssl=1",
     },
     {
       title: "trainsformers",
@@ -60,22 +52,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      <GoogleLogin
-        shape="circle"
-        onSuccess={(res) => {
-          console.log(res);
-
-          const account = {
-            tokenId: res.credential,
-          };
-          console.log("token: ", account);
-          loginGoogle(account, dispatch, toast);
-        }}
-        onError={() => {
-          console.log("Login Failed");
-        }}
-      />
-      ;
       <div className="main">
         <Carousel imageList={image} autoPlay={true} interval={1000} />
         <div className="tag_movie">

@@ -5,12 +5,7 @@ const Loading = () => {
   return (
     <div className="parent">
       <div className="loading">
-        <ReactLoading
-          type="spinningBubbles"
-          color="orange"
-          height={150}
-          width={150}
-        />
+        <ReactLoading type="spin" color="orange" height={80} width={80} />
       </div>
     </div>
   );

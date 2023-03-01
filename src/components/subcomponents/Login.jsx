@@ -42,7 +42,13 @@ const Login = ({ ModalLogin }) => {
     if (!isValid) return;
     loginUser(newUser, dispatch, toast);
   };
-
+  const [t, setT] = useState(true);
+  const [type, setType] = useState("password");
+  const handleShowHide = () => {
+    setT(!t);
+    if (t) setType("text");
+    else setType("password");
+  };
   return (
     <div className="modal_login">
       <div className="row_top">
@@ -58,22 +64,27 @@ const Login = ({ ModalLogin }) => {
           {validationMsg.email && (
             <i className="validate">{validationMsg.email}</i>
           )}
-          <div>
-            <div className="input">
-              <input
-                type="password"
-                placeholder="Password.."
-                className="input_data"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {/* <div className="eye">
-              <i class="fa-solid fa-eye"></i>
-            </div> */}
+          <div className="parent_input">
+            <input
+              type={type}
+              placeholder="Password.."
+              className="input_data"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {validationMsg.password && (
+              <i className="validate">{validationMsg.password}</i>
+            )}
+            {password && (
+              <div className="eye" onClick={handleShowHide}>
+                {t ? (
+                  <i class="fa-regular fa-eye"></i>
+                ) : (
+                  <i class="fa-regular fa-eye-slash"></i>
+                )}
+              </div>
+            )}
           </div>
-          {validationMsg.password && (
-            <i className="validate">{validationMsg.password}</i>
-          )}
+
           <div className="flex">
             <div className="label_checkbox">
               <input type="checkbox" />

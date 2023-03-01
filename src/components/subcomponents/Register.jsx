@@ -51,6 +51,13 @@ const Register = ({ ModalLogin }) => {
     if (!isValid) return;
     registerUser(newUser, dispatch, toast);
   };
+  const [t, setT] = useState(true);
+  const [type, setType] = useState("password");
+  const handleShowHide = () => {
+    setT(!t);
+    if (t) setType("text");
+    else setType("password");
+  };
   return (
     <div className="modal_register">
       <div className="row_top">
@@ -66,15 +73,27 @@ const Register = ({ ModalLogin }) => {
           {validationMsg.email && (
             <i className="validate">{validationMsg.email}</i>
           )}
-          <input
-            type="password"
-            placeholder="Password.."
-            className="input_data"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {validationMsg.password && (
-            <i className="validate">{validationMsg.password}</i>
-          )}
+          <div className="parent_input">
+            <input
+              type={type}
+              placeholder="Password.."
+              className="input_data"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {validationMsg.password && (
+              <i className="validate">{validationMsg.password}</i>
+            )}
+            {password && (
+              <div className="eye" onClick={handleShowHide}>
+                {t ? (
+                  <i class="fa-regular fa-eye"></i>
+                ) : (
+                  <i class="fa-regular fa-eye-slash"></i>
+                )}
+              </div>
+            )}
+          </div>
+
           <input
             type="text"
             placeholder="Username.."

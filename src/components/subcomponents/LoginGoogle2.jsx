@@ -12,17 +12,16 @@ const LoginGoogle2 = () => {
     onSuccess: (res) => {
       console.log(res);
       const account = {
-        tokenId: res.access_token,
+        access_token: res.access_token,
+        tokenId: "aaa",
       };
       console.log("token: ", account);
       loginGoogle(account, dispatch, toast);
     },
   });
   return (
-    <div>
-      <i onClick={() => login()} class="fa-brands fa-google">
-        oogle
-      </i>
+    <div onClick={() => login()}>
+      <i class="fa-brands fa-google">oogle</i>
     </div>
   );
 };

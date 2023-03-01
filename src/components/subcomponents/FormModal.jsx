@@ -5,7 +5,6 @@ import "../../sass/components/subcomponents/formModal.scss";
 import { useSelector } from "react-redux";
 import Loading from "../Loading";
 import LoginFacebook from "./LoginFacebook";
-import LoginGoogle from "./LoginGoogle";
 import LoginGoogle2 from "./LoginGoogle2";
 
 const FormModal = ({ closeModal }) => {
