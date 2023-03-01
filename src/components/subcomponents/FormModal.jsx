@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Loading from "../Loading";
 import LoginFacebook from "./LoginFacebook";
 import LoginGoogle from "./LoginGoogle";
+import LoginGoogle2 from "./LoginGoogle2";
 
 const FormModal = ({ closeModal }) => {
   // Default cho login = true mở sẵn.. khi lick dô thì login = false còn register = true
@@ -36,7 +37,7 @@ const FormModal = ({ closeModal }) => {
         <div className="txt">--- or sign in with ---</div>
         <div className="login_icon">
           <LoginFacebook />
-          <LoginGoogle />
+          <LoginGoogle2 />
         </div>
 
         {/* {login && <Login ModalLogin={setLogin} ModalRegister={setRegister} />}

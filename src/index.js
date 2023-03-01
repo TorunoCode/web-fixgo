@@ -5,13 +5,13 @@ import "normalize.css";
 import "./assets/css/fontawesome-icons/css/all.min.css";
 import Layout from "./components/Layout";
 import reportWebVitals from "./reportWebVitals";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-
-  <Layout />
-
+  <GoogleOAuthProvider clientId="1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com">
+    <Layout />
+  </GoogleOAuthProvider>
   // </React.StrictMode>
 );
 

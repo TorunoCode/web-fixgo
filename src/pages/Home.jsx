@@ -2,10 +2,19 @@ import React, { useState, useEffect } from "react";
 import "../sass/pages/home.scss";
 import ListMovie from "../components/ListMovies";
 import axios from "axios";
-import VoucherHome from "../components/subcomponents/VoucherHome";
 import Carousel from "t-a-e-3d-carousel-reactjs";
+
+import { loginGoogle } from "../redux/apiRequest";
+import { useDispatch } from "react-redux";
+// Toast
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { GoogleLogin } from "@react-oauth/google";
+
 const Home = () => {
   const [listMovie, setListMovie] = useState([]);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const fetchMovie = async () => {
       let res = await axios.get("https://backend-boo.vercel.app/api/movies");
@@ -51,6 +60,22 @@ const Home = () => {
 
   return (
     <div className="home">
+      <GoogleLogin
+        shape="circle"
+        onSuccess={(res) => {
+          console.log(res);
+
+          const account = {
+            tokenId: res.credential,
+          };
+          console.log("token: ", account);
+          loginGoogle(account, dispatch, toast);
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+      />
+      ;
       <div className="main">
         <Carousel imageList={image} autoPlay={true} interval={1000} />
         <div className="tag_movie">
