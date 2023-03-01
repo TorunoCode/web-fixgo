@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 // Toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LoginGoogle from "./LoginGoogle";
-import LoginFacebook from "./LoginFacebook";
 
 const Login = ({ ModalLogin }) => {
   const [email, setEmail] = useState("");
@@ -60,13 +58,19 @@ const Login = ({ ModalLogin }) => {
           {validationMsg.email && (
             <i className="validate">{validationMsg.email}</i>
           )}
-
-          <input
-            type="password"
-            placeholder="Password.."
-            className="input_data"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div>
+            <div className="input">
+              <input
+                type="password"
+                placeholder="Password.."
+                className="input_data"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            {/* <div className="eye">
+              <i class="fa-solid fa-eye"></i>
+            </div> */}
+          </div>
           {validationMsg.password && (
             <i className="validate">{validationMsg.password}</i>
           )}

@@ -228,8 +228,8 @@ const Header = () => {
                   <div
                     className="nav_user-btn-children"
                     onClick={() => {
-                      renderProps.onClick();
                       handleLogOut();
+                      renderProps.onClick();
                     }}
                   >
                     <i class="fa-solid fa-right-from-bracket"></i> Log Out
