@@ -7,7 +7,7 @@ import Loading from "../Loading";
 import LoginFacebook from "./LoginFacebook";
 import LoginGoogle2 from "./LoginGoogle2";
 
-const FormModal = ({ closeModal }) => {
+const FormModal = ({ setOpenModal }) => {
   // Default cho login = true mở sẵn.. khi lick dô thì login = false còn register = true
   // để đóng tab login mở tab reigister rùi ngược lại
   // đẳng cấp z Tủn
@@ -23,9 +23,15 @@ const FormModal = ({ closeModal }) => {
       {is1 && <Loading />}
       {is2 && <Loading />}
       <div className="modal-form">
-        <button className="btnX" onClick={() => closeModal(false)}>
+        <button
+          className="btnX"
+          onClick={() => {
+            setOpenModal(false);
+          }}
+        >
           <i class="fa-solid fa-xmark"></i>
         </button>
+
         {/* customize code */}
         {login ? (
           <Login ModalLogin={setLogin} />

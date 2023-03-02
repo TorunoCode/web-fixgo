@@ -23,14 +23,14 @@ Chức năng chính
 
 - Logout success !
 
-6. Chức năng đổ màu star theo rating
+6. Chức năng màu star trải dài theo tỉ lệ của rating
 7. Chức năng Lọc phim theo Thể loại + Sắp xếp phim theo Rate tăng giảm
 8. Search movie theo name, cast
 9. Feedback nội dung và đánh giá 1-10 sao
 10. Change My Profile
 
 - Chọn avatar image từ máy
-- Check fullname: 1 tên bao gồm 2 từ trển lên,
+- Check fullname: 1 tên bao gồm 2 từ trở lên,
   trong tên chỉ được phép có chữ và khoảng trắng,
   1 tên có tối đa 5 từ,
   1 từ có tối da 6 ký tự,
@@ -42,6 +42,8 @@ Chức năng chính
 12. Thanh toán paypal
 13. Send receipt qua email user
 14. Messenger chatbot (chat with Fanpage Facebook)
+15. Quên mật khẩu (gửi OTP => user nhập OTP và đổi mật khẩu mới)
+16. Đổi mật khẩu
 
 # Các giao diện
 

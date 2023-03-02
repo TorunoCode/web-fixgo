@@ -81,7 +81,9 @@
       // border: 1px solid orange;
       .margingif {
         padding: 0 40px 20px 40px;
-        .text {
+        .row1 {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           padding-top: 20px;
           padding-left: 10px;
           border-radius: 10px;
@@ -91,17 +93,64 @@
           color: orange;
           font-weight: bold;
         }
+
         .default_main {
-          margin: 10px 0 0 10px;
-          font-size: 20px;
           display: grid;
-          grid-template-columns: 240px 300px;
-          line-height: 30px;
-          .left {
-            font-weight: bold;
+          grid-template-columns: 1fr 1fr;
+          .info {
+            height: 170px;
+            margin: 10px 0 0 10px;
             font-size: 20px;
+            display: grid;
+            grid-template-columns: 240px 300px;
+            line-height: 30px;
+            .left {
+              font-weight: bold;
+              font-size: 20px;
+            }
+          }
+          .change_password {
+            .pass {
+              margin-top: 10px;
+
+              font-weight: bold;
+              font-size: 18px;
+              margin-bottom: 4px;
+            }
+            .input {
+              border-radius: 3px;
+              text-decoration: none;
+              outline: none;
+              border: none;
+              height: 30px;
+              font-size: 20px;
+            }
+            .btnSave {
+              margin-top: 10px;
+              padding: 10px 30px;
+              font-size: 16px;
+              font-weight: bold;
+              color: orange;
+              background: none;
+              text-align: center;
+              border-radius: 5px;
+              border: 1px solid orange;
+              cursor: pointer;
+              &:hover {
+                background: orange;
+                color: whitesmoke;
+                box-shadow: 0 0 5px orange;
+              }
+            }
+            .validate {
+              display: block;
+              margin: 5px 0;
+              color: orange;
+              font-size: 15px;
+            }
           }
         }
+
         .form_edit {
           margin: 20px auto;
           padding: 20px 50px 0 0;

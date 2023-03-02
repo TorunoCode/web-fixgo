@@ -239,7 +239,7 @@ const Header = () => {
             </div>
           </nav>
         )}
-        {name ? <></> : openModal && <FormModal closeModal={setOpenModal} />}
+        {name ? <></> : openModal && <FormModal setOpenModal={setOpenModal} />}
         {/* search */}
         {query && (
           <div className="row_list">

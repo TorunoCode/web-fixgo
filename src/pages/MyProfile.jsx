@@ -35,6 +35,8 @@ const MyProfile = () => {
   // 1 từ có tối da 6 ký tự
   // giữa 2 từ chỉ được phép có 1 khoảng trắng
   const [validationMsg, setValidationMsg] = useState({});
+  const [validationMsgChangePassword, setValidationMsgChangePassword] =
+    useState({});
 
   const validateAll = () => {
     var reg_fullname =
@@ -55,6 +57,19 @@ const MyProfile = () => {
     }
 
     setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  };
+  const validateChangePassword = () => {
+    const msg = {};
+    if (!passCurrent) {
+      msg.passCurrent = "Please input current password";
+    }
+    if (!passNew) {
+      msg.passNew = "Please input new password";
+    }
+
+    setValidationMsgChangePassword(msg);
     if (Object.keys(msg).length > 0) return false;
     return true;
   };
@@ -111,7 +126,28 @@ const MyProfile = () => {
     submitImage();
   }, [image]);
   ///////
+  const [passCurrent, setPassCurrent] = useState("");
+  const [passNew, setPassNew] = useState("");
 
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+    const isValid = validateChangePassword();
+    if (!isValid) return;
+    const acc = {
+      email: user?.data.email,
+      oldpassword: passCurrent,
+      newpassword: passNew,
+    };
+    try {
+      const { data } = await axios.post(
+        `https://backend-boo.vercel.app/api/password/changepass`,
+        acc
+      );
+      toast.success(data?.message, { autoClose: 2000 });
+    } catch (err) {
+      toast.error(err.response.data?.message, { autoClose: 2000 });
+    }
+  };
   return (
     <div className="container_myprofile">
       {pending && <Loading />}
@@ -138,31 +174,67 @@ const MyProfile = () => {
         </div>
         <div className="backgroundgif">
           <div className="margingif">
-            <div className="text">Info default</div>
-
-            <div className="default_main">
-              <div className="left">User:</div>
-              <div className="default">{user?.data.name}</div>
-              <div className="left">Email:</div>
-              <div className="default">{user?.data.email}</div>
-              <div className="left">Account creation date:</div>
-              <div className="default">
-                {user?.data.createdAt
-                  .slice(0, 10)
-                  .split("-")
-                  .reverse()
-                  .join("-")}
-              </div>
-              <div className="left">Update profile date: </div>
-              <div className="default">
-                {user?.data.updatedAt
-                  .slice(0, 10)
-                  .split("-")
-                  .reverse()
-                  .join("-")}
+            <div className="row1">
+              <div className="text">Info default</div>
+              <div className="btn" onClick={handleChangePassword}>
+                <i class="fa-solid fa-screwdriver-wrench"></i>&nbsp;Change
+                password
               </div>
             </div>
+            <div className="default_main">
+              <div className="info">
+                <div className="left">User:</div>
+                <div className="default">{user?.data.name}</div>
+                <div className="left">Email:</div>
+                <div className="default">{user?.data.email}</div>
+                <div className="left">Account creation date:</div>
+                <div className="default">
+                  {user?.data.createdAt
+                    .slice(0, 10)
+                    .split("-")
+                    .reverse()
+                    .join("-")}
+                </div>
+                <div className="left">Update profile date: </div>
+                <div className="default">
+                  {user?.data.updatedAt
+                    .slice(0, 10)
+                    .split("-")
+                    .reverse()
+                    .join("-")}
+                </div>
+              </div>
+              <div className="change_password">
+                <form onSubmit={handleChangePassword}>
+                  <div className="pass">Current password: </div>
+                  <input
+                    className="input"
+                    type="password"
+                    onChange={(e) => setPassCurrent(e.target.value)}
+                  />
+                  {validationMsgChangePassword.passCurrent && (
+                    <i className="validate">
+                      {validationMsgChangePassword.passCurrent}
+                    </i>
+                  )}
 
+                  <div className="pass">New password: </div>
+                  <input
+                    className="input"
+                    type="password"
+                    onChange={(e) => setPassNew(e.target.value)}
+                  />
+                  {validationMsgChangePassword.passNew && (
+                    <i className="validate">
+                      {validationMsgChangePassword.passNew}
+                    </i>
+                  )}
+                  <div>
+                    <button className="btnSave">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
             {/* <div className="text">Form edit profile</div> */}
 
             <form action="" className="form_edit" onSubmit={handleEdit}>
