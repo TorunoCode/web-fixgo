@@ -18,6 +18,13 @@
       color: grey;
       padding-bottom: 10px;
     }
+    .title_update {
+      margin-top: 20px;
+      margin-bottom: 5px;
+      color: orange;
+      font-weight: bold;
+    }
+
     .input_data {
       position: relative;
       padding: 12px 2px 6px 4px;
@@ -27,6 +34,12 @@
       border-bottom: 1px solid orange;
       outline: none;
       width: 294px;
+    }
+    .validate {
+      display: block;
+      margin: 5px 0px -10px;
+      color: orange;
+      font-size: 14px;
     }
     .parent_input {
       position: relative;

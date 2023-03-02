@@ -29,7 +29,7 @@ Chức năng chính
 9. Feedback nội dung và đánh giá 1-10 sao
 10. Change My Profile
 
-- Chọn avt từ máy
+- Chọn avatar image từ máy
 - Check fullname: 1 tên bao gồm 2 từ trển lên,
   trong tên chỉ được phép có chữ và khoảng trắng,
   1 tên có tối đa 5 từ,
@@ -41,7 +41,7 @@ Chức năng chính
 11. Đặt vé ( chọn rạp, chọn ngày, chọn thời gian, chọn ghế )
 12. Thanh toán paypal
 13. Send receipt qua email user
-14. Messenger chatbot
+14. Messenger chatbot (chat with Fanpage Facebook)
 
 # Các giao diện
 
