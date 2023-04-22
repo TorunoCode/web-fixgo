@@ -44,6 +44,7 @@ Chức năng chính
 14. Messenger chatbot (chat with Fanpage Facebook)
 15. Quên mật khẩu (gửi OTP => user nhập OTP và đổi mật khẩu mới)
 16. Đổi mật khẩu
+17. Share link details movie to facebook, twitter, telegram
 
 # Các giao diện
 
