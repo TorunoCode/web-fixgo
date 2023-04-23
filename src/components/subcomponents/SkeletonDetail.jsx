@@ -9,7 +9,7 @@ import {
 	Typography,
 } from "@mui/material";
 const SkeletonDetail = () => {
-	console.log("a");
+	console.log("aa");
 	return (
 		<Box>
 			<Stack spacing={2} direction='row' width='100%' alignItems='stretch'>
