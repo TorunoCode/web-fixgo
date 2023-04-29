@@ -20,7 +20,7 @@ const MovieDetail = () => {
 	// const [payment, setPayment] = useState(false);
 	// call lấy data movie detail theo id
 	const [movie, setMovie] = useState(0);
-	console.log("detail movie: ", movie);
+
 	// render khi có listfeedback
 	const [listFeedback, setListFeedback] = useState([]);
 	const { name } = useParams();
@@ -36,7 +36,6 @@ const MovieDetail = () => {
 	const url = `https://web-fixgo.vercel.app/MovieDetail/${encodeURIComponent(
 		name
 	)}`;
-	// console.log(url);
 	return (
 		// bấm thả xuống description
 		<div className='detail'>

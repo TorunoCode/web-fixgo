@@ -7,23 +7,23 @@ import "react-toastify/dist/ReactToastify.css";
 import { useGoogleLogin } from "@react-oauth/google";
 
 const LoginGoogle2 = () => {
-  const dispatch = useDispatch();
-  const login = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log(res);
-      const account = {
-        access_token: res.access_token,
-        tokenId: "aaa",
-      };
-      console.log("token: ", account);
-      loginGoogle(account, dispatch, toast);
-    },
-  });
-  return (
-    <div onClick={() => login()}>
-      <i class="fa-brands fa-google">oogle</i>
-    </div>
-  );
+	const dispatch = useDispatch();
+	const login = useGoogleLogin({
+		onSuccess: (res) => {
+			// console.log(res);
+			const account = {
+				access_token: res.access_token,
+				tokenId: "aaa",
+			};
+			// console.log("token: ", account);
+			loginGoogle(account, dispatch, toast);
+		},
+	});
+	return (
+		<div onClick={() => login()}>
+			<i class='fa-brands fa-google'>oogle</i>
+		</div>
+	);
 };
 
 export default LoginGoogle2;

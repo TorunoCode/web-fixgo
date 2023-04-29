@@ -1,13 +1,6 @@
 import React from "react";
 import "../../sass/pages/movieDetail.scss";
-import {
-	Box,
-	Container,
-	Grid,
-	Skeleton,
-	Stack,
-	Typography,
-} from "@mui/material";
+import { Box, Skeleton, Stack } from "@mui/material";
 const SkeletonDetail = () => {
 	console.log("asa");
 	return (

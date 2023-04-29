@@ -3,11 +3,9 @@ import "../sass/components/listMovie.scss";
 import StarRating from "./subcomponents/StarRating";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
-import SkeletonListMovie from "./subcomponents/SkeletonListMovie";
 
 const ListMovie = ({ list }) => {
 	const listMovie = list;
-	// console.log(listMovie);
 	// số lượng item sẽ show ra
 	const [quantityShow, setQuantityShow] = useState(5);
 	// số lượng item còn lại
