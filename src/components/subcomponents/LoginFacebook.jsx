@@ -8,15 +8,16 @@ import { loginFacebook } from "../../redux/apiRequest";
 
 export const LoginFacebook = () => {
 	const dispatch = useDispatch();
+
 	const responseFacebook = (res) => {
-		// console.log("login fb ok: ", res);
 		const account = {
 			id: res.id,
 			accessToken: res.accessToken,
 		};
-		// console.log("acc: ", account);
+
 		loginFacebook(account, dispatch, toast);
 	};
+
 	return (
 		<div className='facebook'>
 			<FacebookLogin

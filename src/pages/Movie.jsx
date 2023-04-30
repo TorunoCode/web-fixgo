@@ -21,7 +21,7 @@ export const Movie = () => {
 		};
 		fetchMovie();
 	}, []);
-	// console.log(listMovie);
+
 	// handle fillter chung
 	const handleFillter = (e) => {
 		const value = e.target.value.toLowerCase();
@@ -37,6 +37,7 @@ export const Movie = () => {
 		});
 		setListMovie(movie);
 	};
+
 	// sắp xếp tăng giảm
 	const handleSort = (e) => {
 		const sort = e.target.value;

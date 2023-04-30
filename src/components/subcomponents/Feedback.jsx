@@ -23,10 +23,8 @@ export const Feedback = ({
 	listFeedback,
 	setListFeedback,
 }) => {
-	// const post = useSelector((state) => state.postFeedback.postFeedbacks);
 	const user = useSelector((state) => state.auth.login?.currentUser);
 	const [openModal, setOpenModal] = useState(false);
-	// const dispatch = useDispatch();
 	const [content, setContent] = useState();
 	const [currentValue, setCurrentValue] = useState(0);
 
@@ -51,8 +49,7 @@ export const Feedback = ({
 			rate: currentValue,
 			title: "Title",
 		};
-		// tạo view feedback giả chứ thật ra render lại mới get lại listfeedback
-		// dispatch(createPostFeedback(newPost));
+
 		try {
 			await axios.post(
 				`${BASE_URL}/api/commentsFeedback/add_feedback`,
@@ -62,13 +59,15 @@ export const Feedback = ({
 		} catch (err) {
 			toast.error("Failed to add feedback!", { autoClose: 2000 });
 		}
+
 		await fetchFeedbacks();
 	};
+
 	/// get feedback
 	useEffect(() => {
 		fetchFeedbacks();
 	}, [idMovie]);
-	console.log(idMovie);
+
 	const fetchFeedbacks = async () => {
 		try {
 			const { data } = await axios.get(
@@ -79,12 +78,12 @@ export const Feedback = ({
 			console.log(error);
 		}
 	};
-	console.log("listfeedback", listFeedback);
+
 	// stars
 	const handleClick = (value) => {
 		setCurrentValue(value);
 	};
-	///
+
 	const handleMouseOver = (newHoverValue) => {
 		setHoverValue(newHoverValue);
 	};
@@ -92,7 +91,7 @@ export const Feedback = ({
 	const handleMouseLeave = () => {
 		setHoverValue(undefined);
 	};
-	////////
+
 	return (
 		<div className='container_fb_cm'>
 			<section className='feedback'>

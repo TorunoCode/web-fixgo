@@ -158,7 +158,6 @@ export const MyProfile = () => {
 			const { data } = await axios.get(
 				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
 			);
-			console.log("data", data);
 			setMoney(data.money);
 		};
 		fetch();

@@ -9,17 +9,12 @@ import { Login } from "./Login";
 import { Register } from "./Register";
 
 export const FormModal = ({ setOpenModal }) => {
-	// Default cho login = true mở sẵn.. khi lick dô thì login = false còn register = true
-	// để đóng tab login mở tab reigister rùi ngược lại
-	// đẳng cấp z Tủn
 	const [login, setLogin] = useState(true);
-	// const [register, setRegister] = useState(false);
 
 	const is1 = useSelector((state) => state.auth.login.isFetching);
 	const is2 = useSelector((state) => state.auth.register.isFetching);
 
 	return (
-		// làm thêm hiện ứng zoom khi mở modal
 		<div className='modal'>
 			{is1 && <Loading />}
 			{is2 && <Loading />}

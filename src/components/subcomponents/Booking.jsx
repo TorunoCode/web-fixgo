@@ -30,6 +30,8 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	const [modal, setModal] = useState(false);
 	const [password, setPassword] = useState("");
 
+	const [money, setMoney] = useState(0);
+
 	const addSeatCallback = ({ row, number, id }, addCb) => {
 		setSelected((prevItems) => [...prevItems, number]);
 		setIdSelected((prevItems) => [...prevItems, id]);
@@ -78,6 +80,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		);
 		await setSesscion(data);
 	};
+
 	useEffect(() => {
 		setSesscion([]);
 		setIdSession("");
@@ -95,15 +98,13 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		await setSeat(data);
 		await setIsLoading(false);
 	};
-	console.log("iidsec:", idsesscion);
+
 	useEffect(() => {
 		setSeat([]);
 		fetchSeat();
 	}, [idsesscion]);
 
-	console.log("seat: ", seat);
 	// post booking
-
 	const user = useSelector((state) => state.auth.login?.currentUser);
 	const handleBooking = async () => {
 		const bookSeat = {
@@ -122,9 +123,11 @@ export const Booking = ({ idMovie, nameMovie }) => {
 
 		window.location.reload(false);
 	};
+
 	const newPage = async () => {
 		await setTimeout(open, 1500);
 	};
+
 	const handleBtnBuy = () => {
 		if (user) {
 			setPayment(!payment);
@@ -137,6 +140,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	const email = useSelector(
 		(state) => state.auth.login?.currentUser?.data?.email
 	);
+
 	const bookWithAccount = async () => {
 		const bookSeat = {
 			email: email,
@@ -150,13 +154,11 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		}
 	};
 
-	const [money, setMoney] = useState(0);
 	useEffect(() => {
 		const fetch = async () => {
 			const { data } = await axios.get(
 				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
 			);
-			console.log("data", data);
 			await setMoney(data.money);
 		};
 		fetch();

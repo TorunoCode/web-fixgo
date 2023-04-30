@@ -9,7 +9,7 @@ export const BookingHistory = () => {
 	const [data, setData] = useState([]);
 	const [pageSize, setPageSize] = useState(5);
 	const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
-	console.log(idUser);
+
 	useEffect(() => {
 		const fetchUsers = async () => {
 			const { data } = await axios.get(
@@ -19,7 +19,7 @@ export const BookingHistory = () => {
 		};
 		fetchUsers();
 	}, []);
-	// console.log(data);
+
 	const columns = useMemo(
 		() => [
 			{ field: "idBill", headerName: "ID", width: 150 },

@@ -3,7 +3,6 @@ import "../../sass/pages/movieDetail.scss";
 import { Box, Skeleton, Stack } from "@mui/material";
 
 export const SkeletonDetail = () => {
-	console.log("asa");
 	return (
 		<Box>
 			<Stack spacing={2} direction='row' width='100%' alignItems='stretch'>

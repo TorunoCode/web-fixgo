@@ -5,16 +5,13 @@ import { useDispatch } from "react-redux";
 // Toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// const Register = ({ ModalLogin, ModalRegister }) => {
-export const Register = ({ ModalLogin }) => {
-	// vì onclick chỉ xử lí 1 event --> tạo hàm ngoài chạy 2 event cùng lúc
-	// function someFunc() {
-	//   ModalLogin(true);
-	// }
 
+export const Register = ({ ModalLogin }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [username, setUsername] = useState("");
+	const [t, setT] = useState(true);
+	const [type, setType] = useState("password");
 	const dispatch = useDispatch();
 
 	const [validationMsg, setValidationMsg] = useState({});
@@ -51,13 +48,13 @@ export const Register = ({ ModalLogin }) => {
 		if (!isValid) return;
 		registerUser(newUser, dispatch, toast);
 	};
-	const [t, setT] = useState(true);
-	const [type, setType] = useState("password");
+
 	const handleShowHide = () => {
 		setT(!t);
 		if (t) setType("text");
 		else setType("password");
 	};
+
 	return (
 		<div className='modal_register'>
 			<div className='row_top'>

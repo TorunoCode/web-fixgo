@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import "../../sass/components/listMovie.scss";
 
 export const SkeletonListMovie = () => {

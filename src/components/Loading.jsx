@@ -1,6 +1,7 @@
 import React from "react";
 import ReactLoading from "react-loading";
 import "../sass/components/loading.scss";
+
 export const Loading = () => {
 	return (
 		<div className='parent'>

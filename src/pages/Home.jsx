@@ -19,6 +19,7 @@ export const Home = () => {
 		};
 		fetchMovie();
 	}, []);
+
 	const image = [
 		{
 			title: "black panther",

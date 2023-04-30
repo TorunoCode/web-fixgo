@@ -1,0 +1,4 @@
+@import "./components/index.css";
+@import "./pages/index.css";
+@import "./_mixins.scss";
+@import "./_variables.scss";

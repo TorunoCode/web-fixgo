@@ -19,6 +19,8 @@ export const Header = () => {
 	const [afterlogin, setAfterLogin] = useState(false);
 	const user = useSelector((state) => state.auth.login?.currentUser);
 	const [money, setMoney] = useState("");
+	const [listMovie, setListMovie] = useState([]);
+	const [query, setQuery] = useState();
 
 	const name = useSelector(
 		(state) => state.auth.login?.currentUser?.data?.name
@@ -38,6 +40,7 @@ export const Header = () => {
 			document.removeEventListener("mousedown", handler);
 		};
 	});
+
 	const clientId =
 		"1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com";
 
@@ -48,16 +51,16 @@ export const Header = () => {
 		// window.FB.logout();
 		toast.success("Logout success!", { autoClose: 2000 });
 	};
+
 	const onSuccess = () => {
 		console.log("Success logout google");
 	};
+
 	const handelLose = () => {
 		setQuery(false);
 	};
-	// features search
-	const [listMovie, setListMovie] = useState([]);
-	const [query, setQuery] = useState();
 
+	// features search
 	useEffect(() => {
 		const fetchMovie = async () => {
 			let res = await axios.get(`${BASE_URL}/api/movies`);
@@ -69,6 +72,7 @@ export const Header = () => {
 		};
 		fetchMovie();
 	}, []);
+
 	const [show1, setShow1] = useState(false);
 	const [show2, setShow2] = useState(false);
 	const [show3, setShow3] = useState(false);
@@ -97,6 +101,7 @@ export const Header = () => {
 		setShow3(false);
 		setShow4(true);
 	};
+
 	useEffect(() => {
 		const fetch = async () => {
 			const { data } = await axios.get(
@@ -106,6 +111,7 @@ export const Header = () => {
 		};
 		fetch();
 	}, []);
+
 	return (
 		<header>
 			<div className='header'>

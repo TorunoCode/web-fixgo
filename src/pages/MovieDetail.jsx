@@ -22,6 +22,7 @@ export const MovieDetail = () => {
 	// render khi có listfeedback
 	const [listFeedback, setListFeedback] = useState([]);
 	const { name } = useParams();
+
 	useEffect(() => {
 		const fetchMovie = async () => {
 			const { data } = await axios.get(`${BASE_URL}/api/movies/${name}`);
@@ -29,7 +30,9 @@ export const MovieDetail = () => {
 		};
 		fetchMovie();
 	}, [name, listFeedback]);
+
 	const url = `${BASE_URL}/MovieDetail/${encodeURIComponent(name)}`;
+
 	return (
 		// bấm thả xuống description
 		<div className='detail'>

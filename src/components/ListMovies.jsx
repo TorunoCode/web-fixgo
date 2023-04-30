@@ -15,6 +15,7 @@ export const ListMovies = ({ list }) => {
 		setQuantityShow(5);
 		setTotalQuantity(listMovie.length - 5);
 	}, [listMovie]);
+
 	const handleShowViewMore = (e) => {
 		setQuantityShow((prev) => prev + 5);
 		setTotalQuantity((prev) => prev - 5);

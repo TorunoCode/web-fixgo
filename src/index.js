@@ -8,11 +8,11 @@ import reportWebVitals from "./reportWebVitals";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <GoogleOAuthProvider clientId="1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com">
-    <Layout />
-  </GoogleOAuthProvider>
-  // </React.StrictMode>
+	// <React.StrictMode>
+	<GoogleOAuthProvider clientId='1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com'>
+		<Layout />
+	</GoogleOAuthProvider>
+	// </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -29,20 +29,7 @@ function ItemPosts({ item }) {
 		</div>
 	);
 }
-// function ItemApp({ item }) {
-//   return (
-//     <div className="imgtitle">
-//       <img src={item.imgTitle} alt="" />
-//       <div className="imgtitle_right">
-//         <div className="title_item">{item.titlePost}</div>
-//         <div className="cucduoititle">
-//           <div className="cucxanh">Miễn phí</div>
-//           <div className="cucxam">Nhập vai</div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+
 export const VoucherHome = () => {
 	return (
 		<div>
