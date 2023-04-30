@@ -1,7 +1,8 @@
 import React from "react";
 import "../../sass/pages/movieDetail.scss";
 import { Box, Skeleton, Stack } from "@mui/material";
-const SkeletonDetail = () => {
+
+export const SkeletonDetail = () => {
 	console.log("asa");
 	return (
 		<Box>
@@ -35,5 +36,3 @@ const SkeletonDetail = () => {
 		</Box>
 	);
 };
-
-export default SkeletonDetail;

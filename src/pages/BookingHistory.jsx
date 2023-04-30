@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 import "../sass/pages/bookingHistory.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
-const BookingHistory = () => {
+export const BookingHistory = () => {
 	const [data, setData] = useState([]);
 	const [pageSize, setPageSize] = useState(5);
 	const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
@@ -12,7 +13,7 @@ const BookingHistory = () => {
 	useEffect(() => {
 		const fetchUsers = async () => {
 			const { data } = await axios.get(
-				`https://backend-boo.vercel.app/api/movies/historyBooking/${idUser}`
+				`${BASE_URL}/api/movies/historyBooking/${idUser}`
 			);
 			setData(data);
 		};
@@ -68,5 +69,3 @@ const BookingHistory = () => {
 		</div>
 	);
 };
-
-export default BookingHistory;

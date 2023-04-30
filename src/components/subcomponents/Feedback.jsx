@@ -1,23 +1,22 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import AvtDefault from "../../assets/images/avt_user_default.png";
-// import { useDispatch } from "react-redux";
-// import { createPostFeedback } from "../../redux/postFeedbackSlice";
 import { format } from "timeago.js";
 import { useSelector } from "react-redux";
 import "../../sass/components/subcomponents/feedback.scss";
 import { FaStar } from "react-icons/fa";
-import StarRating from "./StarRating";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { BASE_URL } from "../../constants";
+import { StarRating } from "./StarRating";
 
 const colors = {
 	orange: "#FFBA5A",
 	grey: "#a9a9a9",
 };
 
-const Feedback = ({
+export const Feedback = ({
 	idMovie,
 	rate,
 	nameMovie,
@@ -56,7 +55,7 @@ const Feedback = ({
 		// dispatch(createPostFeedback(newPost));
 		try {
 			await axios.post(
-				`https://backend-boo.vercel.app/api/commentsFeedback/add_feedback`,
+				`${BASE_URL}/api/commentsFeedback/add_feedback`,
 				newPost
 			);
 			toast.success("Add feedback success !", { autoClose: 2000 });
@@ -69,17 +68,18 @@ const Feedback = ({
 	useEffect(() => {
 		fetchFeedbacks();
 	}, [idMovie]);
+	console.log(idMovie);
 	const fetchFeedbacks = async () => {
 		try {
 			const { data } = await axios.get(
-				`https://backend-boo.vercel.app/api/commentsFeedback/feedbacks/${idMovie}/0`
+				`${BASE_URL}/api/commentsFeedback/feedbacks/${idMovie}/0`
 			);
 			setListFeedback(data);
 		} catch (error) {
 			console.log(error);
 		}
 	};
-	// console.log("listfeedback", listFeedback);
+	console.log("listfeedback", listFeedback);
 	// stars
 	const handleClick = (value) => {
 		setCurrentValue(value);
@@ -187,12 +187,10 @@ const Feedback = ({
 					</div>
 				)}
 			</section>
-			<section className='comments'>
+			{/* <section className='comments'>
 				<div className='title_name'>Commnent</div>
-			</section>
+			</section> */}
 			<ToastContainer />
 		</div>
 	);
 };
-
-export default Feedback;

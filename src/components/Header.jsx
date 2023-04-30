@@ -3,7 +3,6 @@ import AvtDefault from "../assets/images/avt_user_default.png";
 //asdas
 import "../sass/components/header.scss";
 import { Link } from "react-router-dom";
-import FormModal from "./subcomponents/FormModal.jsx";
 import { useSelector } from "react-redux";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
@@ -11,18 +10,20 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Marquee from "react-fast-marquee";
 import { GoogleLogout } from "@leecheuk/react-google-login";
+import { BASE_URL } from "../constants";
+import { FormModal } from "./subcomponents";
 
-const Header = () => {
+export const Header = () => {
 	// xử lí lấy 2 chữ cuối trong name .split(' ').slice(-2).join(' ')
 	const [openModal, setOpenModal] = useState(false);
 	const [afterlogin, setAfterLogin] = useState(false);
 	const user = useSelector((state) => state.auth.login?.currentUser);
+	const [money, setMoney] = useState("");
+
 	const name = useSelector(
 		(state) => state.auth.login?.currentUser?.data?.name
 	);
-	const money = useSelector(
-		(state) => state.auth.login?.currentUser?.data?.money
-	);
+
 	let ref = useRef();
 	// click chuột ngoài tắt UI
 	useEffect(() => {
@@ -59,7 +60,7 @@ const Header = () => {
 
 	useEffect(() => {
 		const fetchMovie = async () => {
-			let res = await axios.get("https://backend-boo.vercel.app/api/movies");
+			let res = await axios.get(`${BASE_URL}/api/movies`);
 			try {
 				setListMovie(res?.data);
 			} catch (error) {
@@ -96,6 +97,15 @@ const Header = () => {
 		setShow3(false);
 		setShow4(true);
 	};
+	useEffect(() => {
+		const fetch = async () => {
+			const { data } = await axios.get(
+				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
+			);
+			await setMoney(data.money);
+		};
+		fetch();
+	}, []);
 	return (
 		<header>
 			<div className='header'>
@@ -202,7 +212,7 @@ const Header = () => {
 					<nav className='nav_user'>
 						<div></div>
 						<div className='nav_user-btn' ref={ref}>
-							<div className='nav_user-btn-children'>
+							<div className='nav_user-btn-childrenx'>
 								<div
 									style={{
 										margin: "0 auto",
@@ -307,5 +317,3 @@ const Header = () => {
 		</header>
 	);
 };
-
-export default Header;

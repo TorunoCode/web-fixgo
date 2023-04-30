@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGoogleLogin } from "@react-oauth/google";
 
-const LoginGoogle2 = () => {
+export const LoginGoogle2 = () => {
 	const dispatch = useDispatch();
 	const login = useGoogleLogin({
 		onSuccess: (res) => {
@@ -25,5 +25,3 @@ const LoginGoogle2 = () => {
 		</div>
 	);
 };
-
-export default LoginGoogle2;

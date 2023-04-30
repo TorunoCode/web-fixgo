@@ -6,8 +6,9 @@ import axios from "axios";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BASE_URL } from "../../constants";
 
-const Booking = ({ idMovie, nameMovie }) => {
+export const Booking = ({ idMovie, nameMovie }) => {
 	const [payment, setPayment] = useState(false);
 
 	const [isLoading, setIsLoading] = useState(false);
@@ -25,6 +26,9 @@ const Booking = ({ idMovie, nameMovie }) => {
 
 	const [selected, setSelected] = useState([]);
 	const [idselected, setIdSelected] = useState([]);
+
+	const [modal, setModal] = useState(false);
+	const [password, setPassword] = useState("");
 
 	const addSeatCallback = ({ row, number, id }, addCb) => {
 		setSelected((prevItems) => [...prevItems, number]);
@@ -44,7 +48,7 @@ const Booking = ({ idMovie, nameMovie }) => {
 	// call api cinema
 	const fetchCinema = async () => {
 		const { data } = await axios.get(
-			`https://backend-boo.vercel.app/api/movies/findMovieStep1/${idMovie}`
+			`${BASE_URL}/api/movies/findMovieStep1/${idMovie}`
 		);
 		await setCinema(data);
 	};
@@ -55,7 +59,7 @@ const Booking = ({ idMovie, nameMovie }) => {
 	// call api Date
 	const fetchDate = async () => {
 		const { data } = await axios.get(
-			`https://backend-boo.vercel.app/api/movies/findMovieStep2/${idMovie}/${idcinema}`
+			`${BASE_URL}/api/movies/findMovieStep2/${idMovie}/${idcinema}`
 		);
 		await setDate(data);
 	};
@@ -70,7 +74,7 @@ const Booking = ({ idMovie, nameMovie }) => {
 	// call api Session
 	const fetchSesscion = async () => {
 		const { data } = await axios.get(
-			`https://backend-boo.vercel.app/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
+			`${BASE_URL}/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
 		);
 		await setSesscion(data);
 	};
@@ -85,7 +89,7 @@ const Booking = ({ idMovie, nameMovie }) => {
 	const fetchSeat = async () => {
 		setIsLoading(true);
 		const { data } = await axios.get(
-			`https://backend-boo.vercel.app/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
+			`${BASE_URL}/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
 		);
 
 		await setSeat(data);
@@ -107,14 +111,14 @@ const Booking = ({ idMovie, nameMovie }) => {
 			data: idselected,
 		};
 		await axios.post(
-			`https://backend-boo.vercel.app/api/movies/booking/add/${user.data._id}`,
+			`${BASE_URL}/api/movies/booking/add/${user.data._id}`,
 			bookSeat
 		);
 	};
+
+	//
 	const open = () => {
-		window.open(
-			`https://backend-boo.vercel.app/api/paypal/pay/${user.data._id}`
-		);
+		window.open(`${BASE_URL}/api/paypal/pay/${user.data._id}`);
 
 		window.location.reload(false);
 	};
@@ -128,9 +132,36 @@ const Booking = ({ idMovie, nameMovie }) => {
 			toast.warning("Please login !");
 		}
 	};
-	const handleUpdate = () => {
-		toast.warning("Update soon !");
+
+	// book with account
+	const email = useSelector(
+		(state) => state.auth.login?.currentUser?.data?.email
+	);
+	const bookWithAccount = async () => {
+		const bookSeat = {
+			email: email,
+			password: password,
+		};
+		try {
+			await axios.post(`${BASE_URL}/api/userMoney/pay`, bookSeat);
+			toast.success("Successful payment!", { autoClose: 2000 });
+		} catch (err) {
+			toast.error(err.response.data?.message, { autoClose: 2000 });
+		}
 	};
+
+	const [money, setMoney] = useState(0);
+	useEffect(() => {
+		const fetch = async () => {
+			const { data } = await axios.get(
+				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
+			);
+			console.log("data", data);
+			await setMoney(data.money);
+		};
+		fetch();
+	}, []);
+
 	return (
 		<div>
 			<div className='selectMovie'>
@@ -232,17 +263,61 @@ const Booking = ({ idMovie, nameMovie }) => {
 									</div>
 								</button>
 								<br />
-								<button onClick={handleUpdate}>
-									<i className='fa-regular fa-hand-point-right'></i> With Momo
+								<button onClick={() => setModal(true)}>
+									<i className='fa-regular fa-hand-point-right'></i> With
+									Account
 								</button>
 							</div>
 						)}
 					</div>
 				) : null}
 			</div>
+			{modal && (
+				<div className='modalx'>
+					<div className='modalx-form'>
+						<div>
+							<button className='btnX' onClick={() => setModal(false)}>
+								<i class='fa-solid fa-xmark'></i>
+							</button>
+						</div>
+						<div className='container'>
+							<div className='title'>Confirm payment</div>
+							<div className='content'>Current balance: {money}$</div>
+							{/* <div className='content'>Movie name:{nameMovie}</div>
+							<div className='content'>Seat: {selected.toString()}</div> */}
+							<div className='content'>
+								The amount need to pay: {totalprice}$
+							</div>
+
+							<form action='' onSubmit={bookWithAccount}>
+								<span style={{ color: "black" }}>Password: </span>
+								<input
+									style={{
+										paddingLeft: "10px",
+										height: "35px",
+										borderRadius: "4px",
+										textDecoration: "none",
+										outline: "none",
+										border: "1px solid orange",
+									}}
+									width='100px'
+									placeholder='Password...'
+									className='textarea'
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+								<button
+									onClick={bookWithAccount}
+									className='button'
+									style={{ marginTop: "30px" }}
+								>
+									Submit
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			)}
 			<ToastContainer />
 		</div>
 	);
 };
-
-export default Booking;

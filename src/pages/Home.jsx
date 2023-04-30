@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../sass/pages/home.scss";
-import ListMovie from "../components/ListMovies";
 import axios from "axios";
 import Carousel from "t-a-e-3d-carousel-reactjs";
-import SkeletonListMovie from "../components/subcomponents/SkeletonListMovie";
+import { BASE_URL } from "../constants";
+import { ListMovies, SkeletonListMovie } from "../components";
 
-const Home = () => {
+export const Home = () => {
 	const [listMovie, setListMovie] = useState([]);
 
 	useEffect(() => {
 		const fetchMovie = async () => {
-			let res = await axios.get("https://backend-boo.vercel.app/api/movies");
+			let res = await axios.get(`${BASE_URL}/api/movies`);
 			try {
 				setListMovie(res?.data);
 			} catch (error) {
@@ -58,7 +58,7 @@ const Home = () => {
 				<div className='tag_movie'>
 					<div className='title'>Now Showing</div>
 					{listMovie.length > 0 ? (
-						<ListMovie list={listMovie} />
+						<ListMovies list={listMovie} />
 					) : (
 						<SkeletonListMovie />
 					)}
@@ -74,5 +74,3 @@ const Home = () => {
 		</div>
 	);
 };
-
-export default Home;

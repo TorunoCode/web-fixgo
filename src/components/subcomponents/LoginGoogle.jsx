@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const LoginGoogle = () => {
+export const LoginGoogle = () => {
 	const clientId =
 		"1049176429942-4243i6lqlhfu6cdcbu4lk9aitn2tijj6.apps.googleusercontent.com";
 
@@ -54,5 +54,3 @@ const LoginGoogle = () => {
 		</div>
 	);
 };
-
-export default LoginGoogle;

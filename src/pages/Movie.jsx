@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../sass/pages/movie.scss";
-import ListMovie from "../components/ListMovies";
-import SkeletonListMovie from "../components/subcomponents/SkeletonListMovie";
+import { BASE_URL } from "../constants";
+import { ListMovies, SkeletonListMovie } from "../components";
 
-const Movie = () => {
+export const Movie = () => {
 	const [listMovie, setListMovie] = useState([]);
 	const [tempList, setTempList] = useState([]);
 
 	useEffect(() => {
 		const fetchMovie = async () => {
-			let res = await axios.get("https://backend-boo.vercel.app/api/movies");
+			let res = await axios.get(`${BASE_URL}/api/movies`);
+
 			try {
 				setListMovie(res?.data);
 				setTempList(res?.data);
@@ -91,7 +92,7 @@ const Movie = () => {
 					</div>
 				</div>
 				{listMovie.length > 0 ? (
-					<ListMovie list={listMovie} />
+					<ListMovies list={listMovie} />
 				) : (
 					<SkeletonListMovie />
 				)}
@@ -99,5 +100,3 @@ const Movie = () => {
 		</div>
 	);
 };
-
-export default Movie;

@@ -45,6 +45,7 @@ Chức năng chính
 15. Quên mật khẩu (gửi OTP => user nhập OTP và đổi mật khẩu mới)
 16. Đổi mật khẩu
 17. Share link details movie to facebook, twitter, telegram
+18. Nap tien vao tai khoan va thanh toan
 
 # Các giao diện
 
@@ -63,7 +64,7 @@ Chức năng chính
 
 ## Page Myprofile
 
-- edit thông tin như fullname, phone, date of birth, gender, avatar
+- edit thông tin như fullname, phone, date of birth, gender, avatar, change password, Deposit to your account
 
 ## Page Booking history
 

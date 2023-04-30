@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../sass/pages/movieDetail.scss";
-import StarRating from "../components/subcomponents/StarRating.jsx";
-import Feedback from "../components/subcomponents/Feedback";
-import Booking from "../components/subcomponents/Booking";
 import axios from "axios";
 import {
 	FacebookShareButton,
@@ -13,9 +10,10 @@ import {
 	TelegramShareButton,
 	TelegramIcon,
 } from "react-share";
-import SkeletonDetail from "../components/subcomponents/SkeletonDetail";
+import { BASE_URL } from "../constants";
+import { Booking, Feedback, SkeletonDetail, StarRating } from "../components";
 
-const MovieDetail = () => {
+export const MovieDetail = () => {
 	const [description, setDescription] = useState(true);
 	// const [payment, setPayment] = useState(false);
 	// call lấy data movie detail theo id
@@ -26,16 +24,12 @@ const MovieDetail = () => {
 	const { name } = useParams();
 	useEffect(() => {
 		const fetchMovie = async () => {
-			const { data } = await axios.get(
-				`https://backend-boo.vercel.app/api/movies/${name}`
-			);
+			const { data } = await axios.get(`${BASE_URL}/api/movies/${name}`);
 			setMovie(data);
 		};
 		fetchMovie();
 	}, [name, listFeedback]);
-	const url = `https://web-fixgo.vercel.app/MovieDetail/${encodeURIComponent(
-		name
-	)}`;
+	const url = `${BASE_URL}/MovieDetail/${encodeURIComponent(name)}`;
 	return (
 		// bấm thả xuống description
 		<div className='detail'>
@@ -124,10 +118,9 @@ const MovieDetail = () => {
 					<SkeletonDetail />
 				)}
 				<div className='title'>Booking</div>
-				{/* <Booking idMovie={movie._id} nameMovie={movie.name} />
-				 */}
+				{/* <Booking idMovie={movie._id} nameMovie={movie.name} />*/}
 				<Booking idMovie={movie._id} nameMovie={movie.name} />
-				<div className='title'>Feedback</div>
+				{/* <div className='title'>Feedback</div> */}
 				<Feedback
 					listFeedback={listFeedback}
 					setListFeedback={setListFeedback}
@@ -139,5 +132,3 @@ const MovieDetail = () => {
 		</div>
 	);
 };
-
-export default MovieDetail;

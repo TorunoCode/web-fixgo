@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../sass/components/listMovie.scss";
-import StarRating from "./subcomponents/StarRating";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import { StarRating } from "./subcomponents";
 
-const ListMovie = ({ list }) => {
+export const ListMovies = ({ list }) => {
 	const listMovie = list;
 	// số lượng item sẽ show ra
 	const [quantityShow, setQuantityShow] = useState(5);
@@ -68,5 +68,3 @@ const ListMovie = ({ list }) => {
 		</div>
 	);
 };
-
-export default ListMovie;

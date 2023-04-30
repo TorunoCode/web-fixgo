@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { loginFacebook } from "../../redux/apiRequest";
 
-const LoginFacebook = () => {
+export const LoginFacebook = () => {
 	const dispatch = useDispatch();
 	const responseFacebook = (res) => {
 		// console.log("login fb ok: ", res);
@@ -33,5 +33,3 @@ const LoginFacebook = () => {
 		</div>
 	);
 };
-
-export default LoginFacebook;
