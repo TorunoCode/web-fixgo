@@ -45,7 +45,7 @@ Chức năng chính
 15. Quên mật khẩu (gửi OTP => user nhập OTP và đổi mật khẩu mới)
 16. Đổi mật khẩu
 17. Share link details movie to facebook, twitter, telegram
-18. Nap tien vao tai khoan va thanh toan
+18. Nạp tiền vào tài khoản và thanh toán bằng tiền trong tài khoản
 
 # Các giao diện
 
@@ -79,13 +79,4 @@ Chức năng chính
 - liên kết fanpage facebook
 - comments bằng tài khoản facebook k cần đăng nhập vào Fixgo
 
-## BE cần
 
-- thêm movie thêm field để phân loại (năm phát hành, đất nước, phim đang chiếu, phim sắp chiếu, phim hot tháng vừa qua)
-- xây dựng voucher giảm giá, bắp nước khi đặt vé
-
-## Chức năng tương lai
-
-- làm thêm quên mật khẩu ( gửi mail SendGrip )
-- Tri ân khách hàng
-- nạp tiền vào tài khoản từ ví momo
