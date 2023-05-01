@@ -21,7 +21,7 @@ export const LoginFacebook = () => {
 	return (
 		<div className='facebook'>
 			<FacebookLogin
-				appId='1620897148361329'
+				appId='743911623614504'
 				fields='name,email,picture'
 				autoLoad
 				callback={responseFacebook}

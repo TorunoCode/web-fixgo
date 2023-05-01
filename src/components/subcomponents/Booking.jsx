@@ -7,6 +7,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BASE_URL } from "../../constants";
+import { Button } from "@mui/material";
 
 export const Booking = ({ idMovie, nameMovie }) => {
 	const [payment, setPayment] = useState(false);
@@ -31,6 +32,8 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	const [password, setPassword] = useState("");
 
 	const [money, setMoney] = useState(0);
+
+	const [disabled, setDisabled] = useState(true);
 
 	const addSeatCallback = ({ row, number, id }, addCb) => {
 		setSelected((prevItems) => [...prevItems, number]);
@@ -69,6 +72,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		setDate([]);
 		setSesscion([]);
 		setIdSession("");
+		setIdSelected([]);
 		setSeat([]);
 		fetchDate();
 	}, [idcinema]);
@@ -106,7 +110,9 @@ export const Booking = ({ idMovie, nameMovie }) => {
 
 	// post booking
 	const user = useSelector((state) => state.auth.login?.currentUser);
+
 	const handleBooking = async () => {
+		setDisabled(true);
 		const bookSeat = {
 			idShowing: seat.idShowing,
 			data: idselected,
@@ -117,10 +123,13 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		);
 	};
 
+	// console.log("user.data._id:", user.data._id);
+	// console.log("seat:", seat);
+	// console.log("idshowwiing", seat.idShowing);
+	// console.log("idselect:", idselected);
 	//
 	const open = () => {
 		window.open(`${BASE_URL}/api/paypal/pay/${user.data._id}`);
-
 		window.location.reload(false);
 	};
 
@@ -141,16 +150,21 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		(state) => state.auth.login?.currentUser?.data?.email
 	);
 
-	const bookWithAccount = async () => {
+	const bookWithAccount = async (e) => {
+		e.preventDefault();
+
 		const bookSeat = {
 			email: email,
 			password: password,
 		};
+
 		try {
 			await axios.post(`${BASE_URL}/api/userMoney/pay`, bookSeat);
 			toast.success("Successful payment!", { autoClose: 2000 });
+			setModal(false);
 		} catch (err) {
 			toast.error(err.response.data?.message, { autoClose: 2000 });
+			toast.error("Failed", { autoClose: 2000 });
 		}
 	};
 
@@ -258,14 +272,22 @@ export const Booking = ({ idMovie, nameMovie }) => {
 						{payment && (
 							<div className='optionpay'>
 								<div>Select Payment Method</div>
-								<button onClick={handleBooking}>
+								<Button
+									disabled={disabled ? false : true}
+									onClick={handleBooking}
+								>
 									<div onClick={newPage}>
 										<i className='fa-regular fa-hand-point-right'></i> With
 										PayPal
 									</div>
-								</button>
+								</Button>
 								<br />
-								<button onClick={() => setModal(true)}>
+								<button
+									onClick={() => {
+										handleBooking();
+										setModal(true);
+									}}
+								>
 									<i className='fa-regular fa-hand-point-right'></i> With
 									Account
 								</button>
@@ -273,52 +295,48 @@ export const Booking = ({ idMovie, nameMovie }) => {
 						)}
 					</div>
 				) : null}
-			</div>
-			{modal && (
-				<div className='modalx'>
-					<div className='modalx-form'>
-						<div>
-							<button className='btnX' onClick={() => setModal(false)}>
-								<i class='fa-solid fa-xmark'></i>
-							</button>
-						</div>
-						<div className='container'>
-							<div className='title'>Confirm payment</div>
-							<div className='content'>Current balance: {money}$</div>
-							{/* <div className='content'>Movie name:{nameMovie}</div>
-							<div className='content'>Seat: {selected.toString()}</div> */}
-							<div className='content'>
-								The amount need to pay: {totalprice}$
-							</div>
-
-							<form action='' onSubmit={bookWithAccount}>
-								<span style={{ color: "black" }}>Password: </span>
-								<input
-									style={{
-										paddingLeft: "10px",
-										height: "35px",
-										borderRadius: "4px",
-										textDecoration: "none",
-										outline: "none",
-										border: "1px solid orange",
-									}}
-									width='100px'
-									placeholder='Password...'
-									className='textarea'
-									onChange={(e) => setPassword(e.target.value)}
-								/>
-								<button
-									onClick={bookWithAccount}
-									className='button'
-									style={{ marginTop: "30px" }}
-								>
-									Submit
+				{modal && (
+					<div className='modalxa'>
+						<div className='modalxa-form'>
+							<div>
+								<button className='btnX' onClick={() => setModal(false)}>
+									<i class='fa-solid fa-xmark'></i>
 								</button>
-							</form>
+							</div>
+							<div className='container'>
+								<div className='title'>Confirm payment</div>
+								<div className='content'>Current balance: {money}$</div>
+
+								<div className='content'>
+									The amount need to pay: {totalprice}$
+								</div>
+
+								<form action='' onSubmit={(e) => bookWithAccount(e)}>
+									<span style={{ color: "black" }}>Password: </span>
+									<input
+										style={{
+											paddingLeft: "10px",
+											height: "35px",
+											borderRadius: "4px",
+											textDecoration: "none",
+											outline: "none",
+											border: "1px solid orange",
+										}}
+										width='100px'
+										placeholder='Password...'
+										className='textarea'
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+									<button className='button' style={{ marginTop: "30px" }}>
+										Submit
+									</button>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-			)}
+				)}
+			</div>
+
 			<ToastContainer />
 		</div>
 	);

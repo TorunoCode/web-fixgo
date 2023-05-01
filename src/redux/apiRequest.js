@@ -50,6 +50,7 @@ export const loginFacebook = async (user, dispatch, toast) => {
 		);
 		toast.success("Successful login with Facebook!", { autoClose: 2000 });
 		dispatch(loginSuccess(res.data));
+		console.log("datafb:", res);
 	} catch (err) {
 		toast.error(err.response.data?.message, { autoClose: 2000 });
 		dispatch(loginFailed());

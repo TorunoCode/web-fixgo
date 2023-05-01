@@ -77,6 +77,7 @@ export const Header = () => {
 	const [show2, setShow2] = useState(false);
 	const [show3, setShow3] = useState(false);
 	const [show4, setShow4] = useState(false);
+
 	const handleShow1 = () => {
 		setShow1(true);
 		setShow2(false);
@@ -102,15 +103,12 @@ export const Header = () => {
 		setShow4(true);
 	};
 
-	useEffect(() => {
-		const fetch = async () => {
-			const { data } = await axios.get(
-				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
-			);
-			await setMoney(data.money);
-		};
-		fetch();
-	}, []);
+	const fetch = async () => {
+		const { data } = await axios.get(
+			`${BASE_URL}/api/userMoney/money/${user?.data.email}`
+		);
+		await setMoney(data.money);
+	};
 
 	return (
 		<header>
@@ -188,6 +186,7 @@ export const Header = () => {
 						<button
 							className='login'
 							onClick={() => {
+								fetch();
 								setAfterLogin(!afterlogin);
 							}}
 						>
