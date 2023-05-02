@@ -135,6 +135,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 			bookSeat
 		);
 	};
+	console.log("idselected:", idselected);
 
 	const open = () => {
 		window.open(`${BASE_URL}/api/paypal/pay/${user.data._id}`);
@@ -172,7 +173,6 @@ export const Booking = ({ idMovie, nameMovie }) => {
 			setModal(false);
 		} catch (err) {
 			toast.error(err.response.data?.message, { autoClose: 2000 });
-			toast.error("Failed", { autoClose: 2000 });
 		}
 	};
 

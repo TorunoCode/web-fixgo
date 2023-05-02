@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import AvtDefault from "../assets/images/avt_user_default.png";
 //asdas
 import "../sass/components/header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 // Toast
 import { ToastContainer, toast } from "react-toastify";
@@ -26,6 +26,8 @@ export const Header = () => {
 		(state) => state.auth.login?.currentUser?.data?.name
 	);
 
+	const navigate = useNavigate();
+
 	let ref = useRef();
 	// click chuột ngoài tắt UI
 	useEffect(() => {
@@ -46,10 +48,11 @@ export const Header = () => {
 
 	// xử lí logout
 	const handleLogOut = (e) => {
+		toast.success("Logout success!", { autoClose: 2000 });
+		navigate("/Home");
 		window.location.reload();
 		localStorage.clear();
 		// window.FB.logout();
-		toast.success("Logout success!", { autoClose: 2000 });
 	};
 
 	const onSuccess = () => {
@@ -248,9 +251,6 @@ export const Header = () => {
 								<div className='nav_user-btn-children'>Booking History</div>
 							</Link>
 
-							{/* <div className="nav_user-btn-children" onClick={handleLogOut}>
-                <i class="fa-solid fa-right-from-bracket"></i> Log Out
-              </div> */}
 							<GoogleLogout
 								clientId={clientId}
 								onLogoutSuccess={onSuccess}

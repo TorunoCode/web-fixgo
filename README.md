@@ -78,5 +78,3 @@ Chức năng chính
 
 - liên kết fanpage facebook
 - comments bằng tài khoản facebook k cần đăng nhập vào Fixgo
-
-
