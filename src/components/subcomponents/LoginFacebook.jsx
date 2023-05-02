@@ -10,7 +10,7 @@ export const LoginFacebook = () => {
 	const dispatch = useDispatch();
 
 	const responseFacebook = (res) => {
-		// console.log("res", res);
+		console.log("res", res);
 		const account = {
 			id: res.id,
 			accessToken: res.accessToken,
@@ -21,7 +21,7 @@ export const LoginFacebook = () => {
 	return (
 		<div className='facebook'>
 			<FacebookLogin
-				appId='743911623614504'
+				appId='1620897148361329'
 				fields='name,email,picture'
 				autoLoad
 				callback={responseFacebook}
