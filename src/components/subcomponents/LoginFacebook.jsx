@@ -10,11 +10,11 @@ export const LoginFacebook = () => {
 	const dispatch = useDispatch();
 
 	const responseFacebook = (res) => {
+		// console.log("res", res);
 		const account = {
 			id: res.id,
 			accessToken: res.accessToken,
 		};
-
 		loginFacebook(account, dispatch, toast);
 	};
 
