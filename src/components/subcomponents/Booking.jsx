@@ -23,13 +23,13 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	const [sesscion, setSesscion] = useState([]);
 	const [idsesscion, setIdSession] = useState("");
 
-	const [seat, setSeat] = useState([]);
-
 	const [selected, setSelected] = useState([]);
 	const [idselected, setIdSelected] = useState([]);
 
 	const [modal, setModal] = useState(false);
 	const [password, setPassword] = useState("");
+
+	const [seat, setSeat] = useState();
 
 	const [money, setMoney] = useState(0);
 
@@ -38,13 +38,14 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	const addSeatCallback = ({ row, number, id }, addCb) => {
 		setSelected((prevItems) => [...prevItems, number]);
 		setIdSelected((prevItems) => [...prevItems, id]);
-
 		// const newTooltip = `Cancel seat ${number}`;
 		addCb(row, number, id);
 	};
 
 	const removeSeatCallback = ({ row, number, id }, removeCb) => {
 		setSelected((list) => list.filter((item) => item !== number));
+		setIdSelected((list) => list.filter((item) => item !== id));
+
 		removeCb(row, number);
 	};
 	const price = 10;
@@ -68,12 +69,15 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		);
 		await setDate(data);
 	};
+
 	useEffect(() => {
 		setDate([]);
+		setIdDate("");
 		setSesscion([]);
 		setIdSession("");
+		setSelected([]);
 		setIdSelected([]);
-		setSeat([]);
+		setSeat(null);
 		fetchDate();
 	}, [idcinema]);
 
@@ -88,7 +92,9 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	useEffect(() => {
 		setSesscion([]);
 		setIdSession("");
-		setSeat([]);
+		setSelected([]);
+		setIdSelected([]);
+		setSeat(null);
 		fetchSesscion();
 	}, [iddate]);
 
@@ -104,10 +110,17 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	};
 
 	useEffect(() => {
-		setSeat([]);
+		setSelected([]);
+		setIdSelected([]);
+		setSeat(null);
 		fetchSeat();
 	}, [idsesscion]);
-
+	// console.log("idcinema", idcinema);
+	// console.log("iddate", iddate);
+	// console.log("idsection", idsesscion);
+	// console.log("idselected", idselected);
+	// console.log("seat", seat);
+	// console.log("/////////");
 	// post booking
 	const user = useSelector((state) => state.auth.login?.currentUser);
 
@@ -123,11 +136,6 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		);
 	};
 
-	// console.log("user.data._id:", user.data._id);
-	// console.log("seat:", seat);
-	// console.log("idshowwiing", seat.idShowing);
-	// console.log("idselect:", idselected);
-	//
 	const open = () => {
 		window.open(`${BASE_URL}/api/paypal/pay/${user.data._id}`);
 		window.location.reload(false);
@@ -245,18 +253,17 @@ export const Booking = ({ idMovie, nameMovie }) => {
 					</div>
 					<div className='screen'></div>
 					<div className='importpicker'>
-						{seat &&
-							(seat?.length !== 0 ? (
-								<SeatPicker
-									addSeatCallback={addSeatCallback}
-									removeSeatCallback={removeSeatCallback}
-									rows={seat.data}
-									alpha
-									maxReservableSeats={10}
-									loading={isLoading}
-									visible
-								/>
-							) : null)}
+						{seat ? (
+							<SeatPicker
+								addSeatCallback={addSeatCallback}
+								removeSeatCallback={removeSeatCallback}
+								rows={seat.data}
+								alpha
+								maxReservableSeats={10}
+								loading={isLoading}
+								visible
+							/>
+						) : null}
 					</div>
 				</div>
 				{selected?.length !== 0 ? (
@@ -325,6 +332,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 										width='100px'
 										placeholder='Password...'
 										className='textarea'
+										type='password'
 										onChange={(e) => setPassword(e.target.value)}
 									/>
 									<button className='button' style={{ marginTop: "30px" }}>
