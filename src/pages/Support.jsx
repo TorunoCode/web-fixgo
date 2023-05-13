@@ -25,10 +25,7 @@ export const Support = () => {
 									<div className='text'>
 										<i class='fa-solid fa-phone'></i>&nbsp;Tel:&nbsp;
 										<a href='tel:0862956946'>0862 956 946</a>
-										{/* <br />
-                    Tel 2:&nbsp;<a href="tel:0862956946">0862 956 946</a> <br />
-                    Tel 3:&nbsp;<a href="tel:0862956946">0862 956 946</a> */}
-									</div>{" "}
+									</div>
 									<iframe
 										src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100089819840953&tabs&width=340&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1620897148361329'
 										width='340'

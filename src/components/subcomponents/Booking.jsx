@@ -123,6 +123,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	// console.log("/////////");
 	// post booking
 	const user = useSelector((state) => state.auth.login?.currentUser);
+	console.log("user:", user);
 
 	const handleBooking = async () => {
 		setDisabled(true);
@@ -135,15 +136,14 @@ export const Booking = ({ idMovie, nameMovie }) => {
 			bookSeat
 		);
 	};
-	console.log("idselected:", idselected);
 
-	const open = () => {
+	const openPayPal = () => {
 		window.open(`${BASE_URL}/api/paypal/pay/${user.data._id}`);
 		window.location.reload(false);
 	};
 
 	const newPage = async () => {
-		await setTimeout(open, 1500);
+		await setTimeout(openPayPal, 1000);
 	};
 
 	const handleBtnBuy = () => {
@@ -284,8 +284,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 									onClick={handleBooking}
 								>
 									<div onClick={newPage}>
-										<i className='fa-regular fa-hand-point-right'></i> With
-										PayPal
+										<i class='fa-brands fa-paypal'></i> With PayPal
 									</div>
 								</Button>
 								<br />

@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../redux/apiRequest";
 import axios from "axios";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, TextField } from "@mui/material";
 import { BASE_URL } from "../constants";
 import { InputFields, Loading } from "../components";
 
@@ -25,7 +25,8 @@ export const MyProfile = () => {
 	const [gender, setGender] = useState(user?.data.gender || "No data");
 	const [addMoney, setAddMoney] = useState(0);
 	const [money, setMoney] = useState("");
-	const [add, setAdd] = useState(false);
+	const [addPayPal, setAddPayPal] = useState(false);
+	const [addVN, setAddVN] = useState(false);
 	// const [dateofBbirth, setDateofBirth] = useState("01-01-2001");
 	const [biography, setBiography] = useState(
 		user?.data.biography ||
@@ -153,6 +154,15 @@ export const MyProfile = () => {
 
 		window.location.reload(true);
 	};
+
+	const handleAddMoneyVN = async () => {
+		await window.open(
+			`${BASE_URL}/api/userMoney/VNPayadd/${user?.data.email}/${addMoney}`
+		);
+
+		window.location.reload(true);
+	};
+
 	useEffect(() => {
 		const fetch = async () => {
 			const { data } = await axios.get(
@@ -198,47 +208,76 @@ export const MyProfile = () => {
 						<div className='default_main'>
 							<div className='info'>
 								<div className='left'>Money:</div>
-								<div className='default'>
-									{money}$
-									<Button
-										onClick={() => setAdd(!add)}
-										sx={{
-											color: "orange",
-											marginLeft: "10px",
-											fontSize: "15px",
-											fontWeight: "bold",
-										}}
-									>
-										Add
-									</Button>
-								</div>
-								{add ? (
+								<div className='default'>{money}$</div>
+								<Button
+									onClick={() => {
+										setAddPayPal(!addPayPal);
+										setAddVN(false);
+										setAddMoney(0);
+									}}
+									sx={{
+										color: "orange",
+										fontSize: "13px",
+										margin: "0 20px",
+										fontWeight: "bold",
+										border: "1px solid orange",
+									}}
+								>
+									Deposit with Paypal
+								</Button>
+								<Button
+									onClick={() => {
+										setAddVN(!addVN);
+										setAddPayPal(false);
+										setAddMoney(0);
+									}}
+									sx={{
+										color: "orange",
+										fontSize: "13px",
+										mr: "100px",
+										fontWeight: "bold",
+										border: "1px solid orange",
+									}}
+								>
+									Deposit with VNPay
+								</Button>
+								{addPayPal && (
 									<>
-										<Stack width='80%'>
-											<input
-												placeholder='Enter the amounts '
-												style={{
-													borderRadius: "5px",
-													textDecoration: "none",
-													outline: "none",
-													border: "none",
-													paddingLeft: "10px",
-													height: "35px",
-												}}
-												onChange={(e) => setAddMoney(e.target.value)}
+										<Stack spacing={2} mt={2}>
+											<TextField
+												size='small'
+												id='outlined-basic'
+												label='Money: $'
+												onBlur={(e) => setAddMoney(e.target.value)}
 											/>
-
 											<Button
 												onClick={handleAddMoney}
 												sx={{ fontSize: "15px" }}
 											>
-												Submit
+												Submit PayPal
 											</Button>
 										</Stack>
 										<div></div>
 									</>
-								) : (
-									""
+								)}
+								{addVN && (
+									<>
+										<Stack spacing={2} mt={2}>
+											<TextField
+												size='small'
+												id='outlined-basic'
+												label='Money: VND'
+												onBlur={(e) => setAddMoney(e.target.value)}
+											/>
+											<Button
+												onClick={handleAddMoneyVN}
+												sx={{ fontSize: "15px" }}
+											>
+												Submit VNPAY
+											</Button>
+										</Stack>
+										<div></div>
+									</>
 								)}
 								<div className='left'>User:</div>
 								<div className='default'>{user?.data.name}</div>

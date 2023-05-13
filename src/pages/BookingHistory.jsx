@@ -13,7 +13,8 @@ export const BookingHistory = () => {
 	useEffect(() => {
 		const fetchUsers = async () => {
 			const { data } = await axios.get(
-				`${BASE_URL}/api/movies/historyBooking/${idUser}`
+				`${BASE_URL}/api/movies/historyBooking/${idUser}`,
+				{ params: { desc: "createdAt" } }
 			);
 			setData(data);
 		};
@@ -22,8 +23,8 @@ export const BookingHistory = () => {
 
 	const columns = useMemo(
 		() => [
-			{ field: "idBill", headerName: "ID", width: 150 },
-			{ field: "movie", headerName: "MOVIE NAME", width: 200 },
+			{ field: "idBill", headerName: "ID", width: 240 },
+			{ field: "movie", headerName: "MOVIE NAME", width: 300 },
 			{ field: "cinema", headerName: "CINEMA", width: 150 },
 			{ field: "date", headerName: "DATE", width: 100 },
 			{ field: "session", headerName: "SESSION", width: 100 },
@@ -33,7 +34,7 @@ export const BookingHistory = () => {
 		[]
 	);
 	return (
-		<div className='container_bh'>
+		<div className='container_bh' style={{ padding: "20px 0" }}>
 			<div className='main'>
 				<div className='title'>Recent Booking History</div>
 				<div

@@ -3,7 +3,7 @@ import "../sass/components/footer.scss";
 
 export const Footer = () => {
 	return (
-		<div className='footer'>
+		<div className='footer' style={{ paddingBottom: "50px" }}>
 			<div className='main'>
 				<div className='col'>
 					<div className='title'> &emsp;Introduce</div>
