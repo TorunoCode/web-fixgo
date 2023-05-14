@@ -7,13 +7,13 @@ import { StarRating } from "./subcomponents";
 export const ListMovies = ({ list }) => {
 	const listMovie = list;
 	// số lượng item sẽ show ra
-	const [quantityShow, setQuantityShow] = useState(5);
+	const [quantityShow, setQuantityShow] = useState();
 	// số lượng item còn lại
-	const [totalQuantity, setTotalQuantity] = useState(listMovie.length - 5);
+	const [totalQuantity, setTotalQuantity] = useState();
 
 	useEffect(() => {
-		setQuantityShow(5);
-		setTotalQuantity(listMovie.length - 5);
+		setQuantityShow(10);
+		setTotalQuantity(listMovie.length - 10);
 	}, [listMovie]);
 
 	const handleShowViewMore = (e) => {
@@ -56,7 +56,7 @@ export const ListMovies = ({ list }) => {
 				))}
 			</div>
 
-			<div className='button_xemthem'>
+			<div className='button_xemthem' style={{ paddingBottom: "20px" }}>
 				{totalQuantity <= 0 ? (
 					""
 				) : (

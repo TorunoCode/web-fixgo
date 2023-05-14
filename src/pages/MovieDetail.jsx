@@ -17,7 +17,7 @@ export const MovieDetail = () => {
 	const [description, setDescription] = useState(true);
 	// const [payment, setPayment] = useState(false);
 	// call lấy data movie detail theo id
-	const [movie, setMovie] = useState(0);
+	const [movie, setMovie] = useState([]);
 
 	// render khi có listfeedback
 	const [listFeedback, setListFeedback] = useState([]);
@@ -38,7 +38,7 @@ export const MovieDetail = () => {
 		<div className='detail'>
 			<div className='main'>
 				<div className='title'>Movie Details</div>
-				{movie !== 0 ? (
+				{movie.length !== 0 ? (
 					<div>
 						<div className='detailmovie'>
 							<div className='info'>

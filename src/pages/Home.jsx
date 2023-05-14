@@ -4,6 +4,8 @@ import axios from "axios";
 import Carousel from "t-a-e-3d-carousel-reactjs";
 import { BASE_URL } from "../constants";
 import { ListMovies, SkeletonListMovie } from "../components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Home = () => {
 	const [listMovie, setListMovie] = useState([]);
@@ -13,8 +15,8 @@ export const Home = () => {
 			let res = await axios.get(`${BASE_URL}/api/movies`);
 			try {
 				setListMovie(res?.data);
-			} catch (error) {
-				console.log(error);
+			} catch (err) {
+				toast.err(err.message, { autoClose: 2000 });
 			}
 		};
 		fetchMovie();
@@ -59,7 +61,7 @@ export const Home = () => {
 				<div className='tag_movie'>
 					<div className='title'>Now Showing</div>
 					{listMovie.length > 0 ? (
-						<ListMovies list={listMovie} />
+						<ListMovies list={listMovie.reverse()} />
 					) : (
 						<SkeletonListMovie />
 					)}
@@ -67,10 +69,7 @@ export const Home = () => {
 				<div className='tag_movie' style={{ marginBottom: "20px" }}>
 					<div className='title'>Comming Soon</div>
 				</div>
-				{/* <div className="tag_movie">
-          <div className="title">Promotion news</div>
-          <VoucherHome />
-        </div> */}
+				<ToastContainer />
 			</div>
 		</div>
 	);

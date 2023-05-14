@@ -115,12 +115,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		setSeat(null);
 		fetchSeat();
 	}, [idsesscion]);
-	// console.log("idcinema", idcinema);
-	// console.log("iddate", iddate);
-	// console.log("idsection", idsesscion);
-	// console.log("idselected", idselected);
-	// console.log("seat", seat);
-	// console.log("/////////");
+
 	// post booking
 	const user = useSelector((state) => state.auth.login?.currentUser);
 	console.log("user:", user);

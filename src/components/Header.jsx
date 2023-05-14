@@ -56,7 +56,7 @@ export const Header = () => {
 	};
 
 	const onSuccess = () => {
-		console.log("Success logout google");
+		console.log("Success logout google!");
 	};
 
 	const handelLose = () => {
@@ -69,8 +69,8 @@ export const Header = () => {
 			let res = await axios.get(`${BASE_URL}/api/movies`);
 			try {
 				setListMovie(res?.data);
-			} catch (error) {
-				console.log(error);
+			} catch (err) {
+				toast.error(err.message, { autoClose: 2000 });
 			}
 		};
 		fetchMovie();

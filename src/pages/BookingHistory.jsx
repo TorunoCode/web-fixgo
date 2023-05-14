@@ -13,9 +13,16 @@ export const BookingHistory = () => {
 	useEffect(() => {
 		const fetchUsers = async () => {
 			const { data } = await axios.get(
-				`${BASE_URL}/api/movies/historyBooking/${idUser}`,
-				{ params: { desc: "createdAt" } }
+				`${BASE_URL}/api/movies/historyBooking/${idUser}`
 			);
+			// const { data } = await axios.get(
+			// 	`${BASE_URL}/api/movies/historyBooking/${idUser}`,
+			// 	{
+			// 		params: {
+			// 			movie: "Contorted",
+			// 		},
+			// 	}
+			// );
 			setData(data);
 		};
 		fetchUsers();
@@ -50,7 +57,7 @@ export const BookingHistory = () => {
 				>
 					<DataGrid
 						autoHeight
-						rows={data}
+						rows={data.reverse()}
 						getRowId={(row) => row.idBill}
 						columns={columns}
 						rowsPerPageOptions={[5, 10, 20]}

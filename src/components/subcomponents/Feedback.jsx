@@ -35,7 +35,7 @@ export const Feedback = ({
 		if (user) {
 			setOpenModal(true);
 		} else {
-			toast.warning("Please login !");
+			toast.warning("Please login!");
 		}
 	};
 
@@ -55,7 +55,7 @@ export const Feedback = ({
 				`${BASE_URL}/api/commentsFeedback/add_feedback`,
 				newPost
 			);
-			toast.success("Add feedback success !", { autoClose: 2000 });
+			toast.success("Add feedback success!", { autoClose: 2000 });
 		} catch (err) {
 			toast.error("Failed to add feedback!", { autoClose: 2000 });
 		}
@@ -74,8 +74,8 @@ export const Feedback = ({
 				`${BASE_URL}/api/commentsFeedback/feedbacks/${idMovie}/0`
 			);
 			setListFeedback(data);
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			toast.error(err.message, { autoClose: 2000 });
 		}
 	};
 

@@ -114,10 +114,10 @@ export const MyProfile = () => {
 				"https://api.cloudinary.com/v1_1/dlh4vw39j/image/upload",
 				data
 			);
-			// console.log(res);
 			setAvatar(res.data.url);
-		} catch (error) {
-			console.log(error);
+			toast.success("Update image success!", { autoClose: 2000 });
+		} catch (err) {
+			toast.error(err.message, { autoClose: 2000 });
 		}
 	};
 	useEffect(() => {
@@ -172,6 +172,7 @@ export const MyProfile = () => {
 		};
 		fetch();
 	}, []);
+
 	return (
 		<div className='container_myprofile'>
 			{pending && <Loading />}
@@ -247,6 +248,7 @@ export const MyProfile = () => {
 											<TextField
 												size='small'
 												id='outlined-basic'
+												sx={{ width: "200px", ml: "20px" }}
 												label='Money: $'
 												onBlur={(e) => setAddMoney(e.target.value)}
 											/>
@@ -266,6 +268,7 @@ export const MyProfile = () => {
 											<TextField
 												size='small'
 												id='outlined-basic'
+												sx={{ width: "200px", ml: "20px" }}
 												label='Money: VND'
 												onBlur={(e) => setAddMoney(e.target.value)}
 											/>
@@ -300,40 +303,45 @@ export const MyProfile = () => {
 										.join("-")}
 								</div>
 							</div>
-							<div className='change_password'>
-								<form onSubmit={handleChangePassword}>
-									<div className='pass'>Current password: </div>
-									<input
-										style={{ paddingLeft: "10px", height: "35px" }}
-										className='input'
-										type='password'
-										onChange={(e) => setPassCurrent(e.target.value)}
-									/>
-									{validationMsgChangePassword.passCurrent && (
-										<i className='validate'>
-											{validationMsgChangePassword.passCurrent}
-										</i>
-									)}
+							<Stack rowGap={2} width={250} mt={2}>
+								<TextField
+									size='small'
+									id='outlined-basic'
+									label='Current password'
+									onBlur={(e) => setPassCurrent(e.target.value)}
+								/>
 
-									<div className='pass'>New password: </div>
-									<input
-										style={{ paddingLeft: "10px", height: "35px" }}
-										className='input'
-										type='password'
-										onChange={(e) => setPassNew(e.target.value)}
-									/>
-									{validationMsgChangePassword.passNew && (
-										<i className='validate'>
-											{validationMsgChangePassword.passNew}
-										</i>
-									)}
-									<div>
-										<button className='btnSave'>Save</button>
-									</div>
-								</form>
-							</div>
+								{validationMsgChangePassword.passCurrent && (
+									<i className='validate' style={{ color: "orange" }}>
+										{validationMsgChangePassword.passCurrent}
+									</i>
+								)}
+
+								<TextField
+									size='small'
+									id='outlined-basic'
+									label='New password'
+									onChange={(e) => setPassNew(e.target.value)}
+								/>
+
+								{validationMsgChangePassword.passNew && (
+									<i className='validate' style={{ color: "orange" }}>
+										{validationMsgChangePassword.passNew}
+									</i>
+								)}
+
+								<Button
+									sx={{
+										border: "1px solid orange",
+										color: "orange",
+										width: "50%",
+									}}
+									onClick={handleChangePassword}
+								>
+									Save
+								</Button>
+							</Stack>
 						</div>
-						{/* <div className="text">Form edit profile</div> */}
 
 						<form action='' className='form_edit' onSubmit={handleEdit}>
 							<div className='main_form'>
@@ -357,11 +365,6 @@ export const MyProfile = () => {
 									setData={setBiography}
 								/>
 
-								{/* <InputFields
-                  label="Gender:"
-                  data={gender}
-                  setData={setGender}
-                /> */}
 								{image ? (
 									<></>
 								) : (

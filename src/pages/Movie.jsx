@@ -3,40 +3,64 @@ import axios from "axios";
 import "../sass/pages/movie.scss";
 import { BASE_URL } from "../constants";
 import { ListMovies, SkeletonListMovie } from "../components";
+// Toast
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+	Box,
+	Container,
+	FormControl,
+	Grid,
+	InputLabel,
+	MenuItem,
+	Select,
+	Typography,
+} from "@mui/material";
 
 export const Movie = () => {
 	const [listMovie, setListMovie] = useState([]);
 	const [tempList, setTempList] = useState([]);
+	const [genre, setGenre] = useState("All");
+	const [sort, setSort] = useState("default");
 
 	useEffect(() => {
 		const fetchMovie = async () => {
 			let res = await axios.get(`${BASE_URL}/api/movies`);
-
+			const list = res.data;
+			const reverse = list.reverse();
 			try {
-				setListMovie(res?.data);
-				setTempList(res?.data);
-			} catch (error) {
-				console.log(error);
+				setListMovie(reverse);
+				setTempList(reverse);
+			} catch (err) {
+				toast.error(err.message, { autoClose: 2000 });
 			}
 		};
 		fetchMovie();
 	}, []);
 
-	// handle fillter chung
-	const handleFillter = (e) => {
-		const value = e.target.value.toLowerCase();
+	useEffect(() => {
 		const movie = tempList.filter(function (curData) {
-			switch (value) {
-				case "":
+			switch (genre) {
+				case "All":
 					return curData;
-				case value:
-					return curData.genre.toLowerCase() === value;
+				case genre:
+					return curData.genre === genre;
 				default:
 					return 0;
 			}
 		});
 		setListMovie(movie);
-	};
+	}, [genre]);
+
+	useEffect(() => {
+		console.log("sort:", sort);
+		if (sort === "increase") {
+			setListMovie(listMovie?.slice().sort((a, b) => a.rate - b.rate));
+		}
+		if (sort === "decrease") {
+			setListMovie(listMovie?.slice().sort((a, b) => b.rate - a.rate));
+		}
+	}, [sort]);
 
 	// sắp xếp tăng giảm
 	const handleSort = (e) => {
@@ -48,56 +72,73 @@ export const Movie = () => {
 			setListMovie(listMovie?.slice().sort((a, b) => b.rate - a.rate));
 		}
 	};
+
 	return (
 		<div className='movie'>
-			<div className='main'>
-				<div className='box_filter'>
-					<div className='filter'>
-						<label htmlFor=''>Gener:&nbsp;</label>
-						<select className='select' onChange={handleFillter}>
-							<option value=''>All</option>
-							<option value='Action'>Action</option>
-							<option value='Animation'>Animation</option>
-							<option value='Adventure'>Adventure</option>
-							<option value='Horror'>Horror</option>
-							<option value='Thriller'>Thriller</option>
-							<option value='Music'>Music</option>
-
-							{/* {listMovie.map((item) => (
-                <option value={item.genre}>{item.genre}</option>
-              ))} */}
-						</select>
-					</div>
-					<div className='filter'>
-						<label htmlFor=''>Rate:&nbsp;</label>
-						<select className='select' onChange={handleSort}>
-							{/* <option value="Default">Default</option> */}
-							<option value=''>Default</option>
-							<option value='increase'>Low to high</option>
-							<option value='decrease'>High to low</option>
-						</select>
-					</div>
-					<div className='filter'>
-						<label htmlFor=''>Country:&nbsp;</label>
-						<select className='select'>
-							<option value=''>All</option>
-							<option value=''>Update soon..</option>
-						</select>
-					</div>
-					<div className='filter'>
-						<label htmlFor=''>Year:&nbsp;</label>
-						<select className='select'>
-							<option value=''>All</option>
-							<option value=''>Update soon..</option>
-						</select>
-					</div>
-				</div>
+			<Container disableGutters>
+				<Grid container m='20px 0'>
+					<Grid item xs={3} container alignItems='center' gap={2}>
+						<Typography color='orange' fontSize={20} fontWeight={600}>
+							Gener:
+						</Typography>
+						<FormControl sx={{ width: "150px" }}>
+							<Select
+								value={genre}
+								displayEmpty
+								onChange={(event) => {
+									setGenre(event.target.value);
+								}}
+								size='small'
+								sx={{
+									border: "1px solid orange",
+									background: "white",
+									fontWeight: "600",
+								}}
+							>
+								<MenuItem value='All'>All</MenuItem>
+								<MenuItem value='Action'>Action</MenuItem>
+								<MenuItem value='Thriller'>Thriller</MenuItem>
+								<MenuItem value='Horror'>Horror</MenuItem>
+								<MenuItem value='Adventure'>Adventure</MenuItem>
+								<MenuItem value='Animation'>Animation</MenuItem>
+								<MenuItem value='Music'>Music</MenuItem>
+							</Select>
+						</FormControl>
+					</Grid>
+					<Grid item xs={3} container alignItems='center' gap={2}>
+						<Typography color='orange' fontSize={20} fontWeight={600}>
+							Rate:
+						</Typography>
+						<FormControl sx={{ width: "150px" }}>
+							<Select
+								value={sort}
+								displayEmpty
+								onChange={(event) => {
+									setSort(event.target.value);
+								}}
+								size='small'
+								sx={{
+									border: "1px solid orange ",
+									fontWeight: "600",
+									background: "white",
+								}}
+							>
+								<MenuItem value='default' disabled>
+									Default
+								</MenuItem>
+								<MenuItem value='increase'>Low to high</MenuItem>
+								<MenuItem value='decrease'>High to low</MenuItem>
+							</Select>
+						</FormControl>
+					</Grid>
+				</Grid>
 				{listMovie.length > 0 ? (
 					<ListMovies list={listMovie} />
 				) : (
 					<SkeletonListMovie />
 				)}
-			</div>
+				<ToastContainer />
+			</Container>
 		</div>
 	);
 };
