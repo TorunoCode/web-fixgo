@@ -72,8 +72,8 @@ export const updateProfile = async (user, dispatch, toast) => {
 	try {
 		const res = await axios.post(`${BASE_URL}/api/user/update`, user);
 		await dispatch(update(res.data));
-		toast.success("Edit success !", { autoClose: 2000 });
+		toast.success("Update profile success!", { autoClose: 2000 });
 	} catch (err) {
-		toast.error("Failed to edit!", { autoClose: 2000 });
+		toast.error(err.message, { autoClose: 2000 });
 	}
 };
