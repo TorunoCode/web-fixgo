@@ -138,7 +138,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	};
 
 	const newPage = async () => {
-		await setTimeout(openPayPal, 1000);
+		await setTimeout(openPayPal, 2000);
 	};
 
 	const handleBtnBuy = () => {
