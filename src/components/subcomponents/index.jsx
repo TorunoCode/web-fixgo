@@ -14,3 +14,4 @@ export * from "./SkeletonListMovie";
 export * from "./StarRating";
 export * from "./Voucher";
 export * from "./VoucherHome";
+export * from "./TopStory";

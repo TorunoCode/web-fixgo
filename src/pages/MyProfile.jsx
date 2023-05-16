@@ -17,10 +17,17 @@ import { InputFields, Loading } from "../components";
 export const MyProfile = () => {
 	const user = useSelector((state) => state.auth.login?.currentUser);
 	const pending = useSelector((state) => state.auth.login?.isupdate);
-	// const [password, setPassword] = useState();
+	// upload image
+	const [image, setImage] = useState();
+	///////
+	const [passCurrent, setPassCurrent] = useState("");
+	const [passNew, setPassNew] = useState("");
 	const [fullname, setFullname] = useState(user?.data.fullName || "No data");
 	const [phone, setPhone] = useState(user?.data.phone || "No data");
-	const [avatar, setAvatar] = useState(user?.data.avatar || "Default");
+	const [avatar, setAvatar] = useState(
+		user?.data.avatar ||
+			"http://localhost:3000/static/media/avt_user_default.a26103ea1b8f52ce1b13.png"
+	);
 
 	const [gender, setGender] = useState(user?.data.gender || "No data");
 	const [addMoney, setAddMoney] = useState(0);
@@ -33,13 +40,6 @@ export const MyProfile = () => {
 			"I’m everything you ever want to be but can’t have or be."
 	);
 
-	// validate input
-	// full name
-	// 1 tên bao gồm 2 từ trển lên
-	// trong tên chỉ được phép có chữ và khoảng trắng
-	// 1 tên có tối đa 5 từ
-	// 1 từ có tối da 6 ký tự
-	// giữa 2 từ chỉ được phép có 1 khoảng trắng
 	const [validationMsg, setValidationMsg] = useState({});
 	const [validationMsgChangePassword, setValidationMsgChangePassword] =
 		useState({});
@@ -99,16 +99,12 @@ export const MyProfile = () => {
 		else await updateProfile(newEdit, dispatch, toast);
 		await handleEdit();
 	};
-	useEffect(() => {
-		loginUser();
-	}, [user?.data]);
 
-	// upload image
-	const [image, setImage] = useState();
 	const submitImage = async () => {
 		const data = new FormData();
 		data.append("file", image);
 		data.append("upload_preset", "j3sbr9ix");
+		console.log("data:", data);
 		try {
 			const res = await axios.post(
 				"https://api.cloudinary.com/v1_1/dlh4vw39j/image/upload",
@@ -121,11 +117,8 @@ export const MyProfile = () => {
 		}
 	};
 	useEffect(() => {
-		submitImage();
+		if (image) submitImage();
 	}, [image]);
-	///////
-	const [passCurrent, setPassCurrent] = useState("");
-	const [passNew, setPassNew] = useState("");
 
 	const handleChangePassword = async (e) => {
 		e.preventDefault();
@@ -164,13 +157,13 @@ export const MyProfile = () => {
 	};
 
 	useEffect(() => {
-		const fetch = async () => {
+		const fetchMoney = async () => {
 			const { data } = await axios.get(
 				`${BASE_URL}/api/userMoney/money/${user?.data.email}`
 			);
 			setMoney(data.money);
 		};
-		fetch();
+		fetchMoney();
 	}, []);
 
 	return (
@@ -180,7 +173,7 @@ export const MyProfile = () => {
 				<div className='image'>
 					<img src={BackgroundDefault} alt='' className='background' />
 					<div className='upload'>
-						<img src={avatar || AvtDefault} alt='' className='avt_user' />
+						<img src={avatar} alt='' className='avt_user' />
 						<div className='round'>
 							<input
 								type='file'
@@ -216,6 +209,7 @@ export const MyProfile = () => {
 										setAddVN(false);
 										setAddMoney(0);
 									}}
+									size='small'
 									sx={{
 										color: "orange",
 										fontSize: "13px",

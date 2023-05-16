@@ -31,7 +31,9 @@ export const MovieDetail = () => {
 		fetchMovie();
 	}, [name, listFeedback]);
 
-	const url = `${BASE_URL}/MovieDetail/${encodeURIComponent(name)}`;
+	const url = `https://web-fixgo.vercel.app/MovieDetail/${encodeURIComponent(
+		name
+	)}`;
 
 	return (
 		// bấm thả xuống description

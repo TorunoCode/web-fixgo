@@ -19,6 +19,7 @@ const style = {
 };
 export const BookingHistory = () => {
 	const [data, setData] = useState([]);
+	console.log("data:", data);
 	const [pageSize, setPageSize] = useState(5);
 	const [open, setOpen] = useState(false);
 
@@ -47,7 +48,7 @@ export const BookingHistory = () => {
 				field: "actions",
 				type: "actions",
 				headerName: "Actions",
-				width: 250,
+				width: 100,
 				cellClassName: "actions",
 				getActions: ({ id }) => {
 					return [
@@ -107,8 +108,9 @@ export const BookingHistory = () => {
 						marginTop: 20,
 						marginBottom: 20,
 						width: "100%",
+						borderRadius: "10px",
 						border: "1px solid gray",
-						"box-shadow": "1px 1px 5px 0 gray",
+						boxShadow: "1px 1px 5px 0 gray",
 						background: "white",
 						// color: "red",
 					}}
@@ -122,6 +124,7 @@ export const BookingHistory = () => {
 						pageSize={pageSize}
 						onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
 						sx={{
+							borderRadius: "10px",
 							boxShadow: 2,
 							border: 2,
 							borderColor: "orange",

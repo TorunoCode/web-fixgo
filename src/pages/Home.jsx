@@ -3,7 +3,7 @@ import "../sass/pages/home.scss";
 import axios from "axios";
 import Carousel from "t-a-e-3d-carousel-reactjs";
 import { BASE_URL } from "../constants";
-import { ListMovies, SkeletonListMovie } from "../components";
+import { ListMovies, SkeletonListMovie, TopStory } from "../components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -57,6 +57,7 @@ export const Home = () => {
 	return (
 		<div className='home'>
 			<div className='main'>
+				<TopStory />
 				<Carousel imageList={image} autoPlay={true} interval={1000} />
 				<div className='tag_movie'>
 					<div className='title'>Now Showing</div>

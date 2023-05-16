@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../sass/pages/movie.scss";
+import React, { useEffect, useState } from "react";
+import { ListMovies, SkeletonListMovie, TopStory } from "../components";
 import { BASE_URL } from "../constants";
-import { ListMovies, SkeletonListMovie } from "../components";
+import "../sass/pages/movie.scss";
 // Toast
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import {
-	Box,
 	Container,
 	FormControl,
 	Grid,
-	InputLabel,
 	MenuItem,
 	Select,
 	Typography,
 } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Movie = () => {
 	const [listMovie, setListMovie] = useState([]);
@@ -62,19 +60,9 @@ export const Movie = () => {
 		}
 	}, [sort]);
 
-	// sắp xếp tăng giảm
-	const handleSort = (e) => {
-		const sort = e.target.value;
-		if (sort === "increase") {
-			setListMovie(listMovie?.slice().sort((a, b) => a.rate - b.rate));
-		}
-		if (sort === "decrease") {
-			setListMovie(listMovie?.slice().sort((a, b) => b.rate - a.rate));
-		}
-	};
-
 	return (
 		<div className='movie'>
+			<TopStory />
 			<Container disableGutters>
 				<Grid container m='20px 0'>
 					<Grid item xs={3} container alignItems='center' gap={2}>
