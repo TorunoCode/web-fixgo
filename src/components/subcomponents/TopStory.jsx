@@ -14,23 +14,23 @@ export const TopStory = () => {
 	const words = [
 		{
 			id: 0,
-			value:
-				"Ezra Miller Chìm Trong Scandal, Tương Lai Nào Cho The Flash Và DCEU?",
+			value: "Avatar: The Way Of Water Is Coming To Disney+ In June",
 			at: "a",
 		},
 		{
 			id: 1,
-			value: "Chi Tiết Đoạn Phim Doctor Strange 2 Trình Chiếu Tại Comic Con",
+			value: `Mission: Impossible – Dead Reckoning Part One Trailer Teases Ethan Hunt’s ‘Ultimate Objective’ And Action Galore`,
 			at: "2023-05-15",
 		},
 		{
 			id: 2,
-			value: "Bóc Trứng Phục Sinh Doctor Strange In The Multiverse Of Madness!",
+			value: "Disney+ To Add The First Four Indiana Jones Movies Worldwide",
 			at: "2023-05-14",
 		},
 		{
 			id: 3,
-			value: "Trailer Thor: Love And Thunder Tiết Lộ Kẻ Sát Thần Đáng Sợ",
+			value:
+				"Empire VIP Event: Spider-Man: Across The Spider-Verse Screening And Q&A",
 			at: "2023-05-5",
 		},
 	];

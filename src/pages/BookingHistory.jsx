@@ -53,8 +53,7 @@ export const BookingHistory = () => {
 				getActions: ({ id }) => {
 					return [
 						<GridActionsCellItem
-							icon={<Button sx={{ width: "50px" }}>Edit</Button>}
-							label='Edit'
+							icon={<Button sx={{ width: "50px" }}>Refund</Button>}
 							className='textPrimary'
 							onClick={() => setOpen(true)}
 						/>,
