@@ -10,8 +10,6 @@ import { BASE_URL } from "../../constants";
 import { Button } from "@mui/material";
 
 export const Booking = ({ idMovie, nameMovie }) => {
-	const [payment, setPayment] = useState(false);
-
 	const [isLoading, setIsLoading] = useState(false);
 
 	const [cinema, setCinema] = useState([]);
@@ -121,6 +119,10 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	console.log("user:", user);
 
 	const handleBooking = async () => {
+		if (!user) {
+			toast.warning("Please login !");
+			return 0;
+		}
 		setDisabled(true);
 		const bookSeat = {
 			idShowing: seat.idShowing,
@@ -139,14 +141,6 @@ export const Booking = ({ idMovie, nameMovie }) => {
 
 	const newPage = async () => {
 		await setTimeout(openPayPal, 2000);
-	};
-
-	const handleBtnBuy = () => {
-		if (user) {
-			setPayment(!payment);
-		} else {
-			toast.warning("Please login !");
-		}
 	};
 
 	// book with account
@@ -179,6 +173,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 			await setMoney(data.money);
 		};
 		fetch();
+		return () => {};
 	}, []);
 
 	return (
@@ -261,41 +256,39 @@ export const Booking = ({ idMovie, nameMovie }) => {
 						) : null}
 					</div>
 				</div>
-				{selected?.length !== 0 ? (
+				{selected?.length !== 0 && (
 					<div className='col-3'>
-						You selected <span id='count'>{selected.length}</span> /10 seats
+						<b>You selected</b> <span id='count'>{selected.length}</span> /10
+						seats
 						<br />
-						Seat: {selected.toString()}
+						<b>Seat:</b> {selected.toString()}
 						<br />
-						Price: {totalprice}$ <br />
-						<button className='btPay' onClick={handleBtnBuy}>
-							<i className='fa-solid fa-angles-right'></i> Buy Ticket
-						</button>
-						{payment && (
-							<div className='optionpay'>
-								<div>Select Payment Method</div>
-								<Button
-									disabled={disabled ? false : true}
-									onClick={handleBooking}
-								>
-									<div onClick={newPage}>
-										<i class='fa-brands fa-paypal'></i> With PayPal
-									</div>
-								</Button>
-								<br />
-								<button
-									onClick={() => {
-										handleBooking();
-										setModal(true);
-									}}
-								>
-									<i className='fa-regular fa-hand-point-right'></i> With
-									Account
-								</button>
-							</div>
-						)}
+						<b>Price:</b> {totalprice}$ <br />
+						<div className='optionpay'>
+							<div>Select Payment Method:</div>
+							<Button
+								disabled={disabled ? false : true}
+								onClick={handleBooking}
+								size='small'
+							>
+								<div onClick={newPage}>
+									<i className='fa-regular fa-hand-point-right'></i>&nbsp;With
+									PayPal
+								</div>
+							</Button>
+							<Button
+								size='small'
+								onClick={() => {
+									handleBooking();
+									if (user) setModal(true);
+								}}
+							>
+								<i className='fa-regular fa-hand-point-right'></i>&nbsp;With
+								Account
+							</Button>
+						</div>
 					</div>
-				) : null}
+				)}
 				{modal && (
 					<div className='modalxa'>
 						<div className='modalxa-form'>

@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../redux/apiRequest";
 import axios from "axios";
-import { Button, Stack, TextField } from "@mui/material";
+import { Button, Grid, Stack, TextField } from "@mui/material";
 import { BASE_URL } from "../constants";
 import { InputFields, Loading } from "../components";
 
@@ -43,6 +43,8 @@ export const MyProfile = () => {
 	const [validationMsg, setValidationMsg] = useState({});
 	const [validationMsgChangePassword, setValidationMsgChangePassword] =
 		useState({});
+
+	const [modal, setModal] = useState(false);
 
 	const validateAll = () => {
 		var reg_fullname =
@@ -202,80 +204,134 @@ export const MyProfile = () => {
 						<div className='default_main'>
 							<div className='info'>
 								<div className='left'>Money:</div>
-								<div className='default'>{money}$</div>
-								<Button
-									onClick={() => {
-										setAddPayPal(!addPayPal);
-										setAddVN(false);
-										setAddMoney(0);
-									}}
-									size='small'
-									sx={{
-										color: "orange",
-										fontSize: "13px",
-										margin: "0 20px",
-										fontWeight: "bold",
-										border: "1px solid orange",
-									}}
-								>
-									Deposit with Paypal
-								</Button>
-								<Button
-									onClick={() => {
-										setAddVN(!addVN);
-										setAddPayPal(false);
-										setAddMoney(0);
-									}}
-									sx={{
-										color: "orange",
-										fontSize: "13px",
-										mr: "100px",
-										fontWeight: "bold",
-										border: "1px solid orange",
-									}}
-								>
-									Deposit with VNPay
-								</Button>
-								{addPayPal && (
-									<>
-										<Stack spacing={2} mt={2}>
-											<TextField
-												size='small'
-												id='outlined-basic'
-												sx={{ width: "200px", ml: "20px" }}
-												label='Money: $'
-												onBlur={(e) => setAddMoney(e.target.value)}
-											/>
-											<Button
-												onClick={handleAddMoney}
-												sx={{ fontSize: "15px" }}
-											>
-												Submit PayPal
-											</Button>
-										</Stack>
-										<div></div>
-									</>
+								<div className='default'>
+									{money}$ <Button onClick={() => setModal(true)}>Add</Button>
+								</div>
+								{modal && (
+									<div className='modalxa'>
+										<div className='modalxa-form'>
+											<div>
+												<button
+													className='btnX'
+													onClick={() => setModal(false)}
+												>
+													<i class='fa-solid fa-xmark'></i>
+												</button>
+											</div>
+											<div className='container'>
+												<div className='title'>Confirm deposit</div>
+												<div className='content'>Current balance: {money}$</div>
+
+												<div
+													style={{
+														width: "250px",
+														fontSize: "17px",
+													}}
+												>
+													<b>Note that:</b> After deposit you will not get paid
+													out
+												</div>
+												<div
+													style={{
+														fontWeight: 500,
+														width: "250px",
+														fontSize: "17px",
+														marginBottom: "10px",
+													}}
+												>
+													<b>Benefit:</b> You will get an extra 5% when you
+													deposit into your account
+												</div>
+												<div
+													className='content'
+													style={{ color: "orange", fontWeight: 600 }}
+												>
+													Select method
+												</div>
+												<Grid
+													container
+													width={250}
+													margin='0 auto 40px'
+													justifyContent='space-around'
+												>
+													<Button
+														onClick={() => {
+															setAddPayPal(!addPayPal);
+															setAddVN(false);
+															setAddMoney(0);
+														}}
+														size='small'
+														sx={{
+															color: "orange",
+															fontSize: "13px",
+															fontWeight: "bold",
+															border: "1px solid orange",
+														}}
+													>
+														With Paypal
+													</Button>
+													<Button
+														onClick={() => {
+															setAddVN(!addVN);
+															setAddPayPal(false);
+															setAddMoney(0);
+														}}
+														sx={{
+															color: "orange",
+															fontSize: "13px",
+															fontWeight: "bold",
+															border: "1px solid orange",
+														}}
+													>
+														with VNPay
+													</Button>
+												</Grid>
+												{addPayPal && (
+													<>
+														<Stack spacing={1} mt={-3} mb='35px'>
+															<TextField
+																size='small'
+																id='outlined-basic'
+																sx={{ width: "200px", ml: "20px" }}
+																label='Money: $'
+																onBlur={(e) => setAddMoney(e.target.value)}
+															/>
+															<Button
+																onClick={handleAddMoney}
+																mb
+																sx={{ fontSize: "15px" }}
+															>
+																Submit PayPal
+															</Button>
+														</Stack>
+														<div></div>
+													</>
+												)}
+												{addVN && (
+													<>
+														<Stack spacing={1} mt={-3} mb='35px'>
+															<TextField
+																size='small'
+																id='outlined-basic'
+																sx={{ width: "200px", ml: "20px" }}
+																label='Money: VND'
+																onBlur={(e) => setAddMoney(e.target.value)}
+															/>
+															<Button
+																onClick={handleAddMoneyVN}
+																sx={{ fontSize: "15px" }}
+															>
+																Submit VNPAY
+															</Button>
+														</Stack>
+														<div></div>
+													</>
+												)}
+											</div>
+										</div>
+									</div>
 								)}
-								{addVN && (
-									<>
-										<Stack spacing={2} mt={2}>
-											<TextField
-												size='small'
-												id='outlined-basic'
-												sx={{ width: "200px", ml: "20px" }}
-												label='Money: VND'
-												onBlur={(e) => setAddMoney(e.target.value)}
-											/>
-											<Button
-												onClick={handleAddMoneyVN}
-												sx={{ fontSize: "15px" }}
-											>
-												Submit VNPAY
-											</Button>
-										</Stack>
-										<div></div>
-									</>
-								)}
+
 								<div className='left'>User:</div>
 								<div className='default'>{user?.data.name}</div>
 								<div className='left'>Email:</div>

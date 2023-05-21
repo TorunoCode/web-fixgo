@@ -74,6 +74,7 @@ export const Header = () => {
 			}
 		};
 		fetchMovie();
+		return () => {};
 	}, []);
 
 	const [show1, setShow1] = useState(false);

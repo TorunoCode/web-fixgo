@@ -57,7 +57,7 @@ export const Feedback = ({
 			);
 			toast.success("Add feedback success!", { autoClose: 2000 });
 		} catch (err) {
-			toast.error("Failed to add feedback!", { autoClose: 2000 });
+			toast.error("You haven't seen this movie!", { autoClose: 2000 });
 		}
 
 		await fetchFeedbacks();
