@@ -77,15 +77,16 @@ export const BookingHistory = () => {
 						Attention !
 					</Typography>
 					<Typography fontSize={18}>
-						<b>The condition:</b> Refunds only when someone buys your ticket
-						back
+						<b>If the ticket is valid for less than 2 days</b> Refunds only when
+						someone buys your ticket back
+					</Typography>
+					<Typography fontSize={18}>
+						<b>If the ticket is valid for 2 days or more</b> Instant refund
 					</Typography>
 					<Typography fontSize={18}>
 						<b>Refund fee:</b> 10%
 					</Typography>
-					<Typography fontSize={18}>
-						<b>Amount you will receive:</b> 9$
-					</Typography>
+
 					<Stack alignItems='center'>
 						<Button
 							onClick={handleRefund}

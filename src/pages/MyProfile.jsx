@@ -205,7 +205,18 @@ export const MyProfile = () => {
 							<div className='info'>
 								<div className='left'>Money:</div>
 								<div className='default'>
-									{money}$ <Button onClick={() => setModal(true)}>Add</Button>
+									{money}${" "}
+									<Button
+										size='small'
+										sx={{
+											color: "orange",
+											border: "1px solid orange",
+											marginLeft: "20px",
+										}}
+										onClick={() => setModal(true)}
+									>
+										Add
+									</Button>
 								</div>
 								{modal && (
 									<div className='modalxa'>
@@ -288,18 +299,17 @@ export const MyProfile = () => {
 												</Grid>
 												{addPayPal && (
 													<>
-														<Stack spacing={1} mt={-3} mb='35px'>
+														<Stack spacing={1} mt={-3} mb='40px'>
 															<TextField
 																size='small'
 																id='outlined-basic'
-																sx={{ width: "200px", ml: "20px" }}
 																label='Money: $'
 																onBlur={(e) => setAddMoney(e.target.value)}
 															/>
 															<Button
 																onClick={handleAddMoney}
 																mb
-																sx={{ fontSize: "15px" }}
+																sx={{ fontSize: "15px", color: "orange" }}
 															>
 																Submit PayPal
 															</Button>
@@ -309,17 +319,16 @@ export const MyProfile = () => {
 												)}
 												{addVN && (
 													<>
-														<Stack spacing={1} mt={-3} mb='35px'>
+														<Stack spacing={1} mt={-3} mb='40px'>
 															<TextField
 																size='small'
 																id='outlined-basic'
-																sx={{ width: "200px", ml: "20px" }}
 																label='Money: VND'
 																onBlur={(e) => setAddMoney(e.target.value)}
 															/>
 															<Button
 																onClick={handleAddMoneyVN}
-																sx={{ fontSize: "15px" }}
+																sx={{ fontSize: "15px", color: "orange" }}
 															>
 																Submit VNPAY
 															</Button>

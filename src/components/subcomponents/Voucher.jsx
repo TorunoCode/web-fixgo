@@ -18,12 +18,11 @@ function ItemPosts({ item }) {
 			</div>
 			<ul>
 				<li>
-					<i class='fa-regular fa-hand-point-right'></i>&nbsp;Lưu mã ngay thôi
-					!!!
+					<i class='fa-regular fa-hand-point-right'></i>&nbsp;Save code now !!!
 				</li>
 				<li>
-					<i class='fa-regular fa-hand-point-right'></i>&nbsp;Còn chần chừ gì
-					nữa @@ <br></br>Nhanh tay kẻo hết mã nào ae{" <33333 "}
+					<i class='fa-regular fa-hand-point-right'></i>&nbsp;Save code now
+					!!!Click now
 				</li>
 			</ul>
 		</div>
@@ -90,27 +89,28 @@ export const Voucher = () => {
 							<div className='thethaoluannhieu'>
 								<div className='sox'>1</div>
 								<div className='noidungsox'>
-									Ezra Miller Chìm Trong Scandal, Tương Lai Nào Cho The Flash Và
-									DCEU?
+									Thor 5 Poster Imagines Chris Hemsworth's Hero In A Much Darker
+									MCU Movie
 								</div>
 							</div>
 							<div className='thethaoluannhieu'>
 								<div className='sox'>2</div>
 								<div className='noidungsox'>
-									Chi Tiết Đoạn Phim Doctor Strange 2 Trình Chiếu Tại Comic Con
+									Quentin Tarantino Announces The Death Of OUATIH's Rick Dalton
 								</div>
 							</div>
 							<div className='thethaoluannhieu'>
 								<div className='sox'>3</div>
 								<div className='noidungsox'>
-									Bóc Trứng Phục Sinh Doctor Strange In The Multiverse Of
-									Madness!
+									Tom Holland's Spidey Is Hunted By Kraven In MCU Spider-Man 4
+									Fan Poster
 								</div>
 							</div>
 							<div className='thethaoluannhieu'>
 								<div className='sox'>4</div>
 								<div className='noidungsox'>
-									Trailer Thor: Love And Thunder Tiết Lộ Kẻ Sát Thần Đáng Sợ
+									Disney Reverses Removal Of One Disney Plus Documentary After
+									Online Backlash
 								</div>
 							</div>
 						</div>

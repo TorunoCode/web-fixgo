@@ -74,9 +74,7 @@ export const News = () => {
 								</li>
 								{/* <li>Career</li>
                 <li>promotion</li> */}
-								<li className='dkdn'>
-									Fixgo - Rạp chiếu phim 3 thành viên UTE
-								</li>
+								<li className='dkdn'>Fixgo - by UTE Student</li>
 							</ul>
 						</div>
 						<div className='themain24h'>
@@ -84,7 +82,6 @@ export const News = () => {
 								<Voucher />
 							) : (
 								<>
-									{" "}
 									<div className='main24htrai'>
 										{review ? (
 											<>
@@ -96,18 +93,21 @@ export const News = () => {
 															alt=''
 														/>
 														<div className='title24h'>
-															[Review] Black Adam: Cứu Tinh Cho Vũ Trụ DC Mở
-															Rộng?
+															[Review] "Black Adam" is one of the best DC
+															superhero films to date
 														</div>
 														<div className='noidung24h'>
-															Với kinh phí 200 triệu $, Black Adam gánh trên vai
-															trách nhiệm nặng nề – phục hưng vũ trụ DC mở rộng
-															sau hàng núi khó khăn. Wonder Woman 1984 thất bại,
-															Bagirl “ra chuồng gà”, The Flash gặp nguy cơ khỏi
-															chiếu vì Ezra Miller lắm tài nhiều tật... Đến cả
-															thương hiệu tỷ đô Aquaman cũng lao đao phải dời
-															lịch chiếu vì Amber Heard thua Johnny Depp trong
-															vụ kiện tụng đình đám gần đây.
+															Throughout the rest of its running time, “Black
+															Adam” leans into the inevitability of Adam’s
+															evolution toward good-guy status, condensing the
+															transformation of the title character in the first
+															two “Terminator” films (there are even comic bits
+															where people try to teach Adam sarcasm and the
+															Geneva Conventions). "Black Adam" then stirs in
+															dollops of a macho sentimentality that used to be
+															common in old Hollywood dramas about loners who
+															needed to get involved in a cause to reset their
+															moral compasses or recognize their worth.
 														</div>
 													</div>
 													<div className='right_trai'>
@@ -116,19 +116,20 @@ export const News = () => {
 															alt=''
 														/>
 														<div className='title24hx'>
-															[Review] Alienoid Cuộc Chiến Xuyên Không: Bom Tấn
-															Vượt Qua Mọi Giới Hạn Tưởng Tượng!
+															[Review] Mortal Kombat 2 Gets Major Filming Update
+															As Production Settles On A Location
 														</div>
 														<div className='noidung24hx'>
-															[Review] Cười: Lời Nguyền Sẽ Không Dừng Lại!
+															[Review] The White Lotus’ Fred Hechinger Replacing
+															Barry Keoghan In Gladiator 2
 														</div>
 														<div className='noidung24hx'>
-															[Review] Cô Gái Từ Quá Khứ: Đạp Đổ Hoàn Toàn Gái
-															Già Lắm Chiêu?
+															[Review] Eddie Murphy In Talks For New Pink
+															Panther Movie
 														</div>
 														<div className='noidung24hx'>
-															[Preview] Black Panther Wakanda Forever: T’Challa
-															Hi Sinh Trong Trận Chiến Với Atlantis?
+															[Preview] Humanity Is Locked In A Battle With AI
+															In The Trailer For Gareth Edwards’ The Creator
 														</div>
 													</div>
 												</div>
@@ -167,58 +168,56 @@ export const News = () => {
 											src='https://64.media.tumblr.com/f14da695c8d48b26368ed984db8f9b8a/tumblr_nqx83r5hqP1qczmzbo1_500.gif'
 											alt=''
 										/>
-										<div className='chudehot'>CHỦ ĐỀ HOT</div>
+										<div className='chudehot'>HOT TOPIC</div>
 										<div className='taghot'>
 											<button>
-												<i class='fa-regular fa-circle-dot'></i>&ensp;Đón chờ
-												các siêu phẩm rạp cận tết 2022
+												<i class='fa-regular fa-circle-dot'></i>&ensp;"Juan
+												Wick": Danny Trejo Pitches
 											</button>
 											<button>
-												<i class='fa-regular fa-circle-dot'></i>&ensp;Thế giới
+												<i class='fa-regular fa-circle-dot'></i>&ensp;World
 												anime
 											</button>
 											<button>
-												<i class='fa-regular fa-circle-dot'></i>&ensp;Tất tần
-												tật về Spider Man
+												<i class='fa-regular fa-circle-dot'></i>&ensp;"Cool Wins
+												Every Time!"
 											</button>
 											<button>
-												{" "}
-												<i class='fa-regular fa-circle-dot'></i>&ensp;Sự khác
-												biệt giữa Marvel và DC
+												<i class='fa-regular fa-circle-dot'></i>&ensp; Smith &
+												Martin Lawrence Scene
 											</button>
 											<button>
-												{" "}
-												<i class='fa-regular fa-circle-dot'></i>&ensp;Chùm siêu
-												anh hùng DC ra mắt năm 2022
+												<i class='fa-regular fa-circle-dot'></i>&ensp;Star Wars
+												Boss "In Full Support" Of Hollywood's Writers Strike
 											</button>
 										</div>
-										<div className='chudegachduoi'>THẢO LUẬN NHIỀU</div>
+										<div className='chudegachduoi'>much discussion</div>
 										<div className='thethaoluannhieu'>
 											<div className='so'>1</div>
 											<div className='noidungso'>
-												Ezra Miller Chìm Trong Scandal, Tương Lai Nào Cho The
-												Flash Và DCEU?
+												Fast X Opening Weekend Box Office Falls Behind F9
+												Despite Strong Day 1
 											</div>
 										</div>
 										<div className='thethaoluannhieu'>
 											<div className='so'>2</div>
 											<div className='noidungso'>
-												Chi Tiết Đoạn Phim Doctor Strange 2 Trình Chiếu Tại
-												Comic Con
+												Fast X's Secret Returning Character Actor Breaks Silence
+												On Return After 4 Movie Absence
 											</div>
 										</div>
 										<div className='thethaoluannhieu'>
 											<div className='so'>3</div>
 											<div className='noidungso'>
-												Bóc Trứng Phục Sinh Doctor Strange In The Multiverse Of
-												Madness!
+												MCU Iron Man, Captain America & Thor Get Classic
+												Comics-Accurate Costumes In New Fan Art
 											</div>
 										</div>
 										<div className='thethaoluannhieu'>
 											<div className='so'>4</div>
 											<div className='noidungso'>
-												Trailer Thor: Love And Thunder Tiết Lộ Kẻ Sát Thần Đáng
-												Sợ
+												FAST X (2023) "That Was My Idea": Fast X's Shocking
+												Death Had Upset One Star, Reveals Director
 											</div>
 										</div>
 										<div className='chudexanh'>EVocher</div>
@@ -228,14 +227,14 @@ export const News = () => {
 													src='https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg'
 													alt=''
 												/>
-												<div>VNPAY-QR Tặng Deal Cực Cháy</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieux'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/10/5/300x450-gc_1664939520575.jpg'
 													alt=''
 												/>
-												<div>Tung Deal IELTS - Phê Cùng Bom Tấn</div>
+												<div>VNPAY-QR</div>
 											</div>
 										</div>
 										<div className='thegioithieu24h'>
@@ -244,51 +243,42 @@ export const News = () => {
 													src='https://cdn.galaxycine.vn/media/2022/10/14/vnpay_1665735135975.jpg'
 													alt=''
 												/>
-												<div>VNPAY-QR Tặng Deal Cực Cháy</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieu'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/10/5/300x450-gc_1664939520575.jpg'
 													alt=''
 												/>
-												<div>Tung Deal IELTS - Phê Cùng Bom Tấn</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieu'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/10/27/back2shool-digital-300x450-1663573378238_1666859670287.jpg'
 													alt=''
 												/>
-												<div>Fixgo Cinema - Back To School 2022</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieu'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg'
 													alt=''
 												/>
-												<div>
-													Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem
-													phim tại hệ thống rạp Galaxy Cinema toàn quốc.
-												</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieu'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg'
 													alt=''
 												/>
-												<div>
-													Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem
-													phim tại hệ thống rạp Galaxy Cinema toàn quốc.
-												</div>
+												<div>VNPAY-QR</div>
 											</div>
 											<div className='item_thegioithieu'>
 												<img
 													src='https://cdn.galaxycine.vn/media/2022/9/21/glx-vani-1200x1800_1663745251301.jpg'
 													alt=''
 												/>
-												<div>
-													Vani chào sân: Giảm ngay 40,000 VNĐ trên giá vé xem
-													phim tại hệ thống rạp Galaxy Cinema toàn quốc.
-												</div>
+												<div>VNPAY-QR</div>
 											</div>
 										</div>
 									</div>
@@ -305,41 +295,38 @@ export const News = () => {
 					<div className='title'>Fixgo Cinema</div>
 					<div>
 						<br />
-						Thế giới điện ảnh được ví như một vùng đất đang phát triển mở rộng
-						mỗi ngày. Nói đến điện ảnh thì càng đi sâu sẽ càng khám phá ra nhiều
-						khía cạnh mới.
+						The world of cinema is like a growing piece of land that expands
+						every day. Coming to cinema, the deeper you go, the more new aspects
+						you will discover.
 						<br />
 						<br />
-						Sẽ có người thích thú với vai trò của đạo diễn. Muốn hiểu rõ xem đạo
-						diễn cần làm những công việc gì, nguyên nhân và động lực gì khiến họ
-						gần bó làm nghề. Bên cũng có lúc lại muốn biết lý do vì sao những
-						nhà làm phim kia lại có thể sáng tạo nhiều câu chuyện thú vị đến
-						thế.
+						Someone will be interested in a director role. Want to understand
+						what directors need to do, what causes and motivates them to stick
+						with the profession. Sometimes he also wants to know why those
+						filmmakers are able to create so many interesting stories.
 						<br />
 						<br />
-						Nói về diễn viên, đời tư của các ngôi sao luôn là điều khiến công
-						chúng tò mò. Họ thay đổi nhà cửa, mua thêm siêu xe..., thậm chí là
-						cuộc sống tình cảm có vấn đề. Tất cả đều là những tin tức luôn hấp
-						dẫn mọi người.
+						Talking about actors, the private life of stars is always something
+						that makes the public curious. They change houses, buy more
+						supercars..., even their love life has problems. All of these are
+						news that always appeal to people.
 						<br />
 						<br />
-						Một tác phẩm đang chiếu tại rạp chiếu phim và được bàn tán khắp nơi.
-						Bạn tự hỏi rằng nó có hay không, có nên cuốn theo số đông để thử
-						trải nghiệm, nhưng giờ bạn cần một lời gợi ý hoặc một lời khuyên
-						khách quan nhất, phải làm sao?
+						A work is playing in theaters and is being talked about everywhere.
+						You wonder if you should follow the crowd to try the experience, but
+						now you need a suggestion or the most objective advice, what to do?
 						<br />
 						<br />
-						Bạn vô tình xem được một thước phim cũ, cảm thấy nó quá tuyệt vời,
-						càng bất ngờ hơn khi trong quá khứ phim từng càn quét vô số giải
-						thưởng. Giờ đây khi muốn hiểu rõ hơn về thông điệp của phim, những
-						câu chuyện bí mật phía sau hậu trường. Liệu phải làm thế nào? <br />
+						You accidentally see an old movie, feel it is too great, even more
+						surprised when in the past the film has swept countless awards. Now
+						when you want to better understand the message of the film, the
+						secret stories behind the scenes. What to do? <br />
 						<br />
-						Tại sao các đạo diễn lại sử dụng góc máy như thế kia trên phim, vì
-						sao người diễn viên này lại có thể đóng đạt như vậy? Tìm câu trả lời
-						ở đâu bây giờ. Chào mừng bạn đến thư viện điện ảnh Fixgo Cinema, nơi
-						cung cấp các bài viết về những thước phim kinh điển, thông tin hậu
-						trường thú vị của những phim hay và các bom tấn đang chiếu tại Fixgo
-						Cinema.
+						Why do directors use such camera angles on the film, why is this
+						actor able to play so well? Find the answer here now. Welcome to the
+						movie library Fixgo Cinema, which provides articles on classic
+						movies, interesting behind-the-scenes information of great movies
+						and blockbusters playing at Fixgo Cinema.
 					</div>
 				</div>
 			</div>
