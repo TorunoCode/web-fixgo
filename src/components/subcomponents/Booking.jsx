@@ -84,6 +84,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		const { data } = await axios.get(
 			`${BASE_URL}/api/movies/findMovieStep3/${idMovie}/${idcinema}/${iddate}`
 		);
+
 		await setSesscion(data);
 	};
 
@@ -116,7 +117,6 @@ export const Booking = ({ idMovie, nameMovie }) => {
 
 	// post booking
 	const user = useSelector((state) => state.auth.login?.currentUser);
-	console.log("user:", user);
 
 	const handleBooking = async () => {
 		if (!user) {
@@ -186,7 +186,7 @@ export const Booking = ({ idMovie, nameMovie }) => {
 							<div style={{ color: "orange" }}> {nameMovie}</div>
 						</div>
 						<div className='row'>
-							<div className='label'>Cinema:</div>{" "}
+							<div className='label'>Cinema:</div>
 							<select id='cinema' onChange={(e) => setIdCinema(e.target.value)}>
 								<option value=''> -- Select Cinema --</option>
 								{cinema?.map((items, index) => (
@@ -213,12 +213,12 @@ export const Booking = ({ idMovie, nameMovie }) => {
 							</select>
 						</div>
 						<div className='row'>
-							<div className='label'>Session:</div>{" "}
+							<div className='label'>Session:</div>
 							<select id='time' onChange={(e) => setIdSession(e.target.value)}>
 								<option value=''>-- Select Session --</option>
-								{sesscion?.map((items, index) => (
-									<option key={index} value={items}>
-										{items}
+								{sesscion?.map((item, index) => (
+									<option key={index} value={item.time}>
+										{item.time} - {item.name}
 									</option>
 								))}
 							</select>
