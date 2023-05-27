@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { loginUser } from "../redux/apiRequest";
-import "../sass/pages/myprofile.scss";
-import AvtDefault from "../assets/images/avt_user_default.png";
 import BackgroundDefault from "../assets/images/backgroudUserDefault.png";
+import "../sass/pages/myprofile.scss";
 // Toast
+import { Button, Grid, Stack, TextField } from "@mui/material";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
-import { updateProfile } from "../redux/apiRequest";
-import axios from "axios";
-import { Button, Grid, Stack, TextField } from "@mui/material";
-import { BASE_URL } from "../constants";
 import { InputFields, Loading } from "../components";
+import { BASE_URL } from "../constants";
+import { updateProfile } from "../redux/apiRequest";
 
 export const MyProfile = () => {
 	const user = useSelector((state) => state.auth.login?.currentUser);

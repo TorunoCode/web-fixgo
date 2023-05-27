@@ -1,4 +1,13 @@
-import { Button, Grid, Modal, Stack, Typography } from "@mui/material";
+import {
+	Autocomplete,
+	Button,
+	Grid,
+	Modal,
+	Stack,
+	TextField,
+	Typography,
+} from "@mui/material";
+
 import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
@@ -17,13 +26,20 @@ const style = {
 	p: 4,
 	borderRadius: "10px",
 };
+
 export const BookingHistory = () => {
 	const [data, setData] = useState([]);
-	console.log("data:", data);
 	const [pageSize, setPageSize] = useState(5);
 	const [open, setOpen] = useState(false);
+	const [idBillSecleted, setIdBillSecleted] = useState("");
+
+	const [idSeats, setIdSeat] = useState([]);
+	console.log("idSeats:", idSeats);
 
 	const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
+
+	const listSeat =
+		data?.find((item) => item.idBill === idBillSecleted)?.listItem ?? [];
 
 	useEffect(() => {
 		const fetchUsers = async () => {
@@ -42,7 +58,12 @@ export const BookingHistory = () => {
 			{ field: "cinema", headerName: "CINEMA", width: 130 },
 			{ field: "date", headerName: "DATE", width: 100 },
 			{ field: "session", headerName: "SESSION", width: 100 },
-			{ field: "listItem", headerName: "SEAT", width: 200 },
+			{
+				// field: "listItem",
+				headerName: "SEAT",
+				width: 200,
+				valueGetter: (item) => item.row.listItem.map((item) => item.number),
+			},
 			{ field: "createDate", headerName: "CREATE", width: 100 },
 			{
 				field: "actions",
@@ -50,12 +71,16 @@ export const BookingHistory = () => {
 				headerName: "Actions",
 				width: 100,
 				cellClassName: "actions",
-				getActions: ({ id }) => {
+				getActions: (item) => {
 					return [
 						<GridActionsCellItem
 							icon={<Button sx={{ width: "50px" }}>Refund</Button>}
 							className='textPrimary'
-							onClick={() => setOpen(true)}
+							onClick={() => {
+								setOpen(true);
+								console.log(item);
+								setIdBillSecleted(item.id);
+							}}
 						/>,
 					];
 				},
@@ -86,6 +111,27 @@ export const BookingHistory = () => {
 					<Typography fontSize={18}>
 						<b>Refund fee:</b> 10%
 					</Typography>
+
+					<Autocomplete
+						multiple
+						id='tags-outlined'
+						options={listSeat ?? []}
+						getOptionLabel={(option) => option.number}
+						// defaultValue={listSeat[0] ?? []}
+						onChange={(event, value) => {
+							// console.log("value:", value);
+							// console.log("event:", event);
+							setIdSeat(value.map((item) => item.id));
+						}}
+						filterSelectedOptions
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								label='filterSelectedOptions'
+								placeholder='Favorites'
+							/>
+						)}
+					/>
 
 					<Stack alignItems='center'>
 						<Button
