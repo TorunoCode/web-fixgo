@@ -69,14 +69,16 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	};
 
 	useEffect(() => {
-		setDate([]);
-		setIdDate("");
-		setSesscion([]);
-		setIdSession("");
-		setSelected([]);
-		setIdSelected([]);
-		setSeat(null);
-		fetchDate();
+		if (idcinema !== "") {
+			setDate([]);
+			setIdDate("");
+			setSesscion([]);
+			setIdSession("");
+			setSelected([]);
+			setIdSelected([]);
+			setSeat(null);
+			fetchDate();
+		}
 	}, [idcinema]);
 
 	// call api Session
@@ -89,12 +91,14 @@ export const Booking = ({ idMovie, nameMovie }) => {
 	};
 
 	useEffect(() => {
-		setSesscion([]);
-		setIdSession("");
-		setSelected([]);
-		setIdSelected([]);
-		setSeat(null);
-		fetchSesscion();
+		if (iddate !== "") {
+			setSesscion([]);
+			setIdSession("");
+			setSelected([]);
+			setIdSelected([]);
+			setSeat(null);
+			fetchSesscion();
+		}
 	}, [iddate]);
 
 	// call api Seat
@@ -103,16 +107,17 @@ export const Booking = ({ idMovie, nameMovie }) => {
 		const { data } = await axios.get(
 			`${BASE_URL}/api/movies/findMovieStep4/${idMovie}/${idcinema}/${iddate}/${idsesscion}`
 		);
-
 		await setSeat(data);
 		await setIsLoading(false);
 	};
 
 	useEffect(() => {
-		setSelected([]);
-		setIdSelected([]);
-		setSeat(null);
-		fetchSeat();
+		if (idsesscion !== "") {
+			setSelected([]);
+			setIdSelected([]);
+			setSeat(null);
+			fetchSeat();
+		}
 	}, [idsesscion]);
 
 	// post booking
