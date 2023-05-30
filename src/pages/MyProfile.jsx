@@ -271,10 +271,11 @@ export const MyProfile = () => {
 														}}
 														size='small'
 														sx={{
-															color: "orange",
 															fontSize: "13px",
 															fontWeight: "bold",
 															border: "1px solid orange",
+															color: addPayPal ? "white" : "orange",
+															background: addPayPal && "orange",
 														}}
 													>
 														With Paypal
@@ -286,7 +287,8 @@ export const MyProfile = () => {
 															setAddMoney(0);
 														}}
 														sx={{
-															color: "orange",
+															color: addVN ? "white" : "orange",
+															background: addVN && "orange",
 															fontSize: "13px",
 															fontWeight: "bold",
 															border: "1px solid orange",
@@ -321,7 +323,7 @@ export const MyProfile = () => {
 															<TextField
 																size='small'
 																id='outlined-basic'
-																label='Money: VND'
+																label='Money: $'
 																onBlur={(e) => setAddMoney(e.target.value)}
 															/>
 															<Button

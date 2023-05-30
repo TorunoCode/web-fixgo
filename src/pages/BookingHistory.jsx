@@ -55,14 +55,11 @@ export const BookingHistory = () => {
 		};
 		fetchUsers();
 	}, [idUser]);
-
+	const fetchUsers = async () => {
+		const { data } = await axios.get(`${BASE_URL}/api/revertTicket/${idUser}`);
+		setDataRefund(data.reverse());
+	};
 	useEffect(() => {
-		const fetchUsers = async () => {
-			const { data } = await axios.get(
-				`${BASE_URL}/api/revertTicket/${idUser}`
-			);
-			setDataRefund(data.reverse());
-		};
 		fetchUsers();
 	}, [idUser]);
 
@@ -78,6 +75,7 @@ export const BookingHistory = () => {
 			await axios.post(`${BASE_URL}/api/revertTicket/checkIn`, data);
 			toast.success("Refund success !");
 			setOpen(false);
+			fetchUsers();
 		} catch (err) {
 			toast.error("Refund failed !");
 		}
