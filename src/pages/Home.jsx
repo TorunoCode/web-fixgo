@@ -24,19 +24,6 @@ export const Home = () => {
 
 	const image = [
 		{
-			title: "black panther",
-			url: "https://kyty.vn/wp-content/uploads/2021/06/black-panther-744x419-1.png",
-		},
-
-		{
-			title: " decibel",
-			url: "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/t/h/thumb-decibel.jpg",
-		},
-		{
-			title: "Avatar 2",
-			url: "https://techbiz.vn/attachments/1671172015866-jpeg.153",
-		},
-		{
 			title: "magic mike",
 			url: "https://sgp1.digitaloceanspaces.com/cdns.dep365.com/wp-content/uploads/2023/02/phim-chieu-rap-2023-4.jpg",
 		},
@@ -51,6 +38,19 @@ export const Home = () => {
 		{
 			title: "trainsformers",
 			url: "https://bloganchoi.com/wp-content/uploads/2020/07/phim-robot-hanh-dong-hay-nhat.jpg",
+		},
+		{
+			title: "black panther",
+			url: "https://kyty.vn/wp-content/uploads/2021/06/black-panther-744x419-1.png",
+		},
+
+		{
+			title: " decibel",
+			url: "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/t/h/thumb-decibel.jpg",
+		},
+		{
+			title: "Avatar 2",
+			url: "https://techbiz.vn/attachments/1671172015866-jpeg.153",
 		},
 	];
 
