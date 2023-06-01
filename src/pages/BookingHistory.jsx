@@ -40,7 +40,7 @@ export const BookingHistory = () => {
 	const [idBillSecleted, setIdBillSecleted] = useState("");
 	const [date, setDate] = useState();
 	console.log("date:", date);
-	console.log("date:", moment(date).format("YYYY-MM-DD"));
+	console.log("date:", moment(date).format("YYYY-DD-MM"));
 	const [idSeats, setIdSeat] = useState([]);
 
 	const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
@@ -71,7 +71,7 @@ export const BookingHistory = () => {
 			list: idSeats,
 			idUser: idUser,
 			// createdAt: moment(new Date().toString()).format("YYYY-MM-DD"),
-			createdAt: moment(date).format("YYYY-MM-DD"),
+			createdAt: moment(date).format("YYYY-DD-MM"),
 		};
 
 		try {
