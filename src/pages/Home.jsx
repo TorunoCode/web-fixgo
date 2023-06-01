@@ -24,34 +24,46 @@ export const Home = () => {
 
 	const image = [
 		{
-			title: "magic mike",
-			url: "https://sgp1.digitaloceanspaces.com/cdns.dep365.com/wp-content/uploads/2023/02/phim-chieu-rap-2023-4.jpg",
+			title: "Legendary Fist 3 (2023)",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/1AOZAcGgJuS85iec4xvqCAnIDrN.jpg",
 		},
 		{
-			title: "tro tan ruc ro",
-			url: "https://img.idesign.vn/2022/12/thumb_fixed.jpg",
+			title: "Guardians of the Galaxy 3 (2023)",
+			url: "https://www.themoviedb.org/t/p/original/51vreLbrGwzAg4WRCHgitWz6Naw.jpg",
 		},
 		{
-			title: "muon gap anh",
-			url: "https://cdn.dep365.com/wp-content/uploads/2023/02/phim-chieu-rap-2023-6-1.jpg?strip=all&lossy=1&quality=90&webp=90&avif=60&w=800&ssl=1",
+			title: "Dungeons & Dragons: Thief's Honor ",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/oblUNeHlwV3VsjB5ITMlco5ZSOF.jpg",
 		},
 		{
-			title: "trainsformers",
-			url: "https://bloganchoi.com/wp-content/uploads/2020/07/phim-robot-hanh-dong-hay-nhat.jpg",
+			title: "Super Mario Brothers (2023)",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/2klQ1z1fcHGgQPevbEQdkCnzyuS.jpg",
 		},
 		{
-			title: "black panther",
-			url: "https://kyty.vn/wp-content/uploads/2021/06/black-panther-744x419-1.png",
+			title: "Ghost Tree Rises (2023)",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/7bWxAsNPv9CXHOhZbJVlj2KxgfP.jpg",
 		},
+		{
+			title: "Covenant (2023)",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/eTvN54pd83TrSEOz6wbsXEJktCV.jpg",
+		},
+		// {
+		// 	title: "trainsformers",
+		// 	url: "https://bloganchoi.com/wp-content/uploads/2020/07/phim-robot-hanh-dong-hay-nhat.jpg",
+		// },
+		// {
+		// 	title: "black panther",
+		// 	url: "https://kyty.vn/wp-content/uploads/2021/06/black-panther-744x419-1.png",
+		// },
 
-		{
-			title: " decibel",
-			url: "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/t/h/thumb-decibel.jpg",
-		},
-		{
-			title: "Avatar 2",
-			url: "https://techbiz.vn/attachments/1671172015866-jpeg.153",
-		},
+		// {
+		// 	title: " decibel",
+		// 	url: "https://www.cgv.vn/media/catalog/product/cache/1/image/1800x/71252117777b696995f01934522c402d/t/h/thumb-decibel.jpg",
+		// },
+		// {
+		// 	title: "Avatar 2",
+		// 	url: "https://techbiz.vn/attachments/1671172015866-jpeg.153",
+		// },
 	];
 
 	return (
