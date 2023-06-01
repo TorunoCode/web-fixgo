@@ -38,7 +38,9 @@ export const BookingHistory = () => {
 	const [pageSize, setPageSize] = useState(5);
 	const [open, setOpen] = useState(false);
 	const [idBillSecleted, setIdBillSecleted] = useState("");
-
+	const [date, setDate] = useState();
+	console.log("date:", date);
+	console.log("date:", moment(date).format("YYYY-MM-DD"));
 	const [idSeats, setIdSeat] = useState([]);
 
 	const idUser = useSelector((state) => state.auth.login?.currentUser.data._id);
@@ -68,7 +70,8 @@ export const BookingHistory = () => {
 			idBill: idBillSecleted,
 			list: idSeats,
 			idUser: idUser,
-			createdAt: moment(new Date().toString()).format("YYYY-MM-DD"),
+			// createdAt: moment(new Date().toString()).format("YYYY-MM-DD"),
+			createdAt: moment(date).format("YYYY-MM-DD"),
 		};
 
 		try {
@@ -143,6 +146,7 @@ export const BookingHistory = () => {
 							onClick={() => {
 								setOpen(true);
 								console.log(item);
+								setDate(item.row.date);
 								setIdBillSecleted(item.id);
 							}}
 						/>,

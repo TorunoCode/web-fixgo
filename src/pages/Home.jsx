@@ -40,8 +40,8 @@ export const Home = () => {
 			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/2klQ1z1fcHGgQPevbEQdkCnzyuS.jpg",
 		},
 		{
-			title: "Ghost Tree Rises (2023)",
-			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/7bWxAsNPv9CXHOhZbJVlj2KxgfP.jpg",
+			title: "Knocking In The Wooden House (2023)",
+			url: "https://www.themoviedb.org/t/p/w500_and_h282_face/1dubuCInk9DM9JBjiItBGkkkZx0.jpg",
 		},
 		{
 			title: "Covenant (2023)",
